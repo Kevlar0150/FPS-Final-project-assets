@@ -323,6 +323,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404491376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5946484237684311543, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6082130895961747870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &404491378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404491376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7367e91d4dca940b4e413e30cd4fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1688512190}
+  muzzlePosition: {fileID: 1396418808}
+  bulletPrefab: {fileID: 1776800471372672, guid: c5f54d2460769f94982f54ea708a2d46,
+    type: 3}
+  shootInterval: 69
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,12 +438,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1137629845 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6082130895892230592, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 6082130895961747870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391301142
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +532,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1396418808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1789086990180832108, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6082130895961747870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1688512190 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6082130896611290333, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6082130895961747870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6082130895961747870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -523,9 +552,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 552394840, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
-      propertyPath: muzzlePosition
-      value: 
-      objectReference: {fileID: 1137629845}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -586,5 +615,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 552394840, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
