@@ -6,8 +6,10 @@ public class Rocket : MonoBehaviour
 {
     public float speed = 15f;
     public float lifeDuration = 2f;
+    public float spread;
 
     private float lifeTimer;
+    public GameObject impactVFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class Rocket : MonoBehaviour
     void Update()
     {
         // Make bullet move forward
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += transform.forward  * speed * Time.deltaTime;
 
         //Check if bullet needs to be destroyed to save memory.
         lifeTimer -= Time.deltaTime;
@@ -26,11 +28,12 @@ public class Rocket : MonoBehaviour
         {
             DestroyObject(gameObject);
         }
-        
     }
     private void OnCollisionEnter(Collision collision)
     {
         // If we want collision to occur when specified object is hit add "if (collision.gameObject.tag == "Something")"
+        GameObject impactVFXObject = Instantiate(impactVFX,transform.position,transform.rotation);
         DestroyObject(gameObject);
+        Destroy(impactVFXObject, 1.7f);
     }
 }
