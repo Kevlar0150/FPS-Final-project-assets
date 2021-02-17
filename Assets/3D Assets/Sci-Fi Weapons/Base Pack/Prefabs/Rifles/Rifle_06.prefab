@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 904158707}
   - component: {fileID: 904158709}
   - component: {fileID: 904158710}
+  - component: {fileID: 1568029054}
   m_Layer: 0
   m_Name: Rifle_06
   m_TagString: Untagged
@@ -383,13 +384,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunScript: {fileID: 904158710}
-  rb: {fileID: 904158708, guid: 119551172e2002344983c075ab97ef79, type: 3}
+  rb: {fileID: 1568029054}
   collision: {fileID: 904158707}
   player: {fileID: 0}
-  gunContainer: {fileID: 0}
+  weaponSlot1: {fileID: 0}
+  weaponSlot2: {fileID: 0}
   playerCamera: {fileID: 0}
   pickUpRange: 4
   isEquipped: 0
+  slot1Full: 1
+  slot2Full: 0
 --- !u!114 &904158710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,15 +408,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   firingRate: 15
-  shootRange: 100
+  shootRange: 150
   bulletSpread: 0.03
-  reloadTime: 3
+  reloadTime: 2.5
   bulletsPerShot: 1
   magazineSize: 30
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 8309820735499583992}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
+--- !u!54 &1568029054
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671029925390012}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 2
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &1777336020457016
 GameObject:
   m_ObjectHideFlags: 0
