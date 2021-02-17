@@ -14278,7 +14278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeDuration: 5
-  spread: 1
+  spread: 0.03
   impactVFX: {fileID: 1785284669155556954, guid: 1b95b1f937eb59f449c2bb7dd1a0a7f5,
     type: 3}
 --- !u!54 &1328105798438491218

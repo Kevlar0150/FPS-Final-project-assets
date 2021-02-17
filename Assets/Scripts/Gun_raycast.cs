@@ -2,40 +2,41 @@
 
 public class Gun_raycast : MonoBehaviour
 {
+    // Gun properties
     public float damage;
     public float firingRate;
     public float shootRange;
     public float bulletSpread;
     public float reloadTime;
+    private float shootInterval = 0f;
     public int bulletsPerShot;
     public int magazineSize;
+
     int bulletsRemaining;
     bool reloading;
 
+    // References
     public Camera playerCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactVFX;
-
-    private float shootInterval = 0f;
     public RaycastHit hitInfo; // Store's whatever the raycast hits into the variable hitInfo
-
+    
     private void Start()
     {
         bulletsRemaining = magazineSize;
     }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
-        {
-            shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
-            Shoot(); // Calls shoot function below
-        }
+            if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
+            {
+                shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
+                Shoot(); // Calls shoot function below
+            }
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < magazineSize && !reloading)
-        {
-            Reload();
-        }
+            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < magazineSize && !reloading)
+            { Reload();}
     }
 
     private void Reload()
