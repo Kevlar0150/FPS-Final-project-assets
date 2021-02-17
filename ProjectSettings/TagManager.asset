@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - WeaponHolder
+  - Pistol
+  - Shotgun
+  - EnergyCannon
+  - AssaultRifle
+  - Revolver
   layers:
   - Default
   - TransparentFX

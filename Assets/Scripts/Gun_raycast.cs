@@ -29,12 +29,13 @@ public class Gun_raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Shoot button
             if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
             {
                 shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
                 Shoot(); // Calls shoot function below
             }
-
+        // Reload button
             if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < magazineSize && !reloading)
             { Reload();}
     }
@@ -53,8 +54,9 @@ public class Gun_raycast : MonoBehaviour
 
     void Shoot()
     {
-        bulletsRemaining--;
+        bulletsRemaining--; // Decrease amount of bullets available to shoot
 
+        // Bullet spread for Pistol, Assault Rifle, Revolver
         float spreadX = Random.Range(-bulletSpread, bulletSpread);
         float spreadY = Random.Range(-bulletSpread, bulletSpread);
 
@@ -64,11 +66,11 @@ public class Gun_raycast : MonoBehaviour
         layerMask = ~layerMask; // We invert it using the ~ sign so that we can collide with everything EXCEPT Layer 11 which is the player.
                                 // This is so that we don't shoot ourselves.
 
-        muzzleFlash.Play(); // Play the muzzle flash particle system
+        muzzleFlash.Play(); // Play the muzzle flash particle system  
 
         // Creates the ray at camera position, direction. Outputs whatever the ray touches into the hitInfo variable, 
         // length of ray is based on shoot range, Ray collides with everything except layer 11.
-        if (Physics.Raycast(playerCamera.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
+        if (!transform.tag.Equals("Shotgun") && Physics.Raycast(playerCamera.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
         {
             //Debug.Log(hitInfo.transform.name);
 
@@ -77,7 +79,26 @@ public class Gun_raycast : MonoBehaviour
 
             Destroy(impactVFXObject, 2f); // Destroy the impact VFX after 2 seconds.
         }
-        
+
+        // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
+        if (transform.tag.Equals("Shotgun"))
+        {
+            for (int i = 0; i <= bulletsPerShot; i++)
+            {
+                // Own bullet spread so that each bullet from 1 shot has a randomized spread
+                float shotgunSpreadX = Random.Range(-bulletSpread, bulletSpread);
+                float shotgunSpreadY = Random.Range(-bulletSpread, bulletSpread);
+                Vector3 shotgunSpread = playerCamera.transform.forward + new Vector3(shotgunSpreadX, shotgunSpreadY, 0);
+
+                if (Physics.Raycast(playerCamera.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
+                {
+                    GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+
+                    Destroy(impactVFXObject, 2f); // Destroy the impact VFX after 2 seconds.
+                }
+            }
+        }
+
     }
 }
 
