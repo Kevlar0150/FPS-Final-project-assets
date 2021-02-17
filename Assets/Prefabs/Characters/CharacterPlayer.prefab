@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6082130895114499754}
   m_Layer: 11
   m_Name: CharacterPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c9ba23c73baaa459e302b41aeaefed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSens: 250
+  mouseSens: 200
   playerBody: {fileID: 6082130895114499757}
 --- !u!114 &1869254265
 MonoBehaviour:
