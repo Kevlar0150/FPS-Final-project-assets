@@ -10,6 +10,8 @@ TagManager:
   - EnergyCannon
   - AssaultRifle
   - Revolver
+  - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX

@@ -5,41 +5,46 @@ using UnityEngine;
 public class PickupSystem : MonoBehaviour
 {
     public Gun_raycast gunScript;
+    public SwordCombat swordScript;
     public Rigidbody rb;
     public BoxCollider collision;
-    public Transform player, weaponSlot1, weaponSlot2, playerCamera;
+    public Transform player, weaponSlot1, weaponSlot2, MeleeSlot, playerCamera;
 
     public float pickUpRange;
 
     public bool isEquipped;
-    public bool slot1Full, slot2Full;
 
     private void Start()
     {
         if (!isEquipped)
         {
             gunScript.enabled = false;
+            swordScript.enabled = false;
             rb.isKinematic = false;
             collision.isTrigger = false;
         }
         if (isEquipped)
         {
             gunScript.enabled = true;
+            swordScript.enabled = false;
             rb.isKinematic = true;
             collision.isTrigger = true;
         }
     }
     private void Update()
     {
-
         Vector3 distanceToPlayer = player.position - transform.position;
-        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && weaponSlot1.childCount <= 0)
+        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && weaponSlot1.childCount <= 0 && transform.tag != "Sword")
         {
             PickUp();
         }
-        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.Q) && weaponSlot2.childCount <= 0)
+        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.Q) && weaponSlot2.childCount <= 0 && transform.tag != "Sword")
         {
             PickUpSecondary();
+        }
+        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.M) && MeleeSlot.childCount <= 0 && transform.tag == "Sword")
+        {
+            PickUpSword();
         }
 
         if (isEquipped && Input.GetKeyDown(KeyCode.G))
@@ -86,10 +91,29 @@ public class PickupSystem : MonoBehaviour
             gunScript.enabled = true;
         }
     }
+    private void PickUpSword()
+    {
+        if (MeleeSlot.childCount <= 0)
+        {
+            Debug.Log("Melee Slot");
+            isEquipped = true;
+            //slot2Full = true;
+
+            rb.isKinematic = true;
+            collision.isTrigger = true;
+
+            transform.SetParent(MeleeSlot);
+            transform.localPosition = Vector3.zero;
+            transform.localScale = Vector3.one;
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+            gunScript.enabled = true;
+            swordScript.enabled = true;
+        }
+    }
     private void Drop()
     {
         isEquipped = false;
-        slot1Full = false;
 
         transform.SetParent(null);
 
@@ -97,5 +121,6 @@ public class PickupSystem : MonoBehaviour
         collision.isTrigger = false;
 
         gunScript.enabled = false;
+        swordScript.enabled = false;
     }
 }
