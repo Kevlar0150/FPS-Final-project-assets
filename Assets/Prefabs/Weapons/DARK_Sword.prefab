@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6419069626403114618}
   - component: {fileID: 6419069626403114620}
   - component: {fileID: 6419069626403114621}
+  - component: {fileID: 1452415254864144}
   m_Layer: 0
   m_Name: DARK_Sword
   m_TagString: Sword
@@ -27,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417687908006798009}
-  m_LocalRotation: {x: -0.57873094, y: -0.0018676118, z: -0.0040720804, w: 0.8155063}
+  m_LocalRotation: {x: -0.578732, y: -0.0018724187, z: -0.0040771444, w: 0.8155054}
   m_LocalPosition: {x: 0.72, y: 2.979, z: 0.857}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_Children:
   - {fileID: 6414273805220729459}
   m_Father: {fileID: 0}
@@ -95,6 +96,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703820dcc2aaf694fb529aa9dba6a029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1452415254864144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417687908006798009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cd9d2a1ae03b1478e6b0cc27c23fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordScript: {fileID: 6419069626403114621}
+  rb: {fileID: 6419069626403114619}
+  collision: {fileID: 6419069626403114618}
+  player: {fileID: 0}
+  meleeSlot: {fileID: 0}
+  playerCamera: {fileID: 0}
+  pickUpRange: 3
+  isEquipped: 0
 --- !u!1 &6417706191816784287
 GameObject:
   m_ObjectHideFlags: 0

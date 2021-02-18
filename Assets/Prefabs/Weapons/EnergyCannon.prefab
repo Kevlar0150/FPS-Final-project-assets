@@ -168,13 +168,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1409260883251752399}
   - component: {fileID: 4684518463257988302}
+  - component: {fileID: 373735282}
+  - component: {fileID: 373735281}
+  - component: {fileID: 373735279}
   m_Layer: 0
-  m_Name: Heavy_08 1
-  m_TagString: Untagged
+  m_Name: EnergyCannon
+  m_TagString: EnergyCannon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1409260883251752399
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +219,47 @@ MonoBehaviour:
     type: 3}
   shootInterval: 69
   spread: 0
+--- !u!54 &373735282
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406503321207719243}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &373735281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406503321207719243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14402607, y: 0.29054213, z: 1}
+  m_Center: {x: -0.0012541363, y: 0.04361565, z: -1.0557798e-11}
+--- !u!114 &373735279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406503321207719243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4114c09e3cdfeb845bdfa448df6e4aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406518897325463957
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,12 +72,15 @@ public class Gun_raycast : MonoBehaviour
         // length of ray is based on shoot range, Ray collides with everything except layer 11.
         if (!transform.tag.Equals("Shotgun") && Physics.Raycast(playerCamera.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
         {
-            //Debug.Log(hitInfo.transform.name);
-
             // Instantiate a gameobject with the particle effect at the point of hit. Make the effect normalized so that it is instantiated in the correct direction.
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
 
-            Destroy(impactVFXObject, 2f); // Destroy the impact VFX after 2 seconds.
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
         }
 
         // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
@@ -92,9 +95,16 @@ public class Gun_raycast : MonoBehaviour
 
                 if (Physics.Raycast(playerCamera.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
                 {
+                    // Impact VFX
                     GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                    Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
 
-                    Destroy(impactVFXObject, 2f); // Destroy the impact VFX after 2 seconds.
+                    // Damage enemy
+                    Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(damage);
+                    }
                 }
             }
         }

@@ -5,10 +5,9 @@ using UnityEngine;
 public class PickupSystem : MonoBehaviour
 {
     public Gun_raycast gunScript;
-    public SwordCombat swordScript;
     public Rigidbody rb;
     public BoxCollider collision;
-    public Transform player, weaponSlot1, weaponSlot2, MeleeSlot, playerCamera;
+    public Transform player, weaponSlot1, weaponSlot2, playerCamera;
 
     public float pickUpRange;
 
@@ -19,14 +18,12 @@ public class PickupSystem : MonoBehaviour
         if (!isEquipped)
         {
             gunScript.enabled = false;
-            swordScript.enabled = false;
             rb.isKinematic = false;
             collision.isTrigger = false;
         }
         if (isEquipped)
         {
             gunScript.enabled = true;
-            swordScript.enabled = false;
             rb.isKinematic = true;
             collision.isTrigger = true;
         }
@@ -42,11 +39,6 @@ public class PickupSystem : MonoBehaviour
         {
             PickUpSecondary();
         }
-        if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.M) && MeleeSlot.childCount <= 0 && transform.tag == "Sword")
-        {
-            PickUpSword();
-        }
-
         if (isEquipped && Input.GetKeyDown(KeyCode.G))
         {
             Drop();
@@ -91,26 +83,6 @@ public class PickupSystem : MonoBehaviour
             gunScript.enabled = true;
         }
     }
-    private void PickUpSword()
-    {
-        if (MeleeSlot.childCount <= 0)
-        {
-            Debug.Log("Melee Slot");
-            isEquipped = true;
-            //slot2Full = true;
-
-            rb.isKinematic = true;
-            collision.isTrigger = true;
-
-            transform.SetParent(MeleeSlot);
-            transform.localPosition = Vector3.zero;
-            transform.localScale = Vector3.one;
-            transform.localRotation = Quaternion.Euler(Vector3.zero);
-
-            gunScript.enabled = true;
-            swordScript.enabled = true;
-        }
-    }
     private void Drop()
     {
         isEquipped = false;
@@ -121,6 +93,5 @@ public class PickupSystem : MonoBehaviour
         collision.isTrigger = false;
 
         gunScript.enabled = false;
-        swordScript.enabled = false;
     }
 }
