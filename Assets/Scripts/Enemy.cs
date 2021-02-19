@@ -15,15 +15,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Sword")
-        {
-            Debug.Log("OUCH");
-            Destroy(gameObject); // Or apply damage
-        }
-    }
     public void TakeDamage(float damage)
     {
         enemyHealth -= damage;

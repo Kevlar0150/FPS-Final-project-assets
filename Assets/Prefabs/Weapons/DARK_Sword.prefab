@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6419069626403114620}
   - component: {fileID: 6419069626403114621}
   - component: {fileID: 1452415254864144}
+  - component: {fileID: 2126660897}
   m_Layer: 0
   m_Name: DARK_Sword
   m_TagString: Sword
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6417687908006798009}
   m_LocalRotation: {x: -0.578732, y: -0.0018724187, z: -0.0040771444, w: 0.8155054}
   m_LocalPosition: {x: 0.72, y: 2.979, z: 0.857}
-  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6414273805220729459}
   m_Father: {fileID: 0}
@@ -60,11 +61,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417687908006798009}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09812844, y: 0.1515678, z: 3.4134865}
-  m_Center: {x: 0.011499428, y: 0.0053767613, z: 1.2067442}
+  m_Size: {x: 0.09812844, y: 0.1515678, z: 3.4537215}
+  m_Center: {x: 0.011499427, y: 0.005380103, z: 1.2268618}
 --- !u!95 &6419069626403114620
 Animator:
   serializedVersion: 3
@@ -96,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703820dcc2aaf694fb529aa9dba6a029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  swordCollider: {fileID: 2126660897}
 --- !u!114 &1452415254864144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordScript: {fileID: 6419069626403114621}
+  animator: {fileID: 6419069626403114620}
   rb: {fileID: 6419069626403114619}
   collision: {fileID: 6419069626403114618}
   player: {fileID: 0}
@@ -116,6 +120,20 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   pickUpRange: 3
   isEquipped: 0
+--- !u!136 &2126660897
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417687908006798009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.07587197
+  m_Height: 3.440455
+  m_Direction: 2
+  m_Center: {x: 0.010398388, y: 0.000009692552, z: 1.2202272}
 --- !u!1 &6417706191816784287
 GameObject:
   m_ObjectHideFlags: 0
