@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Sources used:
+//https://learn.unity.com/tutorial/controlling-animation for sword animation
+
 public class PickupSword : MonoBehaviour
 {
     // Start is called before the first frame update

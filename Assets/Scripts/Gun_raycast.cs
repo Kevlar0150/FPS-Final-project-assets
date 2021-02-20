@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+//Sources used:
+//https://forum.unity.com/threads/solved-shotgun-shooting-c.464014/ - For shotgun creation
 public class Gun_raycast : MonoBehaviour
 {
     // Gun properties
