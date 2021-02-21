@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public CharacterController controller;
+    // Player properties
+    public float health = 100.0f;
 
+    // Player Movement
+    public CharacterController controller;
     public float speed = 13.8f;
 
     Vector3 velocity;
     public float gravity = -18.81f;
     public float jumpForce = 2.8f;
-
     public Transform groundCheck;
     public float groundDistance = 0.3f;
     public LayerMask groundMask;
@@ -47,5 +49,17 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
 
         controller.Move(velocity * Time.deltaTime); // // moves the GameObject in all XYZ values in the given direction 
+
+        // Player dies when health reaches 0
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;  
+    }
+
 }

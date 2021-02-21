@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+//Sources used:
+//https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html - SetActive function
+//https://answers.unity.com/questions/785273/whats-the-difference-between-activatedeactivate-en.html - Difference between Activate/deactive and enable/disable
+
 public class SwitchWeapon : MonoBehaviour
 {
     public int currentWeapon = 0;

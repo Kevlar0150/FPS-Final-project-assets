@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Sources used:
+//https://learn.unity.com/tutorial/controlling-animation#5c7f8528edbc2a002053b4e0
+
 public class SwordCombat : MonoBehaviour
 {
     Animator anim;

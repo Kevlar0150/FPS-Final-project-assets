@@ -2,6 +2,9 @@
 
 //Sources used:
 //https://forum.unity.com/threads/solved-shotgun-shooting-c.464014/ - For shotgun creation
+//https://forum.unity.com/threads/hitscan-raycasting-hits-vs-projectile-simulation.334463/ - Help deciding on what hit detection to use
+//https://docs.unity3d.com/Manual/Layers.html - Help with LayerMask when shooting.
+
 public class Gun_raycast : MonoBehaviour
 {
     // Gun properties

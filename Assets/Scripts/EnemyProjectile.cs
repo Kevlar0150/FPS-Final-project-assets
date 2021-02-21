@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemyProjectile : MonoBehaviour
 {
     public float speed = 1f;
     public float lifeDuration = 2f;
     public float spread;
+    public float damage = 10;
 
     private float lifeTimer;
     public GameObject impactVFX;
@@ -31,9 +31,18 @@ public class EnemyProjectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        // If we want collision to occur when specified object is hit add "if (collision.gameObject.tag == "Something")"
+
+        // Impact VFX instantiation
         GameObject impactVFXObject = Instantiate(impactVFX, transform.position, transform.rotation);
         DestroyObject(gameObject);
         Destroy(impactVFXObject, 1.7f);
+
+        // Damage player
+        Player playerObject = collision.transform.GetComponent<Player>(); // Gets Player component when collides Player - Allows us to call functions in Player script.
+        if (playerObject != null) // If playerObject HAS FOUND the Player component and does not equal NULL
+        {
+            //Debug.Log("I'm hit");
+            playerObject.TakeDamage(damage); 
+        }
     }
 }
