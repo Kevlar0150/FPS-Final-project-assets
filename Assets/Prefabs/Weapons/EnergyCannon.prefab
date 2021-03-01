@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 1406503321207719243}
   m_LocalRotation: {x: 0, y: 0.045981947, z: 0, w: 0.99894226}
   m_LocalPosition: {x: 0.18, y: -0.61, z: 0.63}
-  m_LocalScale: {x: 6, y: 5, z: 3.2}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children:
   - {fileID: 1409267803334463585}
   - {fileID: 1409893045801471965}
@@ -246,8 +246,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.14402607, y: 0.29054213, z: 1}
-  m_Center: {x: -0.0012541363, y: 0.04361565, z: -1.0557798e-11}
+  m_Size: {x: 0.14402607, y: 0.29054213, z: 3.647401}
+  m_Center: {x: -0.0012541364, y: 0.04361565, z: -0.012665389}
 --- !u!114 &373735279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4114c09e3cdfeb845bdfa448df6e4aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rlScript: {fileID: 4684518463257988302}
+  rb: {fileID: 373735282}
+  collision: {fileID: 373735281}
+  player: {fileID: 0}
+  weaponSlot1: {fileID: 0}
+  weaponSlot2: {fileID: 0}
+  playerCamera: {fileID: 0}
+  pickUpRange: 3
+  isEquipped: 0
 --- !u!1 &1406518897325463957
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6473605169503015888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.065, y: 0.155, z: -0.419}
+  m_LocalPosition: {x: -0.29, y: 0.155, z: 1.7}
   m_LocalScale: {x: 0.33333334, y: 0.34782606, z: 0.62500006}
   m_Children: []
   m_Father: {fileID: 1409260883251752399}
@@ -613,6 +622,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1409260883251752399}
     m_Modifications:
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.99158764
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_Range
+      value: 3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.5392e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997262, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997263, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997263, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236157352997263, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 4594236158632228433, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}
       propertyPath: ShapeModule.type
@@ -628,6 +682,16 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4594236158632228433, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594236158632228433, guid: f04466bc14fb50a4fbfa3a7886a69f87,
+        type: 3}
+      propertyPath: LightsModule.rangeCurve.scalar
+      value: 2.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4594236158632228436, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}
       propertyPath: m_Name
@@ -636,17 +700,17 @@ PrefabInstance:
     - target: {fileID: 4594236158632228439, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4594236158632228439, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.101
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4594236158632228439, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.531
+      value: 1.77
       objectReference: {fileID: 0}
     - target: {fileID: 4594236158632228439, guid: f04466bc14fb50a4fbfa3a7886a69f87,
         type: 3}

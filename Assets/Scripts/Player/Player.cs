@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     // Player properties
     public float health = 100.0f;
+    public float maxHealth = 100;
 
     // Player Movement
     public CharacterController controller;
@@ -60,6 +61,15 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;  
+    }
+    public void increaseHealth(float healthAmount)
+    {
+        health += healthAmount;
+
+        if (health >= maxHealth) // Sets maximum health to be 100
+        {
+            health = maxHealth;
+        }
     }
 
 }
