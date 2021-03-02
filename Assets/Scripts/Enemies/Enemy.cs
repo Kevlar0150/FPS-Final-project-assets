@@ -31,16 +31,31 @@ public class Enemy : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+    public Vector3 lastPos;
+
+    private float lifeDuration = 3f;
+    private float lifeTimer;
+    private bool hasDied = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        lifeTimer = lifeDuration;
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (hasDied)
+        {
+            lifeTimer -= Time.deltaTime;
+
+            if (lifeTimer <= 0)
+            {
+                DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
+            }
+        }
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
 
@@ -80,14 +95,20 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log("Searching for point");
         //Calculate random points in range
+        
+        // TODO LATER WHEN PUTTING LEVEL AND ENEMYS TOGETHER:
+        //MAKE IT SO IT ROAMS AROUND  depending on the room it's in and the size of that room. 
+
+
+        // Temporarily set walkpoint range to be fixed range. Only works with the TestArena
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
 
         //float randomY = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3(randomX, transform.position.y,randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 10f, Ground))
+        if (Physics.Raycast(walkPoint, -transform.up, 20f, Ground))
         {
             walkPointSet = true;
         }
@@ -123,8 +144,16 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
+            hasDied = true;
+            lastPos = transform.position;
+            
+            transform.GetChild(0).gameObject.SetActive(false);
+            GetComponent<SpawnLoot>().setSpawnLoot(true);
         }
+    }
+    public Vector3 getLastPosition()
+    {
+            return lastPos;
     }
 
     private void OnDrawGizmosSelected()

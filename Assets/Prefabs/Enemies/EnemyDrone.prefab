@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1511408419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511408420}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511408420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511408419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.34, z: 1.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8709617415690881243}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8709617415690392817
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +205,8 @@ GameObject:
   - component: {fileID: 8709617415197018450}
   - component: {fileID: 1680240467017951341}
   - component: {fileID: 1872217096}
-  m_Layer: 0
+  - component: {fileID: 1591086806}
+  m_Layer: 10
   m_Name: EnemyDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -267,12 +298,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 10
-  timeBetweekAttacks: 0.5
-  sightRange: 25
-  attackRange: 20
+  walkPointRange: 40
+  projectilePrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
+  muzzle: {fileID: 1511408419}
+  timeBetweekAttacks: 1
+  sightRange: 22
+  attackRange: 15
   playerInSightRange: 0
   playerInAttackRange: 0
+  lastPos: {x: 0, y: 0, z: 0}
 --- !u!65 &1680240467017951341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -293,21 +327,40 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8709617415690392825}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 2
-  m_Speed: 3.5
+  m_Enabled: 0
+  m_AgentTypeID: -1372625422
+  m_Radius: 3.22
+  m_Speed: 7
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 8
-  m_BaseOffset: 10
+  m_Height: 10
+  m_BaseOffset: 8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1591086806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709617415690392825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24b1843c898f92439781e33b4b42ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootToBeSpawned:
+  - {fileID: 6809870873469482405, guid: 763ce6ff2f6a29640a54274bb9f28605, type: 3}
+  minNumberOfLoot: 3
+  maxNumberOfLoot: 10
+  spawnPoint: {fileID: 8709617415690881243}
+  hasBeenCollected: 0
+  spawnLoot: 0
 --- !u!1 &8709617415690392827
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,12 +386,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8709617415690392827}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.00235188, z: 0.3885116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8709617415690881235}
   - {fileID: 8709617415690881233}
+  - {fileID: 1511408420}
   m_Father: {fileID: 8709617415690881241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

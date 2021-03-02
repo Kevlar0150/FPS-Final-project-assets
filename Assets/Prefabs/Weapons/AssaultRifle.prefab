@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2997593860616837561
 Transform:
   m_ObjectHideFlags: 0
@@ -155,8 +155,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   pickUpRange: 3
   isEquipped: 0
-  slot1Full: 1
-  slot2Full: 0
 --- !u!114 &2992837780148544337
 MonoBehaviour:
   m_ObjectHideFlags: 0
