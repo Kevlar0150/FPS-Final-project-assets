@@ -251,7 +251,8 @@ MonoBehaviour:
   bulletSpread: 0.02
   reloadTime: 1.8
   bulletsPerShot: 1
-  magazineSize: 9
+  clipSize: 9
+  magSize: 0
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 8110665490877980868}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,

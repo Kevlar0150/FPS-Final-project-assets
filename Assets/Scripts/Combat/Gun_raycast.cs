@@ -15,10 +15,13 @@ public class Gun_raycast : MonoBehaviour
     public float reloadTime;
     private float shootInterval = 0f;
     public int bulletsPerShot;
-    public int clipSize;
+    public int gunClipSize;
+    public int tempclipSize;
+    public int clipDifferent;
     public int magSize;
+    public int magSizeCapacity;
 
-    int bulletsRemaining;
+    public int bulletsRemaining;
     bool reloading;
 
     // References
@@ -29,8 +32,9 @@ public class Gun_raycast : MonoBehaviour
     
     private void Start()
     {
-        magSize = clipSize * 4;
-        bulletsRemaining = clipSize;
+        magSize = gunClipSize * 4;
+        magSizeCapacity = magSize;
+        bulletsRemaining = gunClipSize;
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class Gun_raycast : MonoBehaviour
                 Shoot(); // Calls shoot function below
             }
         // Reload button
-            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < clipSize && !reloading)
+            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading)
             { Reload();}
     }
 
@@ -122,9 +126,39 @@ public class Gun_raycast : MonoBehaviour
 
     private void ReloadFinished()
     {
-        bulletsRemaining = clipSize;
+        tempclipSize = gunClipSize;
+        clipDifferent = tempclipSize -= bulletsRemaining;
+        bulletsRemaining = bulletsRemaining + clipDifferent;
+        magSize -= clipDifferent;
+
+        if (magSize < gunClipSize)
+        {
+            bulletsRemaining += magSize;
+            magSize = 0;
+        }
         reloading = false;
     }
 
+    public int getAmmoClip()
+    {
+        return gunClipSize;
+    }
+    public int getAmmoMag()
+    {
+        return magSize;
+    }
+    public int getBulletsRemaining()
+    {
+        return bulletsRemaining;
+    }
+    public void increaseMag(int multiplier)
+    {
+        magSize += (magSize / multiplier);
+
+        if (magSize >= magSizeCapacity)
+        {
+            magSize = magSizeCapacity;
+        }
+    }
 }
 
