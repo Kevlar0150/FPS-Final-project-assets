@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 2597738102656069426}
   - component: {fileID: 2794830826068647866}
   - component: {fileID: 7415799608778654875}
+  - component: {fileID: 5285781423396885924}
+  - component: {fileID: 7488108349578497395}
   m_Layer: 0
-  m_Name: HealthPickup
-  m_TagString: Health
+  m_Name: SpeedPickup
+  m_TagString: SpeedBoost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +146,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5285781423396885924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597738102656069436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4d8d0592d132947b686df14102956b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7488108349578497395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597738102656069436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96bd7b663133654d874e793acaca1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDuration: 15

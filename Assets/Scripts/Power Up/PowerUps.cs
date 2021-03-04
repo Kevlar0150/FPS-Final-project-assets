@@ -27,6 +27,7 @@ public class PowerUps : MonoBehaviour
             if (gameObject.transform.tag == "SpeedBoost")
             {
                 Debug.Log("SPEED");
+                playerObject.increaseSpeed(1.5f, true);
                 //Activate speed boost - call function to multiple the speed of character
             }
         }

@@ -15,7 +15,8 @@ public class Gun_raycast : MonoBehaviour
     public float reloadTime;
     private float shootInterval = 0f;
     public int bulletsPerShot;
-    public int magazineSize;
+    public int clipSize;
+    public int magSize;
 
     int bulletsRemaining;
     bool reloading;
@@ -28,7 +29,8 @@ public class Gun_raycast : MonoBehaviour
     
     private void Start()
     {
-        bulletsRemaining = magazineSize;
+        magSize = clipSize * 4;
+        bulletsRemaining = clipSize;
     }
 
     // Update is called once per frame
@@ -41,22 +43,12 @@ public class Gun_raycast : MonoBehaviour
                 Shoot(); // Calls shoot function below
             }
         // Reload button
-            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < magazineSize && !reloading)
+            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < clipSize && !reloading)
             { Reload();}
     }
 
-    private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
 
-    private void ReloadFinished()
-    {
-        bulletsRemaining = magazineSize;
-        reloading = false;
-    }
-
+    // Shoot function
     void Shoot()
     {
         bulletsRemaining--; // Decrease amount of bullets available to shoot
@@ -73,6 +65,8 @@ public class Gun_raycast : MonoBehaviour
 
         muzzleFlash.Play(); // Play the muzzle flash particle system  
 
+        // ----------- Pistol,AssaultRifle,Sniper --------------
+
         // Creates the ray at camera position, direction. Outputs whatever the ray touches into the hitInfo variable, 
         // length of ray is based on shoot range, Ray collides with everything except layer 11.
         if (!transform.tag.Equals("Shotgun") && Physics.Raycast(playerCamera.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
@@ -81,12 +75,15 @@ public class Gun_raycast : MonoBehaviour
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
 
+            // If ray hit info is Enemy, meaning if bullet hits the enemy then damage enemy
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
         }
+
+        // ----------- Shotgun ------------
 
         // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
         if (transform.tag.Equals("Shotgun"))
@@ -115,5 +112,19 @@ public class Gun_raycast : MonoBehaviour
         }
 
     }
+
+    // Reloading functions
+    private void Reload()
+    {
+        reloading = true; // Set to true so player cannot shoot while reloading.
+        Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
+    }
+
+    private void ReloadFinished()
+    {
+        bulletsRemaining = clipSize;
+        reloading = false;
+    }
+
 }
 
