@@ -56,20 +56,23 @@ public class Enemy : MonoBehaviour
                 DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
             }
         }
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
+        if (!hasDied)
+        {
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patrol(); // Patrols between points
-        }
-        if (playerInSightRange && !playerInAttackRange)
-        {
-            Chase(); // Chases player until player is in attack range
-        }
-        if (playerInSightRange && playerInAttackRange)
-        {
-            Attack(); // Attacks player when in attack range
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                Patrol(); // Patrols between points
+            }
+            if (playerInSightRange && !playerInAttackRange)
+            {
+                Chase(); // Chases player until player is in attack range
+            }
+            if (playerInSightRange && playerInAttackRange)
+            {
+                Attack(); // Attacks player when in attack range
+            }
         }
     }
 
@@ -145,15 +148,9 @@ public class Enemy : MonoBehaviour
         if (enemyHealth <= 0)
         {
             hasDied = true;
-            lastPos = transform.position;
-            
-            transform.GetChild(0).gameObject.SetActive(false);
-            GetComponent<SpawnLoot>().setSpawnLoot(true);
+            transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the Enemy mesh and DISABLE IT
+            GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
         }
-    }
-    public Vector3 getLastPosition()
-    {
-            return lastPos;
     }
 
     private void OnDrawGizmosSelected()

@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1361,7 +1361,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.3372549, g: 0.69803923, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.06640482, a: 1}
         key1: {r: 0.3372549, g: 0.69803923, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -6033,7 +6033,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.34509805, g: 1, b: 0.8627451, a: 1}
+        key0: {r: 1, g: 0.009995077, b: 0, a: 1}
         key1: {r: 0.08627451, g: 0.19607843, b: 0.7294118, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -6062,7 +6062,7 @@ ParticleSystem:
         m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.2901961, g: 0.9647059, b: 0.99215686, a: 1}
+        key0: {r: 1, g: 0.04995041, b: 0, a: 1}
         key1: {r: 0.07450981, g: 0.2627451, b: 0.6313726, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -9509,7 +9509,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785284669155556954}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.9006801, y: 2.58, z: 4.910924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9519,7 +9519,7 @@ Transform:
   - {fileID: 1786559670993238646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!198 &1907969910333547200
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14369,7 +14369,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -20538,7 +20538,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.50980395, g: 0.8156863, b: 1, a: 0.9529412}
+        key0: {r: 1, g: 0.06575353, b: 0, a: 0.9529412}
         key1: {r: 0.50980395, g: 0.8156863, b: 1, a: 0}
         key2: {r: 0.95686275, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}

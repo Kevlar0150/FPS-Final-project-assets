@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511408419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.34, z: 1.54}
+  m_LocalPosition: {x: -0, y: -0.34, z: 1.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8709617415690881243}
@@ -274,8 +274,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.887918, y: 0.8298335, z: 1.6568656}
-  m_Center: {x: -0.03885126, y: 0.22111773, z: 0.13752508}
+  m_Size: {x: 3.887918, y: 0.8298335, z: 1.5185261}
+  m_Center: {x: -2.7124434e-15, y: 0, z: -0.37482715}
 --- !u!114 &8709617415197018450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   Player:
     serializedVersion: 2
     m_Bits: 2048
@@ -301,7 +301,7 @@ MonoBehaviour:
   walkPointRange: 40
   projectilePrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   muzzle: {fileID: 1511408419}
-  timeBetweekAttacks: 1
+  timeBetweekAttacks: 1.5
   sightRange: 22
   attackRange: 15
   playerInSightRange: 0
@@ -318,8 +318,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65701914, y: 0.8044977, z: 3.5401435}
-  m_Center: {x: 0.003956139, y: 0.09775114, z: -0.1348753}
+  m_Size: {x: 0.65701914, y: 0.9305482, z: 3.5894299}
+  m_Center: {x: -4.1222315e-15, y: -0.063025236, z: -0.5460136}
 --- !u!195 &1872217096
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8709617415690392825}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 3.22
   m_Speed: 7
@@ -355,9 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootToBeSpawned:
-  - {fileID: 6809870873469482405, guid: 763ce6ff2f6a29640a54274bb9f28605, type: 3}
-  minNumberOfLoot: 3
-  maxNumberOfLoot: 10
+  - {fileID: 4100940436265368255, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
+  minNumberOfLoot: 2
+  maxNumberOfLoot: 5
   spawnPoint: {fileID: 8709617415690881243}
   hasBeenCollected: 0
   spawnLoot: 0

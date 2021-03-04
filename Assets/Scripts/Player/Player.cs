@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     // Player properties
     public float health = 100.0f;
-    public float maxHealth = 100;
+    public float maxHealth = 100f;
 
     // Player Movement
     public CharacterController controller;
@@ -71,5 +71,4 @@ public class Player : MonoBehaviour
             health = maxHealth;
         }
     }
-
 }

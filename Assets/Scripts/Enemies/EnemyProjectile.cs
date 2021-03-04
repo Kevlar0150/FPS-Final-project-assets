@@ -32,7 +32,6 @@ public class EnemyProjectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        // Impact VFX instantiation
         GameObject impactVFXObject = Instantiate(impactVFX, transform.position, transform.rotation);
         DestroyObject(gameObject);
         Destroy(impactVFXObject, 1.7f);

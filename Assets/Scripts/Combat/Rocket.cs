@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour
     public float speed = 15f;
     public float lifeDuration = 2f;
     public float spread;
+    public float damage = 25f;
 
     private float lifeTimer;
     public GameObject impactVFX;
@@ -35,5 +36,13 @@ public class Rocket : MonoBehaviour
         GameObject impactVFXObject = Instantiate(impactVFX,transform.position,transform.rotation);
         DestroyObject(gameObject);
         Destroy(impactVFXObject, 1.7f);
+
+        // Damage player
+        Enemy enemyObject = collision.transform.GetComponent<Enemy>(); // Gets Player component when collides Player - Allows us to call functions in Player script.
+        if (enemyObject != null) // If playerObject HAS FOUND the Player component and does not equal NULL
+        {
+            //Debug.Log("I'm hit");
+            enemyObject.TakeDamage(damage);
+        }
     }
 }
