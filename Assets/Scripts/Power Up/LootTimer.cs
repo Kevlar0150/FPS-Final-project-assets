@@ -16,9 +16,12 @@ public class LootTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if loot has hit ground
         if (hitGround)
         {
             lifeTimer -= Time.deltaTime;
+
+            // if lifeTimer less than 0 destroy the game object
             if (lifeTimer <= 0)
             {
                 Debug.Log(gameObject + "Destroyed");
@@ -28,6 +31,7 @@ public class LootTimer : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        // If loot collides with object with layer 9 (Ground)
         if (collision.gameObject.layer == 9)
         {
             hitGround = true;

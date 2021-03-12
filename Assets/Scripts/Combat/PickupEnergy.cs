@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupHeavy : MonoBehaviour
+public class PickupEnergy : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-        public RocketLauncher rlScript;
+        public EnergyCannon rlScript;
         public Rigidbody rb;
         public BoxCollider collision;
         public Transform player, weaponSlot1, weaponSlot2,playerCamera;
@@ -51,9 +49,7 @@ public class PickupHeavy : MonoBehaviour
         {
             if (weaponSlot1.childCount <= 0)
             {
-                Debug.Log("Slot 1");
                 isEquipped = true;
-                //slot2Full = true;
 
                 rb.isKinematic = true;
                 collision.isTrigger = true;
@@ -70,9 +66,7 @@ public class PickupHeavy : MonoBehaviour
         {
             if (weaponSlot2.childCount <= 0)
             {
-                Debug.Log("Slot 2");
                 isEquipped = true;
-                //slot2Full = true;
 
                 rb.isKinematic = true;
                 collision.isTrigger = true;

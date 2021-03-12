@@ -21,14 +21,14 @@ public class PickupSword : MonoBehaviour
 
     private void Start()
     {
-        if (!isEquipped)
+        if (!isEquipped) // If not equipped, disable components attached to object.
         {
             swordScript.enabled = false;
             animator.enabled = false;
             rb.isKinematic = false;
             collision.isTrigger = false;
         }
-        if (isEquipped)
+        if (isEquipped) // If equipped, enable components attached to object.
         {
             swordScript.enabled = true;
             animator.enabled = true;
@@ -38,11 +38,14 @@ public class PickupSword : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 distanceToPlayer = player.position - transform.position;
+        Vector3 distanceToPlayer = player.position - transform.position; // Distance between player and object.
+
+        // If weapon is not equipped AND weapon is close enough AND 'M' key has been pressed AND meleeSlot is empty AND object being picked has tag "Sword"
         if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.M) && meleeSlot.childCount <= 0 && transform.tag == "Sword")
         {
             PickUp();
         }
+        // If weapon is equipped and G is pressed, drop weapon.
         if (isEquipped && Input.GetKeyDown(KeyCode.G))
         {
             Drop();
@@ -51,15 +54,15 @@ public class PickupSword : MonoBehaviour
 
     private void PickUp()
     {
+        // If melee slot is empty 
         if (meleeSlot.childCount <= 0)
         {
-            Debug.Log("Slot 1");
             isEquipped = true;
-            //slot2Full = true;
 
             rb.isKinematic = true;
             collision.isTrigger = true;
 
+            //Assigns MeleeSlot gameobject as parent and reset swords transform.
             transform.SetParent(meleeSlot);
             transform.localPosition = Vector3.zero;
             transform.localScale = Vector3.one;
@@ -73,6 +76,7 @@ public class PickupSword : MonoBehaviour
     {
         isEquipped = false;
 
+        // Change transform to its own transform manipulated by engine physics.
         transform.SetParent(null);
 
         rb.isKinematic = false;

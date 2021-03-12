@@ -30,13 +30,11 @@ public class PowerUps : MonoBehaviour
 
                 if (weaponSlot1.gameObject.activeSelf) // Checks if WeaponSlot object is active.
                 {
-                    Debug.Log("ADD AMMO TO WEAPON 1");
                     // Increases mag size of the childObject of WeaponSlot1 which is the guns.
                     weaponSlot1.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
                 }
                 if (weaponSlot2.gameObject.activeSelf)
                 {
-                    Debug.Log("ADD AMMO TO WEAPON 2");
                     weaponSlot2.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
                 }
 

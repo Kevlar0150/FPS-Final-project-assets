@@ -80,12 +80,9 @@ public class Player : MonoBehaviour
                 speedBoostTimer = speedBoostDuration;
             }
         }
-        // Shield buff
+        // Shield buff insert here
     }
-    public void TakeDamage(float damage)
-    {
-        health -= damage;  
-    }
+    public void TakeDamage(float damage) { health -= damage; }
 
     // ---------------Power up functions-------------------
     public void increaseHealth(float healthAmount)
@@ -94,7 +91,7 @@ public class Player : MonoBehaviour
 
         if (health >= maxHealth) 
         {
-            health = maxHealth; // Sets maximum health to be 100
+            health = maxHealth; // Sets maximum health to be 100 
         }
     }
     public void increaseSpeed(float multiplier, bool speedBoost)

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour
 {
+    // mouse Sensitivity
     public float mouseSens = 350f;
 
+    // Player transform variable
     public Transform playerBody;
 
     float xRotation = 0f;

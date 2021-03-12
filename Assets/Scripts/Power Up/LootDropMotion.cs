@@ -24,8 +24,10 @@ public class LootDropMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Speed at which loot propels upwards
         rb.position += velocity * 2 * Time.deltaTime;
 
+        // Rotate the object randomly
         Quaternion deltaRotation = Quaternion.Euler(new Vector3(Random.Range(-150f, 150f), Random.Range(-200, 200), Random.Range(-150, 150)) * 2 *  Time.deltaTime);
         rb.MoveRotation(rb.rotation * deltaRotation);
 
@@ -35,6 +37,7 @@ public class LootDropMotion : MonoBehaviour
         }
         else
         {
+            // Speed at which loot falls
             velocity -= Vector3.up * 20 * Time.deltaTime;
         }
 
@@ -46,7 +49,6 @@ public class LootDropMotion : MonoBehaviour
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.velocity = Vector3.zero;
-            //rb.constraints = RigidbodyConstraints.FreezeAll;
             this.enabled = false;
         }
     }

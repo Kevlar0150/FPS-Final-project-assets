@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2992837780148544338}
   - component: {fileID: 2992837780148544337}
   - component: {fileID: 2992837780826818521}
+  - component: {fileID: 338696437}
   m_Layer: 0
   m_Name: AssaultRifle
   m_TagString: AssaultRifle
@@ -173,8 +174,12 @@ MonoBehaviour:
   bulletSpread: 0.03
   reloadTime: 2.5
   bulletsPerShot: 1
-  clipSize: 30
+  gunClipSize: 30
+  tempclipSize: 0
+  clipDifferent: 0
   magSize: 0
+  magSizeCapacity: 0
+  bulletsRemaining: 0
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 6546786853639159647}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
@@ -195,6 +200,25 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!95 &338696437
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994152477234272283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aeed7657c4624804490cf5dc5b5f4b41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2994190259180052327
 GameObject:
   m_ObjectHideFlags: 0

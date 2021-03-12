@@ -15,7 +15,6 @@ public class SpawnLoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //spawnPoint.position = GetComponent<Enemy>().getLastPosition();
         if (minNumberOfLoot > maxNumberOfLoot)
         {
             maxNumberOfLoot = minNumberOfLoot + 1;
@@ -25,25 +24,25 @@ public class SpawnLoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnLoot && !hasBeenCollected)
+        if (spawnLoot && !hasBeenCollected) // If spawnLoot is true and loot has not been collected.
         {
-            spawnLoot = false;
-            Loot();
+            spawnLoot = false; // Set to false
+            Loot(); // Call loot function.
         }
     }
 
     public void Loot()
     {
-        hasBeenCollected = true;
-        int number = Random.Range(minNumberOfLoot, maxNumberOfLoot);
+        hasBeenCollected = true; // Set hasBeenCollected to true
+        int number = Random.Range(minNumberOfLoot, maxNumberOfLoot); // Set number of loot to a random number
         StartCoroutine(CreateLoot(number));
     }
 
     IEnumerator CreateLoot(int number)
     {
-        //this.GetComponent<Animator>().SetTrigger("OpenChest");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f); // Wait 1 second before continuing the function
 
+        // For loop to instantiate the loot at spawn position.
         for (int i = 0; i < number; i++)
         {
             GameObject tempLoot = Instantiate(lootToBeSpawned[Random.Range(0, lootToBeSpawned.Count)]);
@@ -53,7 +52,6 @@ public class SpawnLoot : MonoBehaviour
     }
     public void setSpawnLoot(bool isSpawned)
     {
-        Debug.Log("SPAWN LOOT");
         spawnLoot = isSpawned;
     }
 }

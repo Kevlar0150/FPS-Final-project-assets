@@ -25,19 +25,19 @@ public class SwordCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If left click of mouse is pressed and attack cooldown has passed.
         if (Input.GetMouseButtonDown(0) && Time.time >= attackCooldown)
         {
             attackCooldown = Time.time + 1 / attackSpeed;
             anim.SetBool("attacking", true);
             Attack();
         }
+        // If left click is not being pressed.
         else if (Input.GetMouseButtonUp(0))
         {
             anim.SetBool("attacking", false);
         }
     }
-    // TO DO:
-    // ADD ATTACK USING RAY CAST
     private void Attack()
     {
         RaycastHit hit;

@@ -15,26 +15,33 @@ public class Gun_raycast : MonoBehaviour
     public float reloadTime;
     private float shootInterval = 0f;
     public int bulletsPerShot;
-    public int gunClipSize;
-    public int tempclipSize;
-    public int clipDifferent;
-    public int magSize;
-    public int magSizeCapacity;
 
-    public int bulletsRemaining;
+    // Ammo variables
+    public int gunClipSize; // Clip of the gun *Doesn't get changed*
+    public int tempclipSize; // Temporary variable with same value of clip size.
+    public int clipDifferent; // Variable that stores difference of bullets remaining and clip size.
+    public int magSize; // Mag size of gun
+    public int magSizeCapacity; // Default mag size that *doesn't get changed*
+    public int bulletsRemaining; // How many bullets are remaining in the gun
+
+    // Bool
     bool reloading;
 
     // References
-    public Camera playerCamera;
+    public Camera playerCamera; 
     public ParticleSystem muzzleFlash;
     public GameObject impactVFX;
     public RaycastHit hitInfo; // Store's whatever the raycast hits into the variable hitInfo
+    Animator anim;
     
     private void Start()
     {
+        // Initialise variables upon start
         magSize = gunClipSize * 4;
         magSizeCapacity = magSize;
         bulletsRemaining = gunClipSize;
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,9 +55,10 @@ public class Gun_raycast : MonoBehaviour
             }
         // Reload button
             if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading)
-            { Reload();}
+            {
+                Reload(); // Calls function for reloading the gun
+            }
     }
-
 
     // Shoot function
     void Shoot()
@@ -92,6 +100,7 @@ public class Gun_raycast : MonoBehaviour
         // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
         if (transform.tag.Equals("Shotgun"))
         {
+            // For loop to create multiple ray/bullet shots
             for (int i = 0; i <= bulletsPerShot; i++)
             {
                 // Own bullet spread so that each bullet from 1 shot has a randomized spread
@@ -114,47 +123,43 @@ public class Gun_raycast : MonoBehaviour
                 }
             }
         }
-
     }
 
     // Reloading functions
     private void Reload()
     {
         reloading = true; // Set to true so player cannot shoot while reloading.
+        anim.SetBool("isReloading", true);
+        
         Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
     }
 
     private void ReloadFinished()
     {
-        tempclipSize = gunClipSize;
-        clipDifferent = tempclipSize -= bulletsRemaining;
-        bulletsRemaining = bulletsRemaining + clipDifferent;
-        magSize -= clipDifferent;
+        tempclipSize = gunClipSize; // Temp variable = the gun's clip size that's been set
+        clipDifferent = tempclipSize -= bulletsRemaining; // clip difference is temp clip size minus bullets remaining
+        bulletsRemaining = bulletsRemaining + clipDifferent; // Add the difference to bullets remaining
+        magSize -= clipDifferent; // Subtract the difference to magSize
 
-        if (magSize < gunClipSize)
-        {
-            bulletsRemaining += magSize;
-            magSize = 0;
-        }
+        // If statement to stop magSize from being minus value.
+        if (magSize <= 0) { magSize = 0; }
+    
         reloading = false;
+        anim.SetBool("isReloading", false);
     }
 
-    public int getAmmoClip()
-    {
-        return gunClipSize;
-    }
-    public int getAmmoMag()
-    {
-        return magSize;
-    }
-    public int getBulletsRemaining()
-    {
-        return bulletsRemaining;
-    }
+    // Getters function
+    public int getAmmoClip() { return gunClipSize; }
+    public int getAmmoMag() { return magSize; }
+    public int getBulletsRemaining() { return bulletsRemaining; }
+
+    // Setters function (Increasing variable or something)
     public void increaseMag(int multiplier)
     {
-        magSize += (magSize / multiplier);
+        // Increase mag size by maximum Mag capacity divided by a multiplier (Value being passed in).
+        magSize += (magSizeCapacity / multiplier);
 
+        // Stops mag size from going over the maximum capicity
         if (magSize >= magSizeCapacity)
         {
             magSize = magSizeCapacity;

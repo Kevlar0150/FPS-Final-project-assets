@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rocket : MonoBehaviour
+public class EnergyBullet : MonoBehaviour
 {
+    // Projectile property
     public float speed = 15f;
     public float lifeDuration = 2f;
     public float spread;
@@ -11,6 +12,7 @@ public class Rocket : MonoBehaviour
 
     private float lifeTimer;
     public GameObject impactVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class Rocket : MonoBehaviour
         // Make bullet move forward
         transform.position += transform.forward  * speed * Time.deltaTime;
 
-        //Check if bullet needs to be destroyed to save memory.
+        // Check if bullet needs to be destroyed to save memory.
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0f)
         {

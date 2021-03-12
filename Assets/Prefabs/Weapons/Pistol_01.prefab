@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 1191202724}
   - component: {fileID: 1191202725}
   - component: {fileID: 1614821631}
+  - component: {fileID: 715504503}
   m_Layer: 0
   m_Name: Pistol_01
   m_TagString: Pistol
@@ -251,8 +252,12 @@ MonoBehaviour:
   bulletSpread: 0.02
   reloadTime: 1.8
   bulletsPerShot: 1
-  clipSize: 9
+  gunClipSize: 9
+  tempclipSize: 0
+  clipDifferent: 0
   magSize: 0
+  magSizeCapacity: 0
+  bulletsRemaining: 0
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 8110665490877980868}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
@@ -273,6 +278,25 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!95 &715504503
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374600452982646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b693a969614120540b91e4ea2967c8ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1429655430221584
 GameObject:
   m_ObjectHideFlags: 0

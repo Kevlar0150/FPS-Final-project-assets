@@ -7,19 +7,14 @@
 public class SwitchWeapon : MonoBehaviour
 {
     public int currentWeapon = 0;
-    // Start is called before the first frame update
     void Start()
-    {
-        SelectWeapon();  
-    }
-
-    // Update is called once per frame
+    { SelectWeapon();}
     void Update()
     {
-        int previousWeapon = currentWeapon;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        int previousWeapon = currentWeapon; // Previous weapon = current weapon
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // Gets value of mouse scroll wheel above 0
         {
-            if (currentWeapon >= transform.childCount - 1)
+            if (currentWeapon >= transform.childCount - 1) // If current weapon is position 0 of the list of childs of the object this script is attached to then...
             {
                 currentWeapon = 0;
             }
@@ -28,7 +23,7 @@ public class SwitchWeapon : MonoBehaviour
                 currentWeapon++;
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f) // Gets value of mouse scroll wheel when below 0
         {
             if (currentWeapon <= 0)
             {

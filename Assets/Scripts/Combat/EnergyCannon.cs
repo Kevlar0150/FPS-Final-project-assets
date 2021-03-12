@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketLauncher : MonoBehaviour
+public class EnergyCannon : MonoBehaviour
 {
     public Camera playerCamera;
     public GameObject muzzlePosition;
@@ -11,17 +11,12 @@ public class RocketLauncher : MonoBehaviour
     public int shootInterval = 69;
     public float spread;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
+            // Randomize the spread of the bullet to simulate recoil
             float spreadX = Random.Range(-spread, spread);
             float spreadY = Random.Range(-spread, spread);
 

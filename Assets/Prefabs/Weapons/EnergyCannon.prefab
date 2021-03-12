@@ -167,10 +167,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1409260883251752399}
-  - component: {fileID: 4684518463257988302}
   - component: {fileID: 373735282}
   - component: {fileID: 373735281}
   - component: {fileID: 373735279}
+  - component: {fileID: 1861479645}
+  - component: {fileID: 89243607}
   m_Layer: 0
   m_Name: EnergyCannon
   m_TagString: EnergyCannon
@@ -187,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 1406503321207719243}
   m_LocalRotation: {x: 0, y: 0.045981947, z: 0, w: 0.99894226}
   m_LocalPosition: {x: 0.18, y: -0.61, z: 0.63}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1409267803334463585}
   - {fileID: 1409893045801471965}
@@ -200,25 +201,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 5.2710004, z: 0}
---- !u!114 &4684518463257988302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406503321207719243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7367e91d4dca940b4e413e30cd4fc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
-  muzzlePosition: {fileID: 6473605169503015888}
-  muzzleFlash: {fileID: 1543276075752652166}
-  bulletPrefab: {fileID: 1776800471372672, guid: c5f54d2460769f94982f54ea708a2d46,
-    type: 3}
-  shootInterval: 69
-  spread: 0
 --- !u!54 &373735282
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4114c09e3cdfeb845bdfa448df6e4aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rlScript: {fileID: 4684518463257988302}
+  rlScript: {fileID: 1861479645}
   rb: {fileID: 373735282}
   collision: {fileID: 373735281}
   player: {fileID: 0}
@@ -269,6 +251,44 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   pickUpRange: 3
   isEquipped: 0
+--- !u!114 &1861479645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406503321207719243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7367e91d4dca940b4e413e30cd4fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  muzzlePosition: {fileID: 6473605169503015888}
+  muzzleFlash: {fileID: 1543276075752652166}
+  bulletPrefab: {fileID: 5606503262966646612, guid: 4826989b919f9784f9adb4f1bf92a5d9,
+    type: 3}
+  shootInterval: 69
+  spread: 0
+--- !u!95 &89243607
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406503321207719243}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9397428da3055a14eab7b0af7909be61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1406518897325463957
 GameObject:
   m_ObjectHideFlags: 0

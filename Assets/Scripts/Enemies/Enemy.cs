@@ -26,12 +26,12 @@ public class Enemy : MonoBehaviour
     // Attack variables
     public GameObject projectilePrefab;
     public GameObject muzzle;
-    public float timeBetweekAttacks;
+    public float timeBetweenAttacks;
     bool hasAttacked;
 
+    // Range variables
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-    public Vector3 lastPos;
 
     private float lifeDuration = 3f;
     private float lifeTimer;
@@ -47,16 +47,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasDied)
+        if (hasDied) // If enemy has died
         {
-            lifeTimer -= Time.deltaTime;
+            lifeTimer -= Time.deltaTime; // Start timer
 
-            if (lifeTimer <= 0)
+            if (lifeTimer <= 0) // When timer finished, destroy enemy Game Object
             {
                 DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
             }
         }
-        if (!hasDied)
+        if (!hasDied) // If enemy is alive
         {
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
@@ -78,30 +78,29 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        if (!walkPointSet)
-        {
-            SearchWalkPoint();
+        if (!walkPointSet) // If walkPointSet is false
+        { 
+            SearchWalkPoint(); // Set the walkpoint
         }
-        if (walkPointSet)
+        if (walkPointSet) // If walkPointSet is true
         {
-            agent.SetDestination(walkPoint);        
+            agent.SetDestination(walkPoint);  // make the walkPoint the enemies destination     
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        if (distanceToWalkPoint.magnitude < 1.0f)
+        if (distanceToWalkPoint.magnitude < 1.0f) // If walkPoint destination has been reached then set walkPointSet to false
         {
             walkPointSet = false;
         }
     }
     private void SearchWalkPoint()
     {
-        //Debug.Log("Searching for point");
-        //Calculate random points in range
+        // Debug.Log("Searching for point");
+        // Calculate random points in range
         
         // TODO LATER WHEN PUTTING LEVEL AND ENEMYS TOGETHER:
-        //MAKE IT SO IT ROAMS AROUND  depending on the room it's in and the size of that room. 
-
+        // MAKE IT SO IT ROAMS AROUND  depending on the room it's in and the size of that room. 
 
         // Temporarily set walkpoint range to be fixed range. Only works with the TestArena
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -127,17 +126,17 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        if (!hasAttacked)
+        if (!hasAttacked) // If enemy hasn't attacked yet, then ATTACK
         {
-        GameObject enemyProjectile = Instantiate(projectilePrefab);
-        enemyProjectile.transform.position = muzzle.transform.position;
-        enemyProjectile.transform.forward = gameObject.transform.forward;
+            GameObject enemyProjectile = Instantiate(projectilePrefab);
+            enemyProjectile.transform.position = muzzle.transform.position;
+            enemyProjectile.transform.forward = gameObject.transform.forward;
   
-        hasAttacked = true;
-        Invoke(nameof(ResetAttack), timeBetweekAttacks);
+            hasAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks); // Invoke resetAttack function after timeBetweenAttacks time has ended
         }
     }
-    private void ResetAttack()
+    private void ResetAttack() // Sets bool "hasAttacked" to false;
     {
         hasAttacked = false;
     }
@@ -147,12 +146,14 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            hasDied = true;
+            hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
             transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the Enemy mesh and DISABLE IT
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
         }
     }
 
+    // Draws radius of attackRange and sightRange for debugging
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
