@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Sources
+// https://docs.unity3d.com/ScriptReference/CharacterController.Move.html - Jump formula
 public class Player : MonoBehaviour
 {
     // Player properties
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
 
         // Create a small physics sphere and checks collision with sphere and any Layers set to groundMask Layer and returns true or false
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
         if (isGrounded && velocity.y < 0) { velocity.y = 0f; } // Sets character y position to 0 so character doesn't fall through ground
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // If Space bar is pressed and character IS grounded

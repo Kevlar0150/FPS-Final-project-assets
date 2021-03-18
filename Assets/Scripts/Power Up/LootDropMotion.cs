@@ -54,10 +54,7 @@ public class LootDropMotion : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 9)
-        {
             hitGround = true;
-        }
     }
 }
 

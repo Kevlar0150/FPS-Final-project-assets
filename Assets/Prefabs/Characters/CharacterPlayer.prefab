@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565003128}
+  - component: {fileID: 726549738}
   m_Layer: 0
   m_Name: WeaponSlot2
   m_TagString: Untagged
@@ -30,6 +31,21 @@ Transform:
   m_Father: {fileID: 6082130896611290334}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726549738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565003127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dae51adf8ebc142ac1cb99986b93e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 0
+  ammoMag: 0
+  ammoCount: {fileID: 0}
 --- !u!1 &2010153567
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107585792533321183}
+  - component: {fileID: 956546905}
   m_Layer: 0
   m_Name: WeaponSlot1
   m_TagString: Untagged
@@ -407,3 +424,18 @@ Transform:
   m_Father: {fileID: 6082130896611290334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956546905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467351190583393265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dae51adf8ebc142ac1cb99986b93e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 0
+  ammoMag: 0
+  ammoCount: {fileID: 0}

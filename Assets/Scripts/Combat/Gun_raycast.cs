@@ -58,6 +58,7 @@ public class Gun_raycast : MonoBehaviour
             {
                 Reload(); // Calls function for reloading the gun
             }
+        Debug.DrawLine(transform.position, hitInfo.point, Color.red);
     }
 
     // Shoot function
@@ -87,6 +88,7 @@ public class Gun_raycast : MonoBehaviour
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
 
+            Debug.Log(hitInfo.transform.name);
             // If ray hit info is Enemy, meaning if bullet hits the enemy then damage enemy
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if (enemy != null)

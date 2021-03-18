@@ -164,7 +164,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 16.666666
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 0f47cfab221f56e48a0eea83c1c19334, type: 2}
 --- !u!4 &698957141
@@ -340,5 +340,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBuilder
       objectReference: {fileID: 0}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: roomPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: roomPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6530150148989242145, guid: 46fcff112e5b2d7429a6468242da5131,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85832096e81c76543bda792bf1e8810d, type: 3}
