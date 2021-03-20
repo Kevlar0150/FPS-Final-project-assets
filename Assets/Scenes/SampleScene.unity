@@ -357,13 +357,31 @@ PrefabInstance:
     - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
         type: 3}
       propertyPath: roomPrefabs.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
         type: 3}
       propertyPath: roomPrefabs.Array.data[2]
       value: 
       objectReference: {fileID: -4005964235048534931, guid: 50f567a7063ae9540b0854f94217c39b,
+        type: 3}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: roomPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6000744836308512174, guid: 1253c652ab401324ab322e63ac44a23a,
+        type: 3}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: roomPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1519874907508951653, guid: b5c33d85c15b85148a5861aa9647d48a,
+        type: 3}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: roomPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 4765842625826084438, guid: 1d8d0d312ab3da74aa1a825a98f5eda1,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85832096e81c76543bda792bf1e8810d, type: 3}
