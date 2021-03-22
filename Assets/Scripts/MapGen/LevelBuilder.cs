@@ -22,6 +22,8 @@ public class LevelBuilder : MonoBehaviour
 
 	Player player;
 
+	bool generatorFinished = false;
+
 	void Start ()
 	{
 		roomLayerMask = LayerMask.GetMask ("Room");
@@ -53,8 +55,9 @@ public class LevelBuilder : MonoBehaviour
         PlaceEndRoom();
         yield return interval;
 
-        // Level generation finished
-        Debug.Log("Level generation finished");
+		// Level generation finished
+		generatorFinished = true; // Generator finished after end room has been placed
+		Debug.Log("Level generation finished");
 
         SpawnPlayer();
 
@@ -230,7 +233,7 @@ public class LevelBuilder : MonoBehaviour
 
 			// Exit loop if room has been placed
 			if (roomPlaced)
-			{
+			{	
 				break;
 			}
 		}
@@ -274,5 +277,10 @@ public class LevelBuilder : MonoBehaviour
 
 		foreach (Room room in placedRooms) //Deletes all rooms in placedRooms lists
 		{ Destroy(room.gameObject); }
+	}
+
+	public bool hasRoomFinished()
+	{
+		return generatorFinished;
 	}
 }

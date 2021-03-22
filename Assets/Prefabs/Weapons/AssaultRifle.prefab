@@ -150,11 +150,11 @@ MonoBehaviour:
   gunScript: {fileID: 2992837780148544337}
   rb: {fileID: 2992837780826818521}
   collision: {fileID: 2992837780148544340}
-  player: {fileID: 0}
+  player: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
   weaponSlot1: {fileID: 0}
   weaponSlot2: {fileID: 0}
   playerCamera: {fileID: 0}
-  pickUpRange: 3
+  pickUpRange: 5
   isEquipped: 0
 --- !u!114 &2992837780148544337
 MonoBehaviour:
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2994152477234272283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480fce3600c9e054c91a911858b02403, type: 3}
   m_Name: 
@@ -184,6 +184,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 6546786853639159647}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
+  player: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
 --- !u!54 &2992837780826818521
 Rigidbody:
   m_ObjectHideFlags: 0

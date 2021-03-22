@@ -17,6 +17,11 @@ public class PickupSystem : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
+        weaponSlot1 = player.GetChild(2).GetChild(0).transform;
+        weaponSlot2 = player.GetChild(2).GetChild(1).transform;
+
         anim = GetComponent<Animator>();
         if (!isEquipped)
         {
@@ -35,6 +40,12 @@ public class PickupSystem : MonoBehaviour
     }
     private void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
+        weaponSlot1 = player.GetChild(2).GetChild(0).transform;
+        weaponSlot2 = player.GetChild(2).GetChild(1).transform;
+        anim = GetComponent<Animator>();
+
         Vector3 distanceToPlayer = player.position - transform.position;
         // Check conditions mets before allowing player to pick up weapon.
         if (!isEquipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && weaponSlot1.childCount <= 0 && transform.tag != "Sword")
@@ -100,6 +111,7 @@ public class PickupSystem : MonoBehaviour
 
         // Change transform to its own transform manipulated by engine physics.
         transform.SetParent(null);
+        //transform.position = player.position;
 
         rb.isKinematic = false;
         collision.isTrigger = false;

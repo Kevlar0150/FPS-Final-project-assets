@@ -28,10 +28,11 @@ public class Gun_raycast : MonoBehaviour
     bool reloading;
 
     // References
-    public Camera playerCamera; 
+    public Transform playerCamera; 
     public ParticleSystem muzzleFlash;
     public GameObject impactVFX;
     public RaycastHit hitInfo; // Store's whatever the raycast hits into the variable hitInfo
+    public Transform player;
     Animator anim;
     
     private void Start()
@@ -42,13 +43,18 @@ public class Gun_raycast : MonoBehaviour
         bulletsRemaining = gunClipSize;
 
         anim = GetComponent<Animator>();
+
+        player = player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        player = player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
         // Shoot button
-            if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
+        if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
             {
                 shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
                 Shoot(); // Calls shoot function below

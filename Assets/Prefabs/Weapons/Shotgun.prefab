@@ -123,7 +123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4978452348634889517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480fce3600c9e054c91a911858b02403, type: 3}
   m_Name: 
@@ -144,6 +144,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4541314400421436383}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
+  player: {fileID: 0}
 --- !u!114 &6964048101013514091
 MonoBehaviour:
   m_ObjectHideFlags: 0
