@@ -264,12 +264,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  player: {fileID: 0}
   muzzlePosition: {fileID: 6473605169503015888}
   muzzleFlash: {fileID: 1543276075752652166}
   bulletPrefab: {fileID: 5606503262966646612, guid: 4826989b919f9784f9adb4f1bf92a5d9,
     type: 3}
-  shootInterval: 69
-  spread: 0
+  shootInterval: 3
+  firingRate: 2
+  spread: 0.1
+  gunClipSize: 5
+  tempclipSize: 0
+  clipDifferent: 0
+  magSize: 0
+  magSizeCapacity: 0
+  bulletsRemaining: 0
+  reloadTime: 0
 --- !u!95 &89243607
 Animator:
   serializedVersion: 3

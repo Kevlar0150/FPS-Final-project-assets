@@ -19,8 +19,32 @@ public class ItemSpawner : MonoBehaviour
     {
         // Randomly select the item from the array
         // Spawn at transform specified.
+        for (int i = 0; i < transformArray.Length; i++)
+        {
+            int itemRandomNumber = Random.Range(0, 3); // Random number to select category of items
 
-        Instantiate(gunArray[0], transformArray[0]);
+            if (itemRandomNumber == 0) // Selects gun category
+            {
+                int gunNumber = Random.Range(0, gunArray.Length);
+                Instantiate(gunArray[gunNumber], transformArray[i]);
+            }
+
+            if (itemRandomNumber == 1) // Selects Power up category
+            {
+                int powerUpNumber = Random.Range(0, lootArray.Length);
+                Instantiate(lootArray[powerUpNumber], transformArray[i]);
+            }
+
+            if (itemRandomNumber == 2) // Select Energy cannon
+            {
+                Instantiate(energyCannonSpawn, transformArray[i]);
+            }
+
+            if (itemRandomNumber == 3) // Select sword
+            {
+                Instantiate(swordSpawn, transformArray[i]);
+            }
+        }        
     }
 
     // Update is called once per frame

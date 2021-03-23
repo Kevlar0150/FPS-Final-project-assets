@@ -18,7 +18,7 @@ public class LootDropMotion : MonoBehaviour
 
         rb = this.GetComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.isKinematic = true;
+        rb.isKinematic = false;
     }
 
     // Update is called once per frame

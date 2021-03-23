@@ -8,23 +8,36 @@ using UnityEngine;
 public class SwordCombat : MonoBehaviour
 {
     Animator anim;
-    public float damage = 50f;
-    public float attackRange = 25f;
+    public float damage;
+    public float attackRange;
     public float attackSpeed;
-    public float attackCooldown = 0f;
-    public Camera playerCamera;
+    public float attackCooldown;
+    public Transform playerCamera;
     public RaycastHit hitInfo;
+    public Transform player;
 
     Enemy enemy;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Set the sword properties each frame so it is consistent throughout.
+        float damage = 10f;
+        float attackRange = 25f;
+        float attackSpeed = 2f;
+        float attackCooldown = 2f;
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
+        anim = GetComponent<Animator>();
+
         // If left click of mouse is pressed and attack cooldown has passed.
         if (Input.GetMouseButtonDown(0) && Time.time >= attackCooldown)
         {

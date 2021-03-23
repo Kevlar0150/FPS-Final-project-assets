@@ -21,6 +21,10 @@ public class PickupSword : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
+        meleeSlot = player.GetChild(2).GetChild(2).transform;
+
         if (!isEquipped) // If not equipped, disable components attached to object.
         {
             swordScript.enabled = false;
@@ -38,6 +42,10 @@ public class PickupSword : MonoBehaviour
     }
     private void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerCamera = player.GetChild(2).transform;
+        meleeSlot = player.GetChild(2).GetChild(2).transform;
+
         Vector3 distanceToPlayer = player.position - transform.position; // Distance between player and object.
 
         // If weapon is not equipped AND weapon is close enough AND 'M' key has been pressed AND meleeSlot is empty AND object being picked has tag "Sword"
