@@ -159,11 +159,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49ecca1bb297b74593e6147cc6b7098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootArray: []
+  lootArray:
+  - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
+  - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
+  - {fileID: 2748958050049784714, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
   gunArray: []
   energyCannonSpawn: {fileID: 0}
   swordSpawn: {fileID: 0}
-  transformArray: []
+  transformArray:
+  - {fileID: 4862087066230189633}
+  - {fileID: 5985824762289535686}
+  - {fileID: 4541080310215860823}
 --- !u!1 &3857461326801655983
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6881513093962171378}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 65.3, y: 6, z: 0}
+  m_LocalPosition: {x: 64.3, y: 6, z: 0}
   m_LocalScale: {x: 14, y: 14, z: 10}
   m_Children: []
   m_Father: {fileID: 3404495565044460230}
