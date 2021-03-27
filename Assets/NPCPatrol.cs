@@ -1,14 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Online resources used:
-//https://docs.unity3d.com/Manual/class-NavMeshAgent.html
-//https://docs.unity3d.com/Manual/nav-CreateNavMeshAgent.html
-//https://docs.unity3d.com/Manual/class-NavMeshSurface.html
-
-public class Enemy : MonoBehaviour
+public class NPCPatrol : MonoBehaviour
 {
     // Enemy health
     public float enemyHealth = 50f;
@@ -18,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float timeWaiting = 2f;
 
     // List of waypoints the NPC will visit
-    public List<Transform> waypointList;
+    public List<Waypoints> waypointList;
 
     // Attack variables
     public GameObject projectilePrefab;
@@ -41,47 +35,36 @@ public class Enemy : MonoBehaviour
     // Variables for patrol behaviour
     NavMeshAgent navMeshAgent;
     public int currentWaypointIndex;
-    public bool patrolling;
-    public bool waiting;
+    public bool moving;
+    public  bool waiting;
     public bool moveForward;
     public float waitTimer;
 
     //References
     Transform player;
-    Transform EnemyParent;
-    Transform PatrolPoints;
-
     // Start is called before the first frame update
     void Start()
     {
-        //Initialising variables
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         lifeTimer = lifeDuration;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        //Add patrol points into list
-        EnemyParent = transform.parent;
-        Debug.Log(PatrolPoints = EnemyParent.GetChild(0));
-        PatrolPoints = EnemyParent.GetChild(0);
-
-        // Foreach child transform in PatrolPoints Gameobject, add child to list
-        foreach (Transform child in PatrolPoints)
+        if (navMeshAgent == null)
         {
-            waypointList.Add(child);
+            Debug.LogError("Nav mesh agent component is not attached to " + gameObject.name);
         }
-
-        if (navMeshAgent == null)// If navMeshAgent component not found
-        { Debug.LogError("Nav mesh agent component is not attached to " + gameObject.name); }
 
         else
         {
-            if (waypointList != null && waypointList.Count >= 2) // If waypoint list has AT LEAST 2 elements.
-            { 
-                currentWaypointIndex = Random.RandomRange(0,waypointList.Count);
+            if (waypointList != null && waypointList.Count >= 2)
+            {
+                currentWaypointIndex = 0;
                 SetDestination();
             }
             else
-            { Debug.LogError("Not enough patrol points"); } // Else output an error
+            {
+                Debug.LogError("Not enough patrol points");
+            }
         }
     }
 
@@ -103,63 +86,55 @@ public class Enemy : MonoBehaviour
 
         if (!hasDied) // If enemy is alive
         {
-            // Creates spheres around NPC to act as detection mechanism
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
 
-            if (!playerInSightRange && !playerInAttackRange) // If player is NOT in sight or attack range
+            if (!playerInSightRange && !playerInAttackRange)
             {
-                if (!patrolling && !waiting) // If NPC has stopped chasing/attacking, call functions to change destination.
-                {
-                    ChangeWaypoint();
-                    SetDestination();
-                }
-
+                //SetDestination();
                 Patrol(distanceToWalkPoint); // Patrol between points
             }
             if (playerInSightRange && !playerInAttackRange)
             {
-                patrolling = false;
                 Chase(); // Chases player until player is in attack range
             }
             if (playerInSightRange && playerInAttackRange)
             {
-                patrolling = false;
                 Attack(); // Attacks player when in attack range
             }
         }
+
+      
     }
 
     private void Patrol(Vector3 distanceToWalkPoint)
     {
-        Debug.Log("Patrolling");
-        if (patrolling && distanceToWalkPoint.x <= 1.0f && distanceToWalkPoint.z <=1.0f) // If patrolling AND destination has been reached
+        if (moving && distanceToWalkPoint.magnitude <= 1.0f)
         {
-            patrolling = false; // NPC stops patrolling
+            moving = false;
 
-            if (patrolWaiting) // If NPC has waiting feature enabled
+            if (patrolWaiting)
             {
-                //Debug.Log("Waiting");
+                Debug.Log("Waiting");
                 waiting = true;
                 waitTimer = 0f;
             }
-            else // If waiting feature DISABLED, just change waypoint once desination reached.
+            else
             {
                 ChangeWaypoint();
                 SetDestination();
             }
         }
-   
-        if (waiting)     // If NPC is waiting
-        {
-            waitTimer += Time.deltaTime; // Increase waitTimer
 
-            if (waitTimer >= timeWaiting) // If waitTimer has reached the specified time to wait then...
+        if (waiting)
+        {
+            waitTimer += Time.deltaTime;
+            if (waitTimer >= timeWaiting)
             {
-                waiting = false; // No longer waiting
+                waiting = false;
+
                 ChangeWaypoint();
                 SetDestination();
-               
             }
         }
     }
@@ -175,9 +150,10 @@ public class Enemy : MonoBehaviour
         {
             Vector3 targetVector = waypointList[currentWaypointIndex].transform.position;
             navMeshAgent.SetDestination(targetVector);
-            patrolling = true;
+            moving = true;
         }
     }
+
     private void Chase()
     {
         // Debug.Log("Chasing");
@@ -205,7 +181,7 @@ public class Enemy : MonoBehaviour
     {
         hasAttacked = false;
     }
-    public void TakeDamage(float damage) // Function to handle enemy taking damage
+    public void TakeDamage(float damage)
     {
         enemyHealth -= damage;
 

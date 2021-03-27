@@ -44,14 +44,14 @@ public class Gun_raycast : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        player = player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         playerCamera = player.GetChild(2).transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        player = player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         playerCamera = player.GetChild(2).transform;
         // Shoot button
         if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
