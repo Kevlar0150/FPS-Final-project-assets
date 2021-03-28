@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
     Transform PatrolPoints;
 
     // Start is called before the first frame update
+    [System.Obsolete]
     void Start()
     {
         //Initialising variables
@@ -76,9 +77,10 @@ public class Enemy : MonoBehaviour
         else
         {
             if (waypointList != null && waypointList.Count >= 2) // If waypoint list has AT LEAST 2 elements.
-            { 
-                currentWaypointIndex = Random.RandomRange(0,waypointList.Count);
-                SetDestination();
+            {
+                Debug.Log("PATROL");
+                currentWaypointIndex = 0;
+                Invoke("SetDestination",0);
             }
             else
             { Debug.LogError("Not enough patrol points"); } // Else output an error
@@ -133,7 +135,7 @@ public class Enemy : MonoBehaviour
     private void Patrol(Vector3 distanceToWalkPoint)
     {
         Debug.Log("Patrolling");
-        if (patrolling && distanceToWalkPoint.x <= 1.0f && distanceToWalkPoint.z <=1.0f) // If patrolling AND destination has been reached
+        if (patrolling && distanceToWalkPoint.x <= 3.0f && distanceToWalkPoint.z <=3.0f) // If patrolling AND destination has been reached
         {
             patrolling = false; // NPC stops patrolling
 

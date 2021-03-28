@@ -16,6 +16,8 @@ TagManager:
   - Ammo
   - SpeedBoost
   - Shield
+  - NavMesh
+  - Room
   layers:
   - Default
   - TransparentFX

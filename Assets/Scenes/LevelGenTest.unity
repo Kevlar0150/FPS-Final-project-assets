@@ -121,6 +121,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 22789ccf32ae8d743ac244d0ac4d4f6d, type: 2}
+--- !u!1 &212012819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212012821}
+  - component: {fileID: 212012820}
+  m_Layer: 0
+  m_Name: NavMeshBaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &212012820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212012819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d5b8e6b706543439d10c1a9e2256f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshSurfaces: []
+  roomList: []
+  levelBuilder: {fileID: 1623539352}
+  roomArray: []
+  hasBaked: 0
+  hasAddedRoom: 0
+  index: 0
+--- !u!4 &212012821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212012819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1875, y: 60.90625, z: -123.14618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623539352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8511604438244322974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b441a050be8fb5e4bbf8509c6ce537fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874489890
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,5 +388,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5159253473823881053, guid: d810b5722d0b616498a2c5350e8bca6e,
         type: 3}
+    - target: {fileID: 8511604437025410431, guid: 85832096e81c76543bda792bf1e8810d,
+        type: 3}
+      propertyPath: iterationMax
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85832096e81c76543bda792bf1e8810d, type: 3}

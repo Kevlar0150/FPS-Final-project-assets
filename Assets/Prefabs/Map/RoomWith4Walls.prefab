@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6021151387419462517}
   - component: {fileID: 7109731803558047713}
   - component: {fileID: 2028179823888675171}
+  - component: {fileID: 4246258178288303641}
   m_Layer: 9
-  m_Name: default
-  m_TagString: Untagged
+  m_Name: RoomWith4WallsMesh
+  m_TagString: NavMesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,35 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: b01090fe04589a748b429e41374f65da, type: 3}
+--- !u!114 &4246258178288303641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427399321764290820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &2036594337313143663
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +478,9 @@ MonoBehaviour:
   transformArray:
   - {fileID: 824781605429618474}
   - {fileID: 8372739292555233885}
+  gunsOnly: 0
+  powerupsOnly: 0
+  swordOnly: 0
 --- !u!1 &4186139561723609926
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +657,7 @@ GameObject:
   - component: {fileID: 6000744836308512174}
   m_Layer: 0
   m_Name: RoomWith4Walls
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
