@@ -54,12 +54,9 @@ public class NavMeshBaker : MonoBehaviour
         // If levelgeneration has finished AND game hasn't built NavMesh for each mesh
         if (levelBuilder.hasRoomFinished() && !hasBaked)
         { 
-
-            // iterate through each mesh and build navigation mesh
-            for (int i = 0; i < roomArray.Length; i++)
-            {
-                navMeshSurfaces[i].BuildNavMesh();
-            }
+                navMeshSurfaces[0].overrideVoxelSize = true;
+                navMeshSurfaces[0].voxelSize = 0.3f;
+                navMeshSurfaces[0].BuildNavMesh(); //NO NEED TO USE A FOROOP TO BUILD NAVMESH for each room. Building navmesh once builds it for all connected rooms.
 
             // Bool to tell program that baking has completed.
             hasBaked = true; 

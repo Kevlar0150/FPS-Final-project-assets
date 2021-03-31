@@ -18,6 +18,9 @@ TagManager:
   - Shield
   - NavMesh
   - Room
+  - Boss
+  - HealthUI
+  - AmmoUI
   layers:
   - Default
   - TransparentFX

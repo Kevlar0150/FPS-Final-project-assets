@@ -6,12 +6,12 @@ public class HealthBarScript : MonoBehaviour
     private Image healthBar;
     public float currentHealth;
     private float maxHealth;
-    Player player;
+    [SerializeField]Player player;
 
     private void Start()
     {
         healthBar = GetComponent<Image>(); // Get Image component
-        player = FindObjectOfType<Player>(); // Get player object
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();// Get player object
     }
 
     private void Update()

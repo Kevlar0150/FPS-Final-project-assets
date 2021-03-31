@@ -14,7 +14,9 @@ public class AmmoCount : MonoBehaviour
     GameObject shotgunPrefab;
     // Start is called before the first frame update
     void Start()
-    {}
+    {
+        ammoCount = GameObject.FindGameObjectWithTag("AmmoUI").GetComponent<Text>();
+    }
 
     // Update is called once per frame
     void Update()

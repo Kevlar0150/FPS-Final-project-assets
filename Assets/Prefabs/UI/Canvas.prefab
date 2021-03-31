@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6226437764047740653}
   m_Layer: 5
   m_Name: HealthRepresentation
-  m_TagString: Untagged
+  m_TagString: HealthUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  player: {fileID: 0}
 --- !u!1 &6226437764234864548
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +277,7 @@ GameObject:
   - component: {fileID: 6226437764947811255}
   m_Layer: 5
   m_Name: AmmoCount
-  m_TagString: Untagged
+  m_TagString: AmmoUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

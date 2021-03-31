@@ -47,9 +47,10 @@ public class Enemy : MonoBehaviour
     public float waitTimer;
 
     //References
-    Transform player;
+    [SerializeField]Transform player;
     Transform EnemyParent;
     Transform PatrolPoints;
+    Animator anim;
 
     // Start is called before the first frame update
     [System.Obsolete]
@@ -59,6 +60,8 @@ public class Enemy : MonoBehaviour
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         lifeTimer = lifeDuration;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        anim = GetComponent<Animator>();
+        NavMeshPath path = new NavMeshPath();
 
         //Add patrol points into list
         EnemyParent = transform.parent;
@@ -115,6 +118,8 @@ public class Enemy : MonoBehaviour
                 {
                     ChangeWaypoint();
                     SetDestination();
+
+                   
                 }
 
                 Patrol(distanceToWalkPoint); // Patrol between points
@@ -135,6 +140,9 @@ public class Enemy : MonoBehaviour
     private void Patrol(Vector3 distanceToWalkPoint)
     {
         Debug.Log("Patrolling");
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isAttacking", false);
+
         if (patrolling && distanceToWalkPoint.x <= 3.0f && distanceToWalkPoint.z <=3.0f) // If patrolling AND destination has been reached
         {
             patrolling = false; // NPC stops patrolling
@@ -154,14 +162,15 @@ public class Enemy : MonoBehaviour
    
         if (waiting)     // If NPC is waiting
         {
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isAttacking", false);
             waitTimer += Time.deltaTime; // Increase waitTimer
 
             if (waitTimer >= timeWaiting) // If waitTimer has reached the specified time to wait then...
             {
                 waiting = false; // No longer waiting
                 ChangeWaypoint();
-                SetDestination();
-               
+                SetDestination();         
             }
         }
     }
@@ -173,21 +182,28 @@ public class Enemy : MonoBehaviour
 
     private void SetDestination() // Set new waypoint for NPC to travel to
     {
+
         if (waypointList != null)
         {
             Vector3 targetVector = waypointList[currentWaypointIndex].transform.position;
             navMeshAgent.SetDestination(targetVector);
             patrolling = true;
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isAttacking", false);
         }
     }
     private void Chase()
     {
-        // Debug.Log("Chasing");
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isAttacking", false);
+        Debug.Log("Chasing");
         navMeshAgent.SetDestination(player.position);
     }
 
     private void Attack()
     {
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isAttacking", true);
         //Debug.Log("Attacking");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
