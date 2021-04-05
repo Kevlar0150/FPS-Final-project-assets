@@ -36,7 +36,8 @@ public class EnergyCannon : MonoBehaviour
         magSizeCapacity = magSize;
         bulletsRemaining = gunClipSize;
 
-        player = player = GameObject.FindGameObjectWithTag("Player").transform;
+        // Initialise references and prefabs
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         playerCamera = player.GetChild(2).transform;
         anim = GetComponent<Animator>();
 

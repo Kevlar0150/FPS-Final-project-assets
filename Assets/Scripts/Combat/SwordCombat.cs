@@ -61,7 +61,7 @@ public class SwordCombat : MonoBehaviour
                                 // This is so that we don't shoot ourselves.
         if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward, out hit, attackRange, layerMask))
         {
-            if (hit.collider.tag == "Enemy")
+            if (hit.collider.tag == "BossEnemy")
             {
                 Debug.Log("OUCH");
                 enemy = hit.collider.transform.GetComponent<Enemy>();

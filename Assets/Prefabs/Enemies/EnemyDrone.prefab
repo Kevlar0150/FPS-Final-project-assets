@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 8709617415690881241}
   - component: {fileID: 8709617415683139387}
   - component: {fileID: 8709617415197018462}
-  - component: {fileID: 8709617415197018463}
   - component: {fileID: 8709617415197018450}
   - component: {fileID: 1680240467017951341}
   - component: {fileID: 1872217096}
@@ -265,19 +264,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8709617415197018463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8709617415690392825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.887918, y: 0.8298335, z: 1.5185261}
-  m_Center: {x: -2.7124434e-15, y: 0, z: -0.37482715}
 --- !u!114 &8709617415197018450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,17 +276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eaf60f367de9ee4b997cbadbb8a0ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 50
+  enemyHealth: 100
   patrolWaiting: 1
   timeWaiting: 2
   waypointList: []
   projectilePrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   muzzle: {fileID: 1511408419}
+  attackDamage: 0
   timeBetweenAttacks: 2
-  sightRange: 20
-  attackRange: 11
+  timeBetweenShots: 0
+  sightRange: 22
+  attackRange: 0
+  shootRange: 13
   playerInSightRange: 0
-  playerInAttackRange: 0
+  playerInAttackRange: 1
+  playerInShootRange: 0
   Ground:
     serializedVersion: 2
     m_Bits: 512
@@ -324,8 +314,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65701914, y: 0.9305482, z: 3.5894299}
-  m_Center: {x: -4.1222315e-15, y: -0.063025236, z: -0.5460136}
+  m_Size: {x: 3.7567797, y: 0.9305482, z: 3.5894299}
+  m_Center: {x: -0.009172142, y: -0.063025236, z: -0.5460136}
 --- !u!195 &1872217096
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -336,7 +326,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -94,7 +94,7 @@ public class Gun_raycast : MonoBehaviour
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
 
-            // If ray hit info is Enemy, meaning if bullet hits the enemy then damage enemy
+            // If ray hit info is BossEnemy, meaning if bullet hits the enemy then damage enemy
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if (enemy != null)
             {

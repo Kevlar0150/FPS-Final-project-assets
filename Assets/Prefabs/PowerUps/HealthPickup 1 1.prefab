@@ -137,7 +137,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  forceFactor: 10
+  forceFactor: 20
+  playerInMagnetRange: 0
+  magnetRange: 17
+  Player:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1001 &498594177143934199
 PrefabInstance:
   m_ObjectHideFlags: 0

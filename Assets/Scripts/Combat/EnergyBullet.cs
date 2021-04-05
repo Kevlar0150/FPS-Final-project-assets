@@ -35,9 +35,13 @@ public class EnergyBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // If we want collision to occur when specified object is hit add "if (collision.gameObject.tag == "Something")"
-        GameObject impactVFXObject = Instantiate(impactVFX,transform.position,transform.rotation);
-        DestroyObject(gameObject);
-        Destroy(impactVFXObject, 1.7f);
+        if (collision.gameObject.name != "EnergyBullet(Clone)")
+        {
+            GameObject impactVFXObject = Instantiate(impactVFX, transform.position, transform.rotation);
+            DestroyObject(gameObject);
+            Destroy(impactVFXObject, 1.7f);
+        }
+        
 
         // Damage player
         Enemy enemyObject = collision.transform.GetComponent<Enemy>(); // Gets Player component when collides Player - Allows us to call functions in Player script.

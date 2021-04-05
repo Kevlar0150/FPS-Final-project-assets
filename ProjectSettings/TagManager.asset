@@ -21,6 +21,8 @@ TagManager:
   - Boss
   - HealthUI
   - AmmoUI
+  - SpidersLeg
+  - BossRightLeg
   layers:
   - Default
   - TransparentFX

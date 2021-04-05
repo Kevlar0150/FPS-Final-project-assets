@@ -538,6 +538,9 @@ GameObject:
   - component: {fileID: 8069723392809427024}
   - component: {fileID: -2772058821789201872}
   - component: {fileID: -5070123383228381942}
+  - component: {fileID: -4152554656566205020}
+  - component: {fileID: -8348244108663011230}
+  - component: {fileID: -1669087973849666550}
   m_Layer: 0
   m_Name: OrangeSpider
   m_TagString: Enemy
@@ -558,6 +561,7 @@ Transform:
   m_Children:
   - {fileID: 360187084987576832}
   - {fileID: 360171547345143572}
+  - {fileID: 351778561500732479}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -601,11 +605,15 @@ MonoBehaviour:
   waypointList: []
   projectilePrefab: {fileID: 0}
   muzzle: {fileID: 0}
-  timeBetweenAttacks: 0
+  attackDamage: 15
+  timeBetweenAttacks: 1.4
+  timeBetweenShots: 0
   sightRange: 15
-  attackRange: 2.5
+  attackRange: 2
+  shootRange: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  playerInShootRange: 0
   Ground:
     serializedVersion: 2
     m_Bits: 512
@@ -748,6 +756,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentToDebug: {fileID: 7023735169039323237}
   lineRenderer: {fileID: -2772058821789201872}
+--- !u!54 &-4152554656566205020
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357371623635308830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-8348244108663011230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357371623635308830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2049992, y: 1.262074, z: 2.9550312}
+  m_Center: {x: -0.17380369, y: 0.42313933, z: 0.022484422}
+--- !u!114 &-1669087973849666550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357371623635308830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24b1843c898f92439781e33b4b42ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootToBeSpawned:
+  - {fileID: 4100940436265368255, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
+  - {fileID: 2597738102656069436, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
+  - {fileID: 2514796163887826586, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
+  minNumberOfLoot: 3
+  maxNumberOfLoot: 10
+  spawnPoint: {fileID: 351778561500732479}
+  hasBeenCollected: 0
+  spawnLoot: 0
 --- !u!1 &357374499986481264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1129,7 @@ GameObject:
   - component: {fileID: 360187084987576832}
   - component: {fileID: 366491313646379306}
   m_Layer: 0
-  m_Name: Spider
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,3 +1218,33 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000050750095, y: -0.0009142313, z: 0.000008250587}
     m_Extent: {x: 0.004060234, y: 0.0012699604, z: 0.004052602}
   m_DirtyAABB: 0
+--- !u!1 &7941711012797603466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351778561500732479}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351778561500732479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941711012797603466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.806, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 351684947144877174}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

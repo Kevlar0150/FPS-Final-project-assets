@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("ROOM FINISHED GENERATING");
             for (int i = 0; i <= transformArray.Length; i++)
             {
-                Instantiate(enemyArray[Random.Range(0,3)], transformArray[i]);
+                Instantiate(enemyArray[Random.Range(0,enemyArray.Length)], transformArray[i]);
                 hasEnemySpawned = true;
             }
         }

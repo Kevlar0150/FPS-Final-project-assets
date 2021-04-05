@@ -16,6 +16,7 @@ public class HealthBarScript : MonoBehaviour
 
     private void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();// Get player object
         currentHealth = player.health; // Current health variable gets Player health variable.
         maxHealth = player.maxHealth; // Max health variable gets player's max Health variable.
         healthBar.fillAmount = currentHealth / maxHealth; // fill the healthbar based on currentHealth/maxHealth

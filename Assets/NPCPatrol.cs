@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class NPCPatrol : MonoBehaviour
 {
-    // Enemy health
+    // BossEnemy health
     public float enemyHealth = 50f;
 
     // Has the agent wait at a node for specified amount of time.
@@ -188,7 +188,7 @@ public class NPCPatrol : MonoBehaviour
         if (enemyHealth <= 0)
         {
             hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
-            transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the Enemy mesh and DISABLE IT
+            transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the BossEnemy mesh and DISABLE IT
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
         }
