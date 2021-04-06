@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("Jump");
             //velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity); // Increase the players y velocity by Square root of jump height *-2 * gravity. ( Formula Taken from Unity Documentation )
-            playerKnockback();
         }
         velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
         controller.Move(velocity * Time.deltaTime); // // moves the GameObject in all XYZ values in the given direction 
