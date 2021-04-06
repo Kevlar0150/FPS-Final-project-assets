@@ -221,15 +221,13 @@ public class BossEnemy : MonoBehaviour
     {
         RightLeg.enabled = true;
         anim.SetBool("isWalking", false);
-        
-
+        anim.SetBool("isAttacking", true);
         navMeshAgent.SetDestination(transform.position);
-
+        navMeshAgent.transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         if (!hasAttacked)
         {
-            anim.SetBool("isAttacking", true);           
+                    
             hasAttacked = true;
-            //player.GetComponent<Player>().TakeDamage(35);
             Invoke(nameof(ResetAttack), timeBetweenAttacks); // Invoke resetAttack function after timeBetweenAttacks time has ended
         }
     }

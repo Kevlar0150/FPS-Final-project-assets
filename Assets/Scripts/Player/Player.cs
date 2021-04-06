@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     // Player Buff properties
     public float speedBoostDuration = 5f;
     public float speedBoostTimer;
+    private float maxSpeedIncrease = 15;
 
     //Boo;s
     bool isGrounded;
@@ -102,7 +103,13 @@ public class Player : MonoBehaviour
     {
         speedBuffOn = speedBoost;
         if (speedBuffOn) // If true, multiply speed
-        {  speed *= multiplier; }
+        {
+            speed *= multiplier;
+            if (speed >= maxSpeedIncrease)
+            {
+                speed = maxSpeedIncrease;
+            }
+        }
 
         else // If false, set speed to default.
         {  speed = defaultSpeed; }
@@ -119,7 +126,8 @@ public class Player : MonoBehaviour
                 TakeDamage(35);
                 hit = true;
             }
-        }
-        
+        }      
     }
+
+    priva
 }
