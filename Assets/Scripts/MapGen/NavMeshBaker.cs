@@ -32,7 +32,6 @@ public class NavMeshBaker : MonoBehaviour
         // If levelgeneration has finished AND game hasn't added rooms to List
         if (levelBuilder.hasRoomFinished() && !hasAddedRoom)
         {
-            Debug.Log("Adding");
 
             // If iteration index is less than the amount of rooms in the scene...
             if (index < roomArray.Length) 
