@@ -103,7 +103,7 @@ public class BossEnemy : MonoBehaviour
         RightLeg.enabled = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 distanceToWalkPoint = transform.position - waypointList[currentWaypointIndex].transform.position;
-
+        
         if (hasDied) // If enemy has died
         {
             lifeTimer -= Time.deltaTime; // Start timer
@@ -221,14 +221,15 @@ public class BossEnemy : MonoBehaviour
     {
         RightLeg.enabled = true;
         anim.SetBool("isWalking", false);
-        anim.SetBool("isAttacking", true);
+        
 
         navMeshAgent.SetDestination(transform.position);
 
         if (!hasAttacked)
         {
+            anim.SetBool("isAttacking", true);           
             hasAttacked = true;
-            player.GetComponent<Player>().TakeDamage(35);
+            //player.GetComponent<Player>().TakeDamage(35);
             Invoke(nameof(ResetAttack), timeBetweenAttacks); // Invoke resetAttack function after timeBetweenAttacks time has ended
         }
     }
@@ -236,6 +237,7 @@ public class BossEnemy : MonoBehaviour
     private void ResetAttack() // Sets bool "hasAttacked" to false;
     {
         hasAttacked = false;
+        anim.SetBool("isAttacking", false);
     }
 
     private void Shoot()
