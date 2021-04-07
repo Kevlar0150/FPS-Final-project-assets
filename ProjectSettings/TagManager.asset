@@ -23,6 +23,8 @@ TagManager:
   - AmmoUI
   - SpidersLeg
   - BossRightLeg
+  - Mesh
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

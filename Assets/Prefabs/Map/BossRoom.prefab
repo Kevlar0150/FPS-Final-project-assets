@@ -655,6 +655,8 @@ MonoBehaviour:
   gunsOnly: 0
   powerupsOnly: 1
   swordOnly: 0
+  timedLoot: 1
+  spawnTimer: 15
 --- !u!1 &3857461326801655983
 GameObject:
   m_ObjectHideFlags: 0

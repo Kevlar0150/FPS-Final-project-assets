@@ -17,6 +17,10 @@ public class ItemSpawner : MonoBehaviour
     public bool gunsOnly = false;
     public bool powerupsOnly = false;
     public bool swordOnly = false;
+    public bool timedLoot = false;
+
+    public float spawnTimer = 15.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,19 +49,13 @@ public class ItemSpawner : MonoBehaviour
 
         //SWORD ONLY
         if (swordOnly && !powerupsOnly && !gunsOnly)
-        {     
-                Instantiate(swordSpawn, transformArray[Random.Range(0, transformArray.Length)]);
+        {
+            Instantiate(swordSpawn, transformArray[Random.Range(0, transformArray.Length)]);
         }
 
+      
         //POWER UPS ONLY
-        if (powerupsOnly && !gunsOnly && !swordOnly)
-        {
-            for (int i = 0; i < transformArray.Length; i++)
-            {
-                int powerupNumber = Random.Range(0, lootArray.Length);
-                Instantiate(lootArray[powerupNumber], transformArray[i]);
-            }
-        }
+        SpawnPowerUps();
 
         //ALL ITEMS 
         if (powerupsOnly && gunsOnly && swordOnly)
@@ -72,12 +70,12 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(gunArray[gunNumber], transformArray[i]);
                 }
 
-                if (itemRandomNumber == 1 ) // Select Energy cannon
+                if (itemRandomNumber == 1) // Select Energy cannon
                 {
                     Instantiate(energyCannonSpawn, transformArray[i]);
                 }
 
-                if (itemRandomNumber == 2 ) // Select sword
+                if (itemRandomNumber == 2) // Select sword
                 {
                     Instantiate(swordSpawn, transformArray[i]);
                 }
@@ -165,9 +163,29 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
+    private void SpawnPowerUps()
+    {
+        if (powerupsOnly && !gunsOnly && !swordOnly)
+        {
+            for (int i = 0; i < transformArray.Length; i++)
+            {
+                int powerupNumber = Random.Range(0, lootArray.Length);
+                Instantiate(lootArray[powerupNumber], transformArray[i]);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        spawnTimer-= Time.deltaTime;
+        if (timedLoot)
+        {
+            if (spawnTimer <= 0)
+            {
+                SpawnPowerUps();
+                spawnTimer = 15;
+            }
+        }        
     }
 }

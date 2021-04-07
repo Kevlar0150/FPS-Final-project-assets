@@ -36,7 +36,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         Debug.Log(collision.transform.name);
         // Impact VFX when projectil collides with anything
-        if (collision.gameObject.name != "BossProjectile(Clone)" || collision.gameObject.name != "MediumMechStrikerRed(Clone)")
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.transform.tag != "EnemyProjectile")
         {
             DestroyObject(gameObject);
             GameObject impactVFXObject = Instantiate(impactVFX, transform.position, transform.rotation);

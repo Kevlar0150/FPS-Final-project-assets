@@ -12,6 +12,8 @@ public class BossEnemy : MonoBehaviour
 {
     // BossEnemy health
     public float enemyHealth = 50f;
+    private float enemyMaxHealth;
+    private bool isEnraged = false;
 
     // Has the agent wait at a node for specified amount of time.
     public bool patrolWaiting;
@@ -74,6 +76,8 @@ public class BossEnemy : MonoBehaviour
         EnemyParent = transform.parent;
         Debug.Log(PatrolPoints = EnemyParent.GetChild(0));
         PatrolPoints = EnemyParent.GetChild(0);
+
+        enemyMaxHealth = enemyHealth;
 
         // Foreach child transform in PatrolPoints Gameobject, add child to list
         foreach (Transform child in PatrolPoints)
@@ -150,7 +154,7 @@ public class BossEnemy : MonoBehaviour
             }
 
             // If health below threshold, buff the enemy
-            if (enemyHealth <= 40)
+            if (enemyHealth <= (0.4*enemyMaxHealth))
             {
                 Enrage();
             }
@@ -243,8 +247,8 @@ public class BossEnemy : MonoBehaviour
         anim.SetBool("isWalking", false);
 
         navMeshAgent.SetDestination(transform.position);
-        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        muzzle.transform.LookAt(player);
+        navMeshAgent.transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        //muzzle.transform.LookAt(player);
 
         if (!hasShot) // If enemy hasn't shot yet, then SHOOT
         {
@@ -284,11 +288,15 @@ public class BossEnemy : MonoBehaviour
     {
         // Turn on shutdown and startup animation;
         Debug.Log("enraged");
-        navMeshAgent.speed = 10.5f;
-        navMeshAgent.angularSpeed = 200f;
-        numOfProjectilesShot = 8;
-        sightRange = 35.0f;
-        shootRange = 30.0f;
+        if (!isEnraged)
+        {
+            navMeshAgent.speed = 10.5f;
+            navMeshAgent.angularSpeed = 200f;
+            numOfProjectilesShot = 20;
+            sightRange = 50.0f;
+            shootRange = 40.0f;
+            isEnraged = true;
+        }       
     }
     // Draws radius of attackRange and sightRange for debugging
     private void OnDrawGizmosSelected()

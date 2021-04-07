@@ -17,6 +17,7 @@ public class SwordCombat : MonoBehaviour
     public Transform player;
 
     Enemy enemy;
+    BossEnemy boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,11 +62,17 @@ public class SwordCombat : MonoBehaviour
                                 // This is so that we don't shoot ourselves.
         if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward, out hit, attackRange, layerMask))
         {
-            if (hit.collider.tag == "BossEnemy")
+            if (hit.collider.tag == "Enemy")
             {
                 Debug.Log("OUCH");
                 enemy = hit.collider.transform.GetComponent<Enemy>();
                 enemy.TakeDamage(damage);
+            }
+            if (hit.collider.tag == "Boss")
+            {
+                Debug.Log("OUCH");
+                boss = hit.collider.transform.GetComponent<BossEnemy>();
+                boss.TakeDamage(damage);
             }
         }
     }

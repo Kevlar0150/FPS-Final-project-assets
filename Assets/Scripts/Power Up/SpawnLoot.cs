@@ -52,6 +52,7 @@ public class SpawnLoot : MonoBehaviour
     }
     public void setSpawnLoot(bool isSpawned)
     {
+        Debug.Log("SPAWNED LOOT BOSS");
         spawnLoot = isSpawned;
     }
 }
