@@ -235,13 +235,17 @@ public class Enemy : MonoBehaviour
             enemyProjectile.transform.forward = gameObject.transform.forward;
 
             hasShot = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks); // Invoke resetAttack function after timeBetweenAttacks time has ended
+            Invoke(nameof(ResetShot), timeBetweenShots); // Invoke resetAttack function after timeBetweenAttacks time has ended
         }
     }
 
     private void ResetAttack() // Sets bool "hasAttacked" to false;
     {
         hasAttacked = false;
+        
+    }
+    private void ResetShot()
+    {
         hasShot = false;
     }
     public void TakeDamage(float damage) // Function to handle enemy taking damage

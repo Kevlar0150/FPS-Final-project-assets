@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76deb54f4f711214686d835348eae67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 2500
+  enemyHealth: 1500
   patrolWaiting: 1
   timeWaiting: 2
   waypointList: []

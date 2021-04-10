@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public Enemy[] enemyArray; // Array of enemies to be spawned
 
-    public Transform[] transformArray; // Array of transforms specifying location to spawn the enemies.
+    public Transform[] spawnPositions; // Array of transforms specifying location to spawn the enemies.
 
     LevelBuilder levelBuilder;
 
@@ -25,9 +25,9 @@ public class EnemySpawner : MonoBehaviour
         if (levelBuilder.hasRoomFinished() == true && hasEnemySpawned == false) // If level structure has finished generating, then start spawning 
         {
             Debug.Log("ROOM FINISHED GENERATING");
-            for (int i = 0; i <= transformArray.Length; i++)
+            for (int i = 0; i <= spawnPositions.Length; i++)
             {
-                Instantiate(enemyArray[Random.Range(0,enemyArray.Length)], transformArray[i]);
+                Instantiate(enemyArray[Random.Range(0,enemyArray.Length)], spawnPositions[i]);
                 hasEnemySpawned = true;
             }
         }

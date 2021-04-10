@@ -421,7 +421,7 @@ MonoBehaviour:
   enemyArray:
   - {fileID: 8709617415197018450, guid: b79020e240b95b740b2bc9c2ebcd3c76, type: 3}
   - {fileID: 7357940197301558838, guid: 857ac6cb190bfd54d905aa7b780e6351, type: 3}
-  transformArray:
+  spawnPositions:
   - {fileID: 604519535329345008}
   - {fileID: 1081288215686284426}
   - {fileID: 7499198519578800270}
@@ -731,6 +731,8 @@ MonoBehaviour:
   gunsOnly: 1
   powerupsOnly: 1
   swordOnly: 0
+  timedLoot: 0
+  spawnTimer: 15
 --- !u!1 &4153491042877760865
 GameObject:
   m_ObjectHideFlags: 0

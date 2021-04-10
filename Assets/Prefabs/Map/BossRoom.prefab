@@ -1289,10 +1289,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7901094082837829934}
-  - component: {fileID: 7770062769159050400}
   - component: {fileID: 1220395219}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: BossSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,22 +1312,6 @@ Transform:
   m_Father: {fileID: 3404495565044460230}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7770062769159050400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615238157018292961}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc8e1d7548325e49a587cf4f5653954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyArray:
-  - {fileID: 8709617415197018450, guid: b79020e240b95b740b2bc9c2ebcd3c76, type: 3}
-  transformArray:
-  - {fileID: 1623709983691906166}
 --- !u!114 &1220395219
 MonoBehaviour:
   m_ObjectHideFlags: 0

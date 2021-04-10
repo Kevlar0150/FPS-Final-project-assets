@@ -283,8 +283,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   muzzle: {fileID: 1511408419}
   attackDamage: 0
-  timeBetweenAttacks: 2
-  timeBetweenShots: 0
+  timeBetweenAttacks: 0
+  timeBetweenShots: 2
   sightRange: 22
   attackRange: 0
   shootRange: 13
