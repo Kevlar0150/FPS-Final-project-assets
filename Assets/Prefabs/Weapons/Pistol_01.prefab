@@ -262,7 +262,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 8110665490877980868}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
-  player: {fileID: 0}
+  player: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
 --- !u!54 &1614821631
 Rigidbody:
   m_ObjectHideFlags: 0

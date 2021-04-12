@@ -132,6 +132,11 @@ public class Gun_raycast : MonoBehaviour
                     {
                         enemy.TakeDamage(damage);
                     }
+                    BossEnemy boss = hitInfo.transform.GetComponent<BossEnemy>();
+                    if (boss != null)
+                    {
+                        boss.TakeDamage(damage);
+                    }
                 }
             }
         }
