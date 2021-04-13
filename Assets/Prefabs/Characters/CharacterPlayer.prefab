@@ -227,8 +227,6 @@ MonoBehaviour:
   controller: {fileID: 6082130895114499756}
   defaultSpeed: 10
   speed: 10
-  knockBackForce: 0
-  knockBackTime: 0
   gravity: -18
   jumpForce: 1.4
   groundCheck: {fileID: 6082130896117205198}
@@ -369,7 +367,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
+  m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
