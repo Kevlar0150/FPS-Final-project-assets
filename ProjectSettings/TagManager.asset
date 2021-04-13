@@ -25,6 +25,7 @@ TagManager:
   - BossRightLeg
   - Mesh
   - EnemyProjectile
+  - BossRoom
   layers:
   - Default
   - TransparentFX

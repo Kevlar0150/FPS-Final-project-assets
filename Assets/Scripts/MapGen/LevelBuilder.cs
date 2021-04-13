@@ -17,12 +17,14 @@ public class LevelBuilder : MonoBehaviour
 	StartRoom startRoom;
 	EndRoom endRoom;
 	List<Room> placedRooms = new List<Room> ();
+	Room currentRoom;
 
 	LayerMask roomLayerMask;
 
 	Player player;
 
 	bool generatorFinished = false;
+	bool bossRoomSpawned = false;
 
 	void Start ()
 	{
@@ -106,9 +108,23 @@ public class LevelBuilder : MonoBehaviour
 
 	void PlaceRoom ()
 	{
-		// Instantiate room
-		Room currentRoom = Instantiate (roomPrefabs [Random.Range (0, roomPrefabs.Count)]) as Room;
-		currentRoom.transform.parent = this.transform;
+		
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag("BossRoom");
+
+		// If number of BossRooms found is 1 then stop spawning it
+		if (gos.Length == 1)
+		{
+			Debug.Log("BOSS ROOM SPAWNED");
+			currentRoom = Instantiate(roomPrefabs[Random.Range(4, roomPrefabs.Count)]) as Room;
+			currentRoom.transform.parent = this.transform;
+		}
+		// Else have a chance to spawn it (Look at Room Array in Level builder to change probability of Boss room spawning)
+		else
+		{
+			currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)]) as Room;
+			currentRoom.transform.parent = this.transform;
+		}
 
 		// Create doorway lists to loop over
 		List<Doorway> allAvailableDoorways = new List<Doorway> (availableDoorways);
@@ -160,6 +176,15 @@ public class LevelBuilder : MonoBehaviour
 		if (!roomPlaced) {
 			Destroy (currentRoom.gameObject);
 			ResetLevelGenerator ();
+			bossRoomSpawned = false;
+		}
+
+		// If generator finished AND boss room hasn't been placed, Restart generator and try again
+		if (generatorFinished && gos.Length <= 0)
+		{
+			Destroy(currentRoom.gameObject);
+			ResetLevelGenerator();
+			bossRoomSpawned = false;
 		}
 	}
 
