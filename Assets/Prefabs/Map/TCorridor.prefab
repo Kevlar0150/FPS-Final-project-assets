@@ -981,7 +981,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5717068657582105042}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 20, y: 7, z: 35}
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
   - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
   - {fileID: 2748958050049784714, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
-  gunArray: []
+  gunList: []
   energyCannonSpawn: {fileID: 0}
   swordSpawn: {fileID: 0}
   transformArray:

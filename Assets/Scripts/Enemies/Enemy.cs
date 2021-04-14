@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
     public bool waiting;
     public bool moveForward;
     public float waitTimer;
+    public GameObject deathExplosion;
 
     //References
     [SerializeField]Transform player;
@@ -167,7 +168,7 @@ public class Enemy : MonoBehaviour
             }
         }
    
-        if (waiting)     // If NPC is waiting
+        if (waiting) // If NPC is waiting
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isAttacking", false);
@@ -254,6 +255,10 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
+            //Instantiate explosion VFX
+            GameObject impactVFXObject = Instantiate(deathExplosion, transform.position, transform.rotation);
+            Destroy(impactVFXObject, 1.7f);
+
             hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
             transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the Enemy mesh and DISABLE IT
             transform.GetComponent<BoxCollider>().enabled = false;

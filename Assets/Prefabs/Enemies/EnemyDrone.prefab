@@ -285,11 +285,11 @@ MonoBehaviour:
   attackDamage: 0
   timeBetweenAttacks: 0
   timeBetweenShots: 2
-  sightRange: 22
+  sightRange: 25
   attackRange: 0
-  shootRange: 13
+  shootRange: 17.5
   playerInSightRange: 0
-  playerInAttackRange: 1
+  playerInAttackRange: 0
   playerInShootRange: 0
   Ground:
     serializedVersion: 2
@@ -302,6 +302,8 @@ MonoBehaviour:
   waiting: 0
   moveForward: 0
   waitTimer: 0
+  deathExplosion: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
+    type: 3}
   player: {fileID: 0}
 --- !u!65 &1680240467017951341
 BoxCollider:
@@ -334,8 +336,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 3
+  m_Height: 10
+  m_BaseOffset: 6
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1591086806

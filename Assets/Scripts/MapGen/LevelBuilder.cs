@@ -113,7 +113,7 @@ public class LevelBuilder : MonoBehaviour
 		gos = GameObject.FindGameObjectsWithTag("BossRoom");
 
 		// If number of BossRooms found is 1 then stop spawning it
-		if (gos.Length == 1)
+		if (gos.Length >= 1)
 		{
 			Debug.Log("BOSS ROOM SPAWNED");
 			currentRoom = Instantiate(roomPrefabs[Random.Range(4, roomPrefabs.Count)]) as Room;
@@ -182,6 +182,7 @@ public class LevelBuilder : MonoBehaviour
 		// If generator finished AND boss room hasn't been placed, Restart generator and try again
 		if (generatorFinished && gos.Length <= 0)
 		{
+			Debug.Log("BOSS ROOM NOT SPAWNED");
 			Destroy(currentRoom.gameObject);
 			ResetLevelGenerator();
 			bossRoomSpawned = false;

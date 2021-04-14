@@ -45,7 +45,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417687908006798009}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100000000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -64,8 +64,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09812844, y: 0.1515678, z: 3.4537215}
-  m_Center: {x: 0.011499427, y: 0.005380103, z: 1.2268618}
+  m_Size: {x: 0.32344484, y: 0.33403262, z: 3.4537308}
+  m_Center: {x: 0.016131582, y: -0.005391591, z: 1.2268573}
 --- !u!95 &6419069626403114620
 Animator:
   serializedVersion: 3
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417687908006798009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 703820dcc2aaf694fb529aa9dba6a029, type: 3}
   m_Name: 
@@ -102,6 +102,7 @@ MonoBehaviour:
   attackSpeed: 0
   attackCooldown: 0
   playerCamera: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1452415254864144
 MonoBehaviour:
   m_ObjectHideFlags: 0

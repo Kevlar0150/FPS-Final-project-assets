@@ -732,7 +732,7 @@ MonoBehaviour:
   - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
   - {fileID: 2748958050049784714, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
   - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
-  gunArray: []
+  gunList: []
   energyCannonSpawn: {fileID: 0}
   swordSpawn: {fileID: 0}
   transformArray:
@@ -740,10 +740,10 @@ MonoBehaviour:
   - {fileID: 2060487184019181455}
   - {fileID: 7930892016965702463}
   gunsOnly: 0
-  powerupsOnly: 0
+  powerupsOnly: 1
   swordOnly: 0
-  timedLoot: 0
-  spawnTimer: 15
+  timedLoot: 1
+  spawnTimer: 30
 --- !u!1 &5960017050174659003
 GameObject:
   m_ObjectHideFlags: 0

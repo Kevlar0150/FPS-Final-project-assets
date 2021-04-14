@@ -55,10 +55,24 @@ public class BossEnemy : MonoBehaviour
 
     //References
     [SerializeField] Transform player;
-    Collider RightLeg;
-    Transform EnemyParent;
-    Transform PatrolPoints;
+    Collider rightLeg;
+    Transform enemyParent;
+    Transform patrolPoints;
     Animator anim;
+
+    //VFX Variables
+    public Transform armLeft;
+    public Transform armRight;
+
+    GameObject flameVFXObject;
+    GameObject smokeVFXObject;
+    GameObject deathVFXObject;
+    GameObject deathVFXObject2;
+
+    public GameObject deathExplosion;
+    public GameObject deathExplosion2;
+    public GameObject flame;
+    public GameObject smoke;
 
     // Start is called before the first frame update
     [System.Obsolete]
@@ -68,19 +82,19 @@ public class BossEnemy : MonoBehaviour
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         lifeTimer = lifeDuration;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        RightLeg = gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<BoxCollider>();
+        rightLeg = gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         NavMeshPath path = new NavMeshPath();
 
         //Add patrol points into list
-        EnemyParent = transform.parent;
-        Debug.Log(PatrolPoints = EnemyParent.GetChild(0));
-        PatrolPoints = EnemyParent.GetChild(0);
+        enemyParent = transform.parent;
+        Debug.Log(patrolPoints = enemyParent.GetChild(0));
+        patrolPoints = enemyParent.GetChild(0);
 
         enemyMaxHealth = enemyHealth;
 
         // Foreach child transform in PatrolPoints Gameobject, add child to list
-        foreach (Transform child in PatrolPoints)
+        foreach (Transform child in patrolPoints)
         {
             waypointList.Add(child);
         }
@@ -104,7 +118,7 @@ public class BossEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RightLeg.enabled = false;
+        rightLeg.enabled = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 distanceToWalkPoint = transform.position - waypointList[currentWaypointIndex].transform.position;
         
@@ -157,6 +171,7 @@ public class BossEnemy : MonoBehaviour
             if (enemyHealth <= (0.4*enemyMaxHealth))
             {
                 Enrage();
+             
             }
         }
     }
@@ -223,7 +238,7 @@ public class BossEnemy : MonoBehaviour
 
     private void Attack()
     {
-        RightLeg.enabled = true;
+        rightLeg.enabled = true;
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", true);
         navMeshAgent.SetDestination(transform.position);
@@ -277,6 +292,12 @@ public class BossEnemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
+            deathVFXObject = Instantiate(deathExplosion, transform.position, transform.rotation);
+            Destroy(deathVFXObject, 1.7f);
+
+            deathVFXObject2 = Instantiate(deathExplosion2, transform.position + new Vector3(0,2,0), transform.rotation);
+            Destroy(deathVFXObject2);
+
             hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
             transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the BossEnemy mesh and DISABLE IT
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -290,6 +311,7 @@ public class BossEnemy : MonoBehaviour
         Debug.Log("enraged");
         if (!isEnraged)
         {
+
             navMeshAgent.speed = 10.5f;
             navMeshAgent.angularSpeed = 200f;
             numOfProjectilesShot = 20;

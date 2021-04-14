@@ -718,10 +718,7 @@ MonoBehaviour:
   - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
   - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
   - {fileID: 2748958050049784714, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
-  gunArray:
-  - {fileID: 2992837780148544337, guid: f95e14a7ad10fa0458017c115614b8a6, type: 3}
-  - {fileID: 1191202725, guid: 57bf5071e0a1c8947b8918a8f96184a6, type: 3}
-  - {fileID: 6964048101013514087, guid: 27f4756ce0dd00a40ab6219d225daf9c, type: 3}
+  gunList: []
   energyCannonSpawn: {fileID: 1861479645, guid: fff2257acb37d16428811a2f8a74c894,
     type: 3}
   swordSpawn: {fileID: 0}

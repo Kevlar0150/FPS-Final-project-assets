@@ -6,7 +6,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public PowerUps[] lootArray; // Array of power ups that can be picked up
 
-    public Gun_raycast[] gunArray;// Array of guns that can be equipped
+    public List<Gun_raycast> gunList = new List<Gun_raycast>();
 
     public EnergyCannon energyCannonSpawn; // A prefab of energyGun to be spawned in the room
 
@@ -18,6 +18,8 @@ public class ItemSpawner : MonoBehaviour
     public bool powerupsOnly = false;
     public bool swordOnly = false;
     public bool timedLoot = false;
+
+    private bool energyGunSpawned = false;
 
     public float spawnTimer = 15.0f;
 
@@ -32,17 +34,19 @@ public class ItemSpawner : MonoBehaviour
         {
             for (int i = 0; i < transformArray.Length; i++)
             {
-                int itemRandomNumber = Random.Range(0, 2); // Random number to select category of items
+                int itemRandomNumber = Random.Range(0, 1); // Random number to select category of items
 
                 if (itemRandomNumber == 0) // Selects gun category
                 {
-                    int gunNumber = Random.Range(0, gunArray.Length);
-                    Instantiate(gunArray[gunNumber], transformArray[i]);
+                    int gunNumber = Random.Range(0, gunList.Count);
+                    Instantiate(gunList[gunNumber], transformArray[i]);
+                    gunList.RemoveAt(gunNumber);                    
                 }
 
-                if (itemRandomNumber == 1 && gunsOnly) // Select Energy cannon
+                if (itemRandomNumber == 1 && gunsOnly && !energyGunSpawned) // Select Energy cannon
                 {
                     Instantiate(energyCannonSpawn, transformArray[i]);
+                    energyGunSpawned = true;
                 }
             }
         }
@@ -66,13 +70,15 @@ public class ItemSpawner : MonoBehaviour
 
                 if (itemRandomNumber == 0) // Selects gun category
                 {
-                    int gunNumber = Random.Range(0, gunArray.Length);
-                    Instantiate(gunArray[gunNumber], transformArray[i]);
+                    int gunNumber = Random.Range(0, gunList.Count);
+                    Instantiate(gunList[gunNumber], transformArray[i]);
+                    gunList.RemoveAt(gunNumber);
                 }
 
-                if (itemRandomNumber == 1) // Select Energy cannon
+                if (itemRandomNumber == 1 && !energyGunSpawned) // Select Energy cannon
                 {
                     Instantiate(energyCannonSpawn, transformArray[i]);
+                    energyGunSpawned = true;
                 }
 
                 if (itemRandomNumber == 2) // Select sword
@@ -99,13 +105,15 @@ public class ItemSpawner : MonoBehaviour
 
                 if (itemRandomNumber == 0) // Selects gun category
                 {
-                    int gunNumber = Random.Range(0, gunArray.Length);
-                    Instantiate(gunArray[gunNumber], transformArray[i]);
+                    int gunNumber = Random.Range(0, gunList.Count);
+                    Instantiate(gunList[gunNumber], transformArray[i]);
+                    gunList.RemoveAt(gunNumber);
                 }
 
-                if (itemRandomNumber == 1) // Select Energy cannon
+                if (itemRandomNumber == 1 && !energyGunSpawned) // Select Energy cannon
                 {
                     Instantiate(energyCannonSpawn, transformArray[i]);
+                    energyGunSpawned = true;
                 }
                 if (itemRandomNumber == 2) // Selects powerUp category
                 {
@@ -121,17 +129,19 @@ public class ItemSpawner : MonoBehaviour
         {
             for (int i = 0; i < transformArray.Length; i++)
             {
-                int itemRandomNumber = Random.Range(0, 3); // Random number to select category of items
+                int itemRandomNumber = Random.Range(0, 2); // Random number to select category of items
 
                 if (itemRandomNumber == 0) // Selects gun category
                 {
-                    int gunNumber = Random.Range(0, gunArray.Length);
-                    Instantiate(gunArray[gunNumber], transformArray[i]);
+                    int gunNumber = Random.Range(0, gunList.Count);
+                    Instantiate(gunList[gunNumber], transformArray[i]);
+                    gunList.RemoveAt(gunNumber);
                 }
 
-                if (itemRandomNumber == 1 && gunsOnly) // Select Energy cannon
+                if (itemRandomNumber == 1 && gunsOnly && !energyGunSpawned) // Select Energy cannon
                 {
                     Instantiate(energyCannonSpawn, transformArray[i]);
+                    energyGunSpawned = true;
                 }
                 if (itemRandomNumber == 2) // Select sword
                 {

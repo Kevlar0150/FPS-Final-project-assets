@@ -150,7 +150,7 @@ MonoBehaviour:
   gunScript: {fileID: 2992837780148544337}
   rb: {fileID: 2992837780826818521}
   collision: {fileID: 2992837780148544340}
-  player: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
+  player: {fileID: 0}
   weaponSlot1: {fileID: 0}
   weaponSlot2: {fileID: 0}
   playerCamera: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 6546786853639159647}
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
-  player: {fileID: 6082130895114499757, guid: 64ba5e2cc19711e4ba1794cf61b139b5, type: 3}
+  player: {fileID: 0}
 --- !u!54 &2992837780826818521
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2994152477234272283}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100000000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -209,7 +209,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2994152477234272283}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: aeed7657c4624804490cf5dc5b5f4b41, type: 2}
   m_CullingMode: 0
