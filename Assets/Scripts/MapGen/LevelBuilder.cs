@@ -37,7 +37,7 @@ public class LevelBuilder : MonoBehaviour
         WaitForSeconds startup = new WaitForSeconds(1); // Time to wait until Generator starts
         WaitForFixedUpdate interval = new WaitForFixedUpdate(); // Time to wait until next code execution.
 
-        yield return startup;
+        //yield return startup;
 
         // Place start room
         PlaceStartRoom();
@@ -209,11 +209,8 @@ public class LevelBuilder : MonoBehaviour
 
 	bool CheckRoomOverlap (Room room)
 	{
-		Bounds bounds = room.RoomBounds;
-		bounds.center = room.transform.position;
-		bounds.Expand (-0.1f);
-
-		Collider[] colliders = Physics.OverlapBox (bounds.center, bounds.size/1.5f, Quaternion.identity, roomLayerMask);
+		// Checks overlap using Box colliders of each room spawned *NOT BOUNDING BOXES LIKE THE TUTORIAL*
+		Collider[] colliders = Physics.OverlapBox (room.transform.position, room.boxCollider.size/1.45f, Quaternion.identity, roomLayerMask);
 		if (colliders.Length > 0) {
 			// Ignore collisions with current room
 			foreach (Collider c in colliders) {

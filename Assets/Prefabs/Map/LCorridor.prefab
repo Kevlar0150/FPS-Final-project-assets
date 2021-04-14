@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4704564356581136069}
   - component: {fileID: 7295863862958103914}
+  - component: {fileID: 7842688357358596869}
   m_Layer: 13
   m_Name: Overlap collider
   m_TagString: Untagged
@@ -365,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392971232342266479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: -7, z: -4}
+  m_LocalPosition: {x: -7.2, y: -7, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4925420943729635373}
@@ -379,11 +380,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392971232342266479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 7, z: 26}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 26.246223, y: 7, z: 12.25253}
+  m_Center: {x: -1.8124886, y: 0, z: 5.769791}
+--- !u!65 &7842688357358596869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392971232342266479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.425713, y: 7, z: 14.188808}
+  m_Center: {x: 4.9095154, y: 0, z: -6.594404}
 --- !u!1 &516144120800391452
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +561,7 @@ MonoBehaviour:
   - {fileID: 3737574629711114438}
   - {fileID: 2537231351144754584}
   gunsOnly: 0
-  powerupsOnly: 0
+  powerupsOnly: 1
   swordOnly: 0
   timedLoot: 0
   spawnTimer: 15

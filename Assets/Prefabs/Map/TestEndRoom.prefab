@@ -333,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8192067893884520869}
   - component: {fileID: 8630574477880797686}
+  - component: {fileID: 7264996282691331826}
   m_Layer: 13
   m_Name: Overlap collider
   m_TagString: Untagged
@@ -362,11 +363,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565475919007726278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 7, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 51.918255, y: 7, z: 24.428322}
+  m_Center: {x: -2.4704075, y: -1, z: 0.039905548}
+--- !u!65 &7264996282691331826
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565475919007726278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 7, z: 34.014633}
+  m_Center: {x: -23, y: 0, z: -0.17856693}
 --- !u!1 &5223960405787300218
 GameObject:
   m_ObjectHideFlags: 0

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ba9c88d4c039b4b8c65c3f51f7f7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.03
+  speed: 1
   lifeDuration: 2
   damage: 1
   impactVFX: {fileID: 1785284669155556954, guid: 1b95b1f937eb59f449c2bb7dd1a0a7f5,

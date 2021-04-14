@@ -4833,7 +4833,7 @@ MonoBehaviour:
   speed: 40
   lifeDuration: 5
   spread: 0.03
-  damage: 50
+  damage: 100
   impactVFX: {fileID: 1785284669155556954, guid: 4b4b8076ca4480f4faea6dc23e99f8e5,
     type: 3}
 --- !u!54 &1600179580491531838
