@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8511604437025410431}
   m_Layer: 0
   m_Name: LevelBuilder
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,12 +49,24 @@ MonoBehaviour:
     type: 3}
   roomPrefabs:
   - {fileID: 4765842625826084438, guid: 1d8d0d312ab3da74aa1a825a98f5eda1, type: 3}
-  - {fileID: -4005964235048534931, guid: 50f567a7063ae9540b0854f94217c39b, type: 3}
+  - {fileID: 4765842625826084438, guid: 1d8d0d312ab3da74aa1a825a98f5eda1, type: 3}
+  - {fileID: 4765842625826084438, guid: 1d8d0d312ab3da74aa1a825a98f5eda1, type: 3}
+  - {fileID: 4765842625826084438, guid: 1d8d0d312ab3da74aa1a825a98f5eda1, type: 3}
+  - {fileID: 2402446929524467458, guid: 50f567a7063ae9540b0854f94217c39b, type: 3}
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
+  - {fileID: 3973991571519447940, guid: 45b8dbbb43ab6b34bb11f3060a24907e, type: 3}
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
   - {fileID: 3973991571519447940, guid: 45b8dbbb43ab6b34bb11f3060a24907e, type: 3}
   - {fileID: 6000744836308512174, guid: 1253c652ab401324ab322e63ac44a23a, type: 3}
-  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
   - {fileID: 1519874907508951653, guid: b5c33d85c15b85148a5861aa9647d48a, type: 3}
-  iterationMin: 5
-  iterationMax: 12
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
+  - {fileID: 3973991571519447940, guid: 45b8dbbb43ab6b34bb11f3060a24907e, type: 3}
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
+  - {fileID: 3973991571519447940, guid: 45b8dbbb43ab6b34bb11f3060a24907e, type: 3}
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
+  - {fileID: 3973991571519447940, guid: 45b8dbbb43ab6b34bb11f3060a24907e, type: 3}
+  - {fileID: 6960111894816798121, guid: 77fae59c1444f5041874c1301ad74267, type: 3}
+  iterationMin: 15
+  iterationMax: 20
   playerPrefab: {fileID: 6082130895114499754, guid: 64ba5e2cc19711e4ba1794cf61b139b5,
     type: 3}

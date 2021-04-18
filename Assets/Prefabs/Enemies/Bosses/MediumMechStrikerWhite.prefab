@@ -1012,7 +1012,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203650303938711573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1114,8 +1114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98fea65c2832a04e82a0d637aace376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentToDebug: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  agentToDebug: {fileID: 5199146561015025925, guid: e3905f52d911e544caa08f6e37296ab2,
+    type: 3}
+  lineRenderer: {fileID: 5199146561015025929, guid: e3905f52d911e544caa08f6e37296ab2,
+    type: 3}
 --- !u!195 &4201932691315731678
 NavMeshAgent:
   m_ObjectHideFlags: 0

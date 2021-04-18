@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class NavMeshBaker : MonoBehaviour
 {
-   
     [SerializeField] private List<NavMeshSurface> navMeshSurfaces;
     [SerializeField] private List<Room> roomList;
     [SerializeField] private LevelBuilder levelBuilder;

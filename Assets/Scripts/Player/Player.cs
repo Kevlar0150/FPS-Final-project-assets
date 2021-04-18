@@ -126,7 +126,18 @@ public class Player : MonoBehaviour
         else // If false, set speed to default.
         {  speed = defaultSpeed; }
     }
-
+    public float getSpeed()
+    {
+        return speed;
+    }
+    public float getGravity()
+    {
+        return gravity;      
+    }
+    public float getJumpForce()
+    {
+        return jumpForce;
+    }
     //Detects any hitboxes entering players collision box
     private void OnTriggerEnter(Collider other)
     {
@@ -141,7 +152,7 @@ public class Player : MonoBehaviour
             }
         }      
     }
-
+    
     private void ResetPlayerHit()
     {
         hit = false;
