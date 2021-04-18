@@ -64,7 +64,7 @@ public class PickupSystem : MonoBehaviour
         }
     }
 
-    private void PickUp()
+    public void PickUp()
     {
         //If weapon slot is empty
         if (weaponSlot1.childCount <= 0)
@@ -84,7 +84,7 @@ public class PickupSystem : MonoBehaviour
             anim.enabled = true;
         }
     }
-    private void PickUpSecondary()
+    public void PickUpSecondary()
     {
         //If weapon slot is empty
         if (weaponSlot2.childCount <= 0)

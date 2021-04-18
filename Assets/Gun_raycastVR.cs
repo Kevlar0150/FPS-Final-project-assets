@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR;
 
 //Sources used:
 //https://forum.unity.com/threads/solved-shotgun-shooting-c.464014/ - For shotgun creation
 //https://forum.unity.com/threads/hitscan-raycasting-hits-vs-projectile-simulation.334463/ - Help deciding on what hit detection to use
 //https://docs.unity3d.com/Manual/Layers.html - Help with LayerMask when shooting.
 
-public class Gun_raycast : MonoBehaviour
+public class Gun_raycastVR : MonoBehaviour
 {
     // Gun properties
     public float damage;
@@ -28,7 +30,6 @@ public class Gun_raycast : MonoBehaviour
     bool reloading;
 
     // References
-    public Transform playerCamera; 
     public ParticleSystem muzzleFlash;
     public GameObject impactVFX;
     public RaycastHit hitInfo; // Store's whatever the raycast hits into the variable hitInfo
@@ -38,7 +39,11 @@ public class Gun_raycast : MonoBehaviour
     //Rays
     Ray singleFireRay;
     Ray shotgunRay;
-    
+
+    // VR Controller variables
+    public InputDeviceCharacteristics controllerCharacteristics;
+    private InputDevice targetDevice;
+
     private void Start()
     {
         // Initialise variables upon start
@@ -49,28 +54,45 @@ public class Gun_raycast : MonoBehaviour
         anim = GetComponent<Animator>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerCamera = player.GetChild(2).transform;
-    }
 
+        // Get Controllers
+
+        List<InputDevice> devices = new List<InputDevice>();
+
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+
+        foreach (var item in devices)
+        {
+            Debug.Log(item.name + item.characteristics);
+        }
+
+        if (devices.Count > 0)
+        {
+            targetDevice = devices[0];
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerCamera = player.GetChild(2).transform;
 
-        // Shoot button
-        if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
-            {
-                shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
-                Shoot(); // Calls shoot function below
-            }
+        targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+        if (triggerValue > 0 && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
+        {
+            shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
+            Shoot(); // Calls shoot function below
+        }
+ 
+        if (triggerValue > 0 && bulletsRemaining <= 0) { Reload(); }
+
         // Reload button
-            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading && magSize > 0)
-            {
-                Reload(); // Calls function for reloading the gun
-            }
+        if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading && magSize > 0)
+        {
+            Reload(); // Calls function for reloading the gun
+        }
         //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
     }
+    
 
     // Shoot function
     public void Shoot()
@@ -81,9 +103,9 @@ public class Gun_raycast : MonoBehaviour
         float spreadX = Random.Range(-bulletSpread, bulletSpread);
         float spreadY = Random.Range(-bulletSpread, bulletSpread);
 
-        Vector3 spreadDirection = playerCamera.transform.forward + new Vector3(spreadX, spreadY, 0);
+        Vector3 spreadDirection = gameObject.transform.forward + new Vector3(spreadX, spreadY, 0);
         var layerMask = 1 << 11; // Bit shifts the index of layer 11 (Player layer) to get bit mask
-        
+
         layerMask = ~layerMask; // We invert it using the ~ sign so that we can collide with everything EXCEPT Layer 11 which is the player.
                                 // This is so that we don't shoot ourselves.
 
@@ -93,9 +115,9 @@ public class Gun_raycast : MonoBehaviour
 
         // Creates the ray at camera position, direction. Outputs whatever the ray touches into the hitInfo variable, 
         // length of ray is based on shoot range, Ray collides with everything except layer 11.
-        if (!transform.tag.Equals("Shotgun") && Physics.Raycast(playerCamera.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
+        if (!transform.tag.Equals("Shotgun") && Physics.Raycast(gameObject.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
         {
-            
+
             // Instantiate a gameobject with the particle effect at the point of hit. Make the effect normalized so that it is instantiated in the correct direction.
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
@@ -124,9 +146,9 @@ public class Gun_raycast : MonoBehaviour
                 // Own bullet spread so that each bullet from 1 shot has a randomized spread
                 float shotgunSpreadX = Random.Range(-bulletSpread, bulletSpread);
                 float shotgunSpreadY = Random.Range(-bulletSpread, bulletSpread);
-                Vector3 shotgunSpread = playerCamera.transform.forward + new Vector3(shotgunSpreadX, shotgunSpreadY, 0);
+                Vector3 shotgunSpread = gameObject.transform.forward + new Vector3(shotgunSpreadX, shotgunSpreadY, 0);
 
-                if (Physics.Raycast(playerCamera.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
+                if (Physics.Raycast(gameObject.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
                 {
                     // Impact VFX
                     GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
@@ -153,7 +175,7 @@ public class Gun_raycast : MonoBehaviour
     {
         reloading = true; // Set to true so player cannot shoot while reloading.
         anim.SetBool("isReloading", true);
-        
+
         Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
     }
 
@@ -166,7 +188,7 @@ public class Gun_raycast : MonoBehaviour
 
         // If statement to stop magSize from being minus value.
         if (magSize <= 0) { magSize = 0; }
-    
+
         reloading = false;
         anim.SetBool("isReloading", false);
     }
