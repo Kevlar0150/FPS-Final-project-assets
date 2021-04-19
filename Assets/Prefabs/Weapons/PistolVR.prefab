@@ -289,18 +289,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnActivate:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1815580335}
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
@@ -365,6 +354,7 @@ MonoBehaviour:
   impactVFX: {fileID: 1648966178694442642, guid: 519dea375040ab2479a655c71663660e,
     type: 3}
   player: {fileID: 0}
+  controllerCharacteristics: 512
 --- !u!1 &1429655430221584
 GameObject:
   m_ObjectHideFlags: 0
