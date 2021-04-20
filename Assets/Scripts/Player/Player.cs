@@ -141,7 +141,6 @@ public class Player : MonoBehaviour
     //Detects any hitboxes entering players collision box
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if (!hit)
         {
             if (other.gameObject.tag == "BossRightLeg")

@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HolsterManager : MonoBehaviour
 {
     public BoxCollider rightHolster;
-    public BoxCollider leftHolster;
-    
+    public BoxCollider leftHolster;  
 
     [SerializeField]private Camera playerCamera;
     private float rotationSpeed = 50;
 
+    private XRGrabInteractable grabInteractable;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     private void FixedUpdate()
     {
-        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y / 1.5f, playerCamera.transform.position.z);
+        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y/1.1f , playerCamera.transform.position.z);
     }
     // Update is called once per frame
     void Update()
@@ -50,4 +53,5 @@ public class HolsterManager : MonoBehaviour
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, playerCamera.transform.eulerAngles.y, 0), step);
     }
+   
 }

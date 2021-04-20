@@ -26,6 +26,7 @@ TagManager:
   - Mesh
   - EnemyProjectile
   - BossRoom
+  - Weapon
   layers:
   - Default
   - TransparentFX
