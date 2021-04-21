@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2016205264154753004}
   - component: {fileID: 465662039555352094}
   - component: {fileID: 2786700907553473179}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShotgunVR
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -0.234, y: 0.25, z: 0}
+  - {x: 0, y: 0.25, z: 0}
   - {x: 0, y: 0, z: 50}
   m_Parameters:
     serializedVersion: 3
@@ -230,7 +230,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.07563025
+        value: 0.016807616
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -376,7 +376,6 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
-  isHeld: 0
 --- !u!1 &4978452348634889519
 GameObject:
   m_ObjectHideFlags: 0

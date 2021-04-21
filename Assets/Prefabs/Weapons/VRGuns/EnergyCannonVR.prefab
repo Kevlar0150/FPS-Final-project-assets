@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 7032097541931194882}
   - component: {fileID: 1764914956330235592}
   - component: {fileID: 389213558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnergyCannonVR
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -496,7 +496,6 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
-  isHeld: 0
 --- !u!114 &389213558
 MonoBehaviour:
   m_ObjectHideFlags: 0
