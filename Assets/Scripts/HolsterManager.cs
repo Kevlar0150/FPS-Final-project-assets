@@ -21,7 +21,7 @@ public class HolsterManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y/1.1f , playerCamera.transform.position.z);
+        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y/1.3f , playerCamera.transform.position.z);
     }
     // Update is called once per frame
     void Update()

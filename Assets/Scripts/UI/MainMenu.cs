@@ -6,11 +6,23 @@ using UnityEngine.XR;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+    public float difficultyMultiplier = 1;
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    
+    public void StartGameNormal()
     {
         SceneManager.LoadScene(1); //Loads the 1st scene in the build settings which is the main level (NON VR)
+        difficultyMultiplier = 1;
     }
-
+    public void StartGameHard()
+    {
+        SceneManager.LoadScene(1); //Loads the 1st scene in the build settings which is the main level (NON VR)
+        difficultyMultiplier = 1.5f;
+    }
+    
     public void StartVRMode()
     {
         Debug.Log("Start VR GAME");
@@ -19,7 +31,7 @@ public class MainMenu : MonoBehaviour
         if (XRDevice.isPresent)
         {
             Debug.Log("YOU CAN PLAY");
-            // SceneManager.LoadScene(2); //Loads the 1st scene in the build settings which is the main level (IN VR)
+            SceneManager.LoadScene(2); //Loads the 1st scene in the build settings which is the main level (IN VR)
         }
 
         // If VR headset not connected... 
@@ -29,7 +41,10 @@ public class MainMenu : MonoBehaviour
         }
        
     }
-
+    public float getMultiplier()
+    {
+        return difficultyMultiplier;
+    }
     public void QuitGame()
     {
         Application.Quit();

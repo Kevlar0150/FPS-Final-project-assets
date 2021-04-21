@@ -50,26 +50,45 @@ public class Enemy : MonoBehaviour
     public float waitTimer;
     public GameObject deathExplosion;
 
+    // Difficulty multiplier
+    private float difficultyMultiplier;
+
     //References
     [SerializeField]Transform player;
     Transform EnemyParent;
     Transform PatrolPoints;
     Animator anim;
+    private MainMenu mainMenu;
 
+    private void Awake()
+    {   
+        
+    }
     // Start is called before the first frame update
     [System.Obsolete]
     void Start()
     {
-        //Initialising variables
+        //Initialising script variables
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         lifeTimer = lifeDuration;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
         NavMeshPath path = new NavMeshPath();
 
+        mainMenu = GameObject.Find("MenuManager").GetComponent<MainMenu>();
+        difficultyMultiplier = mainMenu.getMultiplier();
+
+        //Setting the enemy properties values
+        attackDamage *= difficultyMultiplier;
+        enemyHealth *= difficultyMultiplier;
+        sightRange *= difficultyMultiplier;
+        attackRange *= difficultyMultiplier;
+        shootRange *= difficultyMultiplier;
+        navMeshAgent.speed *= difficultyMultiplier;
+        navMeshAgent.acceleration *= difficultyMultiplier;
+
         //Add patrol points into list
         EnemyParent = transform.parent;
-        Debug.Log(PatrolPoints = EnemyParent.GetChild(0));
         PatrolPoints = EnemyParent.GetChild(0);
 
         // Foreach child transform in PatrolPoints Gameobject, add child to list

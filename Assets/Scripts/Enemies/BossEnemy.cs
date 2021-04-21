@@ -30,7 +30,7 @@ public class BossEnemy : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject muzzle;
     public float timeBetweenShots;
-    public int numOfProjectilesShot;
+    public float numOfProjectilesShot;
     bool hasShot;
 
     // Sight Range variables
@@ -74,6 +74,12 @@ public class BossEnemy : MonoBehaviour
     public GameObject flame;
     public GameObject smoke;
 
+    //Ref to mainmenu script
+    private MainMenu mainMenu;
+
+    //Difficulty multiplier
+    float difficultyMultiplier;
+
     // Start is called before the first frame update
     [System.Obsolete]
     void Start()
@@ -85,6 +91,18 @@ public class BossEnemy : MonoBehaviour
         rightLeg = gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         NavMeshPath path = new NavMeshPath();
+
+        mainMenu = GameObject.Find("MenuManager").GetComponent<MainMenu>();
+        difficultyMultiplier = mainMenu.getMultiplier();
+
+        //Setting the boss properties values
+        enemyHealth *= difficultyMultiplier;
+        sightRange *= difficultyMultiplier;
+        attackRange *= difficultyMultiplier;
+        shootRange *= difficultyMultiplier;
+        navMeshAgent.speed *= difficultyMultiplier;
+        navMeshAgent.acceleration *= difficultyMultiplier;
+        numOfProjectilesShot *= difficultyMultiplier;
 
         //Add patrol points into list
         enemyParent = transform.parent;
@@ -312,11 +330,11 @@ public class BossEnemy : MonoBehaviour
         if (!isEnraged)
         {
 
-            navMeshAgent.speed = 10.5f;
+            navMeshAgent.speed *= 2f;
             navMeshAgent.angularSpeed = 200f;
             numOfProjectilesShot = 20;
-            sightRange = 50.0f;
-            shootRange = 40.0f;
+            sightRange *= 2f;
+            shootRange *= 2f;
             isEnraged = true;
         }       
     }
