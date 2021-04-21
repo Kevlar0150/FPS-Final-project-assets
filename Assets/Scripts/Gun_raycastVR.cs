@@ -34,11 +34,7 @@ public class Gun_raycastVR : MonoBehaviour
     public GameObject impactVFX;
     public RaycastHit hitInfo; // Store's whatever the raycast hits into the variable hitInfo
     public Transform player;
-    Animator anim;
-
-    //Rays
-    Ray singleFireRay;
-    Ray shotgunRay;
+    public Transform muzzlePos;
 
     // VR Controller variables
     public InputDeviceCharacteristics controllerCharacteristics;
@@ -51,10 +47,8 @@ public class Gun_raycastVR : MonoBehaviour
         magSizeCapacity = magSize;
         bulletsRemaining = gunClipSize;
 
-        anim = GetComponent<Animator>();
-
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+  
         // Get Controllers
 
         List<InputDevice> devices = new List<InputDevice>();
@@ -76,6 +70,7 @@ public class Gun_raycastVR : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        //Gets VR controller trigger and if pushed, calls Shoot function
         targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
         if (triggerValue > 0 && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
         {
@@ -83,7 +78,7 @@ public class Gun_raycastVR : MonoBehaviour
             Shoot(); // Calls shoot function below
         }
  
-        if (triggerValue > 0 && bulletsRemaining <= 0) { Reload(); }
+        //if (triggerValue > 0 && bulletsRemaining <= 0) { Reload(); }
 
         // Reload button
         if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading && magSize > 0)
@@ -103,7 +98,7 @@ public class Gun_raycastVR : MonoBehaviour
         float spreadX = Random.Range(-bulletSpread, bulletSpread);
         float spreadY = Random.Range(-bulletSpread, bulletSpread);
 
-        Vector3 spreadDirection = gameObject.transform.forward + new Vector3(spreadX, spreadY, 0);
+        Vector3 spreadDirection = muzzlePos.transform.forward + new Vector3(spreadX, spreadY, 0);
         var layerMask = 1 << 11; // Bit shifts the index of layer 11 (Player layer) to get bit mask
 
         layerMask = ~layerMask; // We invert it using the ~ sign so that we can collide with everything EXCEPT Layer 11 which is the player.
@@ -115,7 +110,7 @@ public class Gun_raycastVR : MonoBehaviour
 
         // Creates the ray at camera position, direction. Outputs whatever the ray touches into the hitInfo variable, 
         // length of ray is based on shoot range, Ray collides with everything except layer 11.
-        if (!transform.tag.Equals("Shotgun") && Physics.Raycast(gameObject.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
+        if (!transform.tag.Equals("Shotgun") && Physics.Raycast(muzzlePos.transform.position, spreadDirection, out hitInfo, shootRange, layerMask))
         {
 
             // Instantiate a gameobject with the particle effect at the point of hit. Make the effect normalized so that it is instantiated in the correct direction.
@@ -171,12 +166,14 @@ public class Gun_raycastVR : MonoBehaviour
     }
 
     // Reloading functions
-    private void Reload()
+    public void Reload()
     {
-        reloading = true; // Set to true so player cannot shoot while reloading.
-        anim.SetBool("isReloading", true);
+        if(bulletsRemaining < gunClipSize && !reloading && magSize > 0)
+        {
+            reloading = true; // Set to true so player cannot shoot while reloading.
 
-        Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
+            Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
+        }
     }
 
     private void ReloadFinished()
@@ -190,7 +187,6 @@ public class Gun_raycastVR : MonoBehaviour
         if (magSize <= 0) { magSize = 0; }
 
         reloading = false;
-        anim.SetBool("isReloading", false);
     }
 
     // Getters function

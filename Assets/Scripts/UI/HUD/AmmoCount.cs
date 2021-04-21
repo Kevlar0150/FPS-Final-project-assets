@@ -10,8 +10,7 @@ public class AmmoCount : MonoBehaviour
     public Text ammoCount;
 
     //public GameObject pistolPrefab;
-    GameObject riflePrefab;
-    GameObject shotgunPrefab;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Holster : MonoBehaviour
 {
-    public float dropTimer = 3f;
+    public float dropTimer = 2f;
     private bool inHolsterZone = false;
     // Start is called before the first frame update
     void Start()
@@ -21,33 +21,40 @@ public class Holster : MonoBehaviour
             dropTimer-= Time.deltaTime;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log(other.transform.name);
-        if (other.name == "PistolVR")
+        if (other.GetComponent<Gun_raycastVR>() || other.GetComponent<EnergyCannonVR>())
         {
-            Debug.Log("Touching");
+            Debug.Log(gameObject.transform.name);
             inHolsterZone = true;
             other.GetComponent<OutlineHolster>().enabled = true;
-            other.GetComponent<OutlineHolster>().OutlineColor = Color.cyan;
-            if (!other.GetComponent<XRGrabInteractable>().GetIsHeld())
+            other.GetComponent<OutlineHolster>().OutlineColor = Color.yellow;
+
+            if (transform.childCount <= 0)
             {
-                other.transform.SetParent(gameObject.transform);
-                other.transform.localPosition = Vector3.zero;
-                other.GetComponent<Rigidbody>().isKinematic = true;
-                Debug.Log("ATTACH");
+                if (dropTimer < 1)
+                {
+                    other.GetComponent<OutlineHolster>().OutlineColor = Color.cyan;
+                    if (!other.GetComponent<XRGrabInteractable>().GetIsHeld())
+                    {
+                        other.transform.SetParent(this.gameObject.transform);
+                        other.transform.localPosition = Vector3.zero;
+                        other.GetComponent<Rigidbody>().isKinematic = true;
+                        Debug.Log("ATTACH");
+                    }
+                }
             }
             else
             {
-                other.transform.SetParent(null);
-                other.GetComponent<Rigidbody>().isKinematic = false;
-            }
+                other.GetComponent<OutlineHolster>().OutlineColor = Color.red;
+            }        
         }
     }
     private void OnTriggerExit(Collider other)
     {
         inHolsterZone = false;
         other.GetComponent<OutlineHolster>().enabled = false;
-        
+        dropTimer = 3f;
     }
 }

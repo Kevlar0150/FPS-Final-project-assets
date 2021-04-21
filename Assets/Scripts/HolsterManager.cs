@@ -9,7 +9,7 @@ public class HolsterManager : MonoBehaviour
     public BoxCollider leftHolster;  
 
     [SerializeField]private Camera playerCamera;
-    private float rotationSpeed = 50;
+    private float rotationSpeed = 75;
 
     private XRGrabInteractable grabInteractable;
 

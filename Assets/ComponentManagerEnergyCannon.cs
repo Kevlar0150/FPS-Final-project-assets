@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-public class ComponentManager : MonoBehaviour
+public class ComponentManagerEnergyCannon : MonoBehaviour
 {
     XRGrabInteractable grabScript;
-    Gun_raycastVR GunScript;
     LineRenderer lineRenderer;
-    EnergyCannonVR energyCannonVR;
+    EnergyCannonVR gunScript;
     // Start is called before the first frame update
     void Start()
     {
-        GunScript = GetComponent<Gun_raycastVR>();
+        gunScript = GetComponent<EnergyCannonVR>();
         grabScript = GetComponent<XRGrabInteractable>();
         lineRenderer = GetComponent<LineRenderer>();
-       
+
     }
 
     // Update is called once per frame
@@ -22,12 +21,12 @@ public class ComponentManager : MonoBehaviour
     {
         if (grabScript.GetIsHeld())
         {
-            GunScript.enabled = true;
+            gunScript.enabled = true;
             lineRenderer.enabled = true;
         }
         else
         {
-            GunScript.enabled = false;
+            gunScript.enabled = false;
             lineRenderer.enabled = false;
         }
     }
