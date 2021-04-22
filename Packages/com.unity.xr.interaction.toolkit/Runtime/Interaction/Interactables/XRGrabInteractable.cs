@@ -549,10 +549,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (m_SelectingInteractor == null)
             {
                 m_OriginalSceneParent = transform.parent;
-                transform.parent = null;         
+                transform.parent = interactor.transform;
             }
-            transform.parent = null;
-            
+                  
             m_SelectingInteractor = interactor;
 
             // Special case where the interactor will override this objects movement type (used for Sockets and other absolute interactors)
@@ -611,10 +610,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 Debug.LogWarning("Retain Transform Parent is set to true, and has a non-null Original Scene Parent. "+
                     "However, the old parent is deactivated so we are choosing not to re-parent upon dropping.", this);
             else if (m_RetainTransformParent && gameObject.activeInHierarchy)
-                transform.parent = m_OriginalSceneParent;
+
+            transform.SetParent(null);
+            transform.parent = null; 
 
             // Reset Rigidbody settings
-            m_Rigidbody.isKinematic = m_WasKinematic;
+            m_Rigidbody.isKinematic = false;
             m_Rigidbody.useGravity = m_UsedGravity | m_GravityOnDetach;
 
             m_CurrentMovementType = m_MovementType;

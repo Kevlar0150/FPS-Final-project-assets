@@ -9,6 +9,8 @@ public class XRMovement : MonoBehaviour
     public float speed;
     public XRNode leftController;
     public XRNode rightController;
+    public GameObject rightHand;
+    public GameObject leftHand;
 
     Vector3 velocity;
 
@@ -26,7 +28,7 @@ public class XRMovement : MonoBehaviour
     private CharacterController controller;
     [SerializeField] GameObject player;
     Player playerScript;
-
+    public XRRayInteractor rightRayInteractor;
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,11 +47,13 @@ public class XRMovement : MonoBehaviour
     void Update()
     {
         // Listens to inputs only from left controll
-        InputDevice device = InputDevices.GetDeviceAtXRNode(leftController);
-
+        InputDevice deviceL = InputDevices.GetDeviceAtXRNode(leftController);
+        InputDevice deviceR = InputDevices.GetDeviceAtXRNode(rightController);
         // Gets value from the touchpad
-        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+        deviceL.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+        deviceR.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool axisClickValue);
 
+        ToggleRay(axisClickValue);
         Move(); // Moves player in direction
 
         Jump(); // Makes player jump
@@ -77,13 +81,27 @@ public class XRMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0) { velocity.y = 0f; } // Sets character y position to 0 so character doesn't fall through ground
 
-        InputDevice device = InputDevices.GetDeviceAtXRNode(leftController);
-        device.TryGetFeatureValue(CommonUsages.primary2DAxisClick,  out bool axisClickValue);
+        InputDevice deviceL = InputDevices.GetDeviceAtXRNode(leftController);
+        deviceL.TryGetFeatureValue(CommonUsages.primary2DAxisClick,  out bool axisClickValue);
         if (axisClickValue && isGrounded) // If Space bar is pressed and character IS grounded
         {
             Debug.Log("Jump");
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity); // Increase the players y velocity by Square root of jump height *-2 * gravity. ( Formula Taken from Unity Documentation )
         }
         velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
+    }
+    public void ToggleRay(bool axisClickValue)
+    {
+        if (axisClickValue && rightHand.transform.childCount <= 2)
+        {
+            Debug.Log("Toggle Ray");
+            rightRayInteractor.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            Debug.Log("Turn off Ray");
+            rightRayInteractor.gameObject.SetActive(false);
+        }
     }
 }

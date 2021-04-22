@@ -70,6 +70,7 @@ public class Gun_raycastVR : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        
         //Gets VR controller trigger and if pushed, calls Shoot function
         targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
         if (triggerValue > 0 && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ReloadVR : MonoBehaviour
 {
-    float reloadTimer = 3f;
+    float reloadTimer = 2f;
     bool inReloadBox = false;
 
     [SerializeField] private Camera playerCamera;
-    private float rotationSpeed = 75;
+    private float rotationSpeed = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +79,7 @@ public class ReloadVR : MonoBehaviour
 
                 other.GetComponent<Outline>().enabled = false;
 
-                reloadTimer = 3f;
+                reloadTimer = 2f;
             }
         } 
     }
