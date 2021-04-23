@@ -38,8 +38,8 @@ public class BossEnemy : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange, playerInShootRange;
 
     // Control death of enemy
-    private float lifeDuration = 3f;
-    private float lifeTimer;
+    public float lifeDuration = 3f;
+    public float lifeTimer;
     private bool hasDied = false;
 
     // Layermasks
@@ -138,17 +138,7 @@ public class BossEnemy : MonoBehaviour
     {
         rightLeg.enabled = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        Vector3 distanceToWalkPoint = transform.position - waypointList[currentWaypointIndex].transform.position;
-        
-        if (hasDied) // If enemy has died
-        {
-            lifeTimer -= Time.deltaTime; // Start timer
-
-            if (lifeTimer <= 0) // When timer finished, destroy enemy Game Object
-            {
-                DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
-            }
-        }
+        Vector3 distanceToWalkPoint = transform.position - waypointList[currentWaypointIndex].transform.position;       
 
         if (!hasDied) // If enemy is alive
         {
@@ -316,10 +306,11 @@ public class BossEnemy : MonoBehaviour
             deathVFXObject2 = Instantiate(deathExplosion2, transform.position + new Vector3(0,2,0), transform.rotation);
             Destroy(deathVFXObject2);
 
-            hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
+            hasDied = true;
             transform.GetChild(2).gameObject.SetActive(false); // Gets the child of the object which in this case is the BossEnemy mesh and DISABLE IT
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
+            Invoke("DestroyObject", 3);
         }
     }
 
@@ -337,6 +328,11 @@ public class BossEnemy : MonoBehaviour
             shootRange *= 2f;
             isEnraged = true;
         }       
+    }
+
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
     }
     // Draws radius of attackRange and sightRange for debugging
     private void OnDrawGizmosSelected()

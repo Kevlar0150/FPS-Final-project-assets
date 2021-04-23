@@ -119,15 +119,6 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 distanceToWalkPoint = transform.position - waypointList[currentWaypointIndex].transform.position;
 
-        if (hasDied) // If enemy has died
-        {
-            lifeTimer -= Time.deltaTime; // Start timer
-
-            if (lifeTimer <= 0) // When timer finished, destroy enemy Game Object
-            {
-                DestroyObject(gameObject); // Destroys the object that this script is attached too that has enemy health <= 0
-            }
-        }
 
         if (!hasDied) // If enemy is alive
         {
@@ -278,14 +269,18 @@ public class Enemy : MonoBehaviour
             GameObject impactVFXObject = Instantiate(deathExplosion, transform.position, transform.rotation);
             Destroy(impactVFXObject, 1.7f);
 
-            hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
+            hasDied = true; // Set hasDied to true so object cannot call or execute any functions
             transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the Enemy mesh and DISABLE IT
             transform.GetComponent<BoxCollider>().enabled = false;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
+            Invoke("DestroyObject", 2);
         }
     }
-
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
     // Draws radius of attackRange and sightRange for debugging
     private void OnDrawGizmosSelected()
     {
