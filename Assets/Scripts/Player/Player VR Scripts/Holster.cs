@@ -22,7 +22,6 @@ public class Holster : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.transform.name);
         if (other.GetComponent<Gun_raycastVR>() || other.GetComponent<EnergyCannonVR>())
         {
             Debug.Log(gameObject.transform.name);

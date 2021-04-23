@@ -424,7 +424,7 @@ MeshCollider:
   m_GameObject: {fileID: 1308651694}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -721,6 +721,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1016238973, guid: 7fcb198dc11e7bc4fabcbbd30ed93a29, type: 3}
+      propertyPath: rightController
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016238973, guid: 7fcb198dc11e7bc4fabcbbd30ed93a29, type: 3}
+      propertyPath: controllerCharacteristics
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191202727, guid: 7fcb198dc11e7bc4fabcbbd30ed93a29, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1374600452982646, guid: 7fcb198dc11e7bc4fabcbbd30ed93a29, type: 3}
       propertyPath: m_Name
       value: SwordVR
@@ -1127,6 +1139,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861422618, guid: 54284345e3f1f6d47a8f736c0204c8c2, type: 3}
+      propertyPath: rightController
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861422618, guid: 54284345e3f1f6d47a8f736c0204c8c2, type: 3}
+      propertyPath: controllerCharacteristics
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 2106683753828141803, guid: 54284345e3f1f6d47a8f736c0204c8c2,
         type: 3}
       propertyPath: m_Enabled
@@ -1237,5 +1257,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1861422614, guid: 54284345e3f1f6d47a8f736c0204c8c2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54284345e3f1f6d47a8f736c0204c8c2, type: 3}

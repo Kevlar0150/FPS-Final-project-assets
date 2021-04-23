@@ -33,7 +33,8 @@ public class XRMovement : MonoBehaviour
     [SerializeField] GameObject player;
     Player playerScript;
     public XRRayInteractor rightRayInteractor;
-
+    public XRNodeState nodeStates;
+   
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,6 +57,7 @@ public class XRMovement : MonoBehaviour
         deviceL = InputDevices.GetDeviceAtXRNode(leftController);
         deviceR = InputDevices.GetDeviceAtXRNode(rightController);
 
+  
         ToggleRay(); // Toggles ray interactor (To grab things from far or for UI)
 
         Move(); // Moves player in direction
