@@ -212,7 +212,7 @@ public class LevelBuilder : MonoBehaviour
 	bool CheckRoomOverlap (Room room)
 	{
 		// Checks overlap using Box colliders of each room spawned *NOT BOUNDING BOXES LIKE THE TUTORIAL*
-		colliders = Physics.OverlapBox (room.boxCollider.transform.position, room.boxCollider.size/1.7f, Quaternion.identity, roomLayerMask);
+		colliders = Physics.OverlapBox (room.boxCollider.transform.position, room.boxCollider.size/1.72f, Quaternion.identity, roomLayerMask);
 		if (colliders.Length > 0) {
 			// Ignore collisions with current room
 			foreach (Collider c in colliders) {

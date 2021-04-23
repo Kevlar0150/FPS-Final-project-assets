@@ -317,7 +317,7 @@ public class BossEnemy : MonoBehaviour
             Destroy(deathVFXObject2);
 
             hasDied = true; // Set hasDied to true and start timer to destroy the gameObject.
-            transform.GetChild(0).gameObject.SetActive(false); // Gets the child of the object which in this case is the BossEnemy mesh and DISABLE IT
+            transform.GetChild(2).gameObject.SetActive(false); // Gets the child of the object which in this case is the BossEnemy mesh and DISABLE IT
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<SpawnLoot>().setSpawnLoot(true); // Call function to spawn loot.
         }

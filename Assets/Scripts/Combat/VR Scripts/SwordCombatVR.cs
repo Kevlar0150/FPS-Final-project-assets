@@ -17,8 +17,7 @@ public class SwordCombatVR : MonoBehaviour
     {
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
-        deviceR = InputDevices.GetDeviceAtXRNode(rightController);
-        
+        deviceR = InputDevices.GetDeviceAtXRNode(rightController);    
     }
 
     // Update is called once per frame
