@@ -548,12 +548,17 @@ namespace UnityEngine.XR.Interaction.Toolkit
             // Only do this on the first select, because otherwise the original parent will be overwritten as null.
             if (m_SelectingInteractor == null)
             {
-                m_OriginalSceneParent = transform.parent;
-                transform.parent = interactor.transform;
+                m_OriginalSceneParent = transform.parent;              
             }
                   
             m_SelectingInteractor = interactor;
 
+            //If interactor is hand, then set hand as parent of the grabbable object.
+            if (interactor.GetComponent<XRDirectInteractor>())
+            {
+                transform.parent = interactor.transform;
+            }
+            
             // Special case where the interactor will override this objects movement type (used for Sockets and other absolute interactors)
             m_CurrentMovementType = interactor.selectedInteractableMovementTypeOverride ?? m_MovementType;
 
@@ -612,7 +617,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
             else if (m_RetainTransformParent && gameObject.activeInHierarchy)
 
             transform.SetParent(null);
-            transform.parent = null; 
 
             // Reset Rigidbody settings
             m_Rigidbody.isKinematic = false;

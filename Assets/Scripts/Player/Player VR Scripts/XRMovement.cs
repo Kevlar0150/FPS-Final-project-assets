@@ -6,12 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRMovement : MonoBehaviour
 {
-    public float speed;
+    // Controller variables
     public XRNode leftController;
     public XRNode rightController;
     public GameObject rightHand;
     public GameObject leftHand;
+    InputDevice deviceL;
+    InputDevice deviceR;
 
+    // Movement speed variable
+    public float speed;
     Vector3 velocity;
 
     // Jump variables
@@ -29,6 +33,7 @@ public class XRMovement : MonoBehaviour
     [SerializeField] GameObject player;
     Player playerScript;
     public XRRayInteractor rightRayInteractor;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,24 +41,23 @@ public class XRMovement : MonoBehaviour
         rig = GetComponent<XRRig>();
         controller = transform.parent.GetComponent<CharacterController>();
         playerScript = player.GetComponent<Player>();
-
-        // Movement Variables match non VR Player properties
+    }
+    private void FixedUpdate()
+    {
+        // Movement Variables match non VR Player properties every frame - Variables may get updated in Player script from power ups.
         speed = playerScript.getSpeed();
         gravity = playerScript.getGravity();
         jumpForce = playerScript.getJumpForce();
     }
-
     // Update is called once per frame
     void Update()
     {
-        // Listens to inputs only from left controll
-        InputDevice deviceL = InputDevices.GetDeviceAtXRNode(leftController);
-        InputDevice deviceR = InputDevices.GetDeviceAtXRNode(rightController);
-        // Gets value from the touchpad
-        deviceL.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
-        deviceR.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool axisClickValue);
+        // Listens to inputs from left or right controller depending on which variable we use
+        deviceL = InputDevices.GetDeviceAtXRNode(leftController);
+        deviceR = InputDevices.GetDeviceAtXRNode(rightController);
 
-        ToggleRay(axisClickValue);
+        ToggleRay(); // Toggles ray interactor (To grab things from far or for UI)
+
         Move(); // Moves player in direction
 
         Jump(); // Makes player jump
@@ -63,6 +67,9 @@ public class XRMovement : MonoBehaviour
 
     private void Move()
     {
+        // Try and gets input from touchpad/trackpad 
+        deviceL.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+
         // Retrieves speed value from Player script
         speed = playerScript.getSpeed();
 
@@ -81,7 +88,6 @@ public class XRMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0) { velocity.y = 0f; } // Sets character y position to 0 so character doesn't fall through ground
 
-        InputDevice deviceL = InputDevices.GetDeviceAtXRNode(leftController);
         deviceL.TryGetFeatureValue(CommonUsages.primary2DAxisClick,  out bool axisClickValue);
         if (axisClickValue && isGrounded) // If Space bar is pressed and character IS grounded
         {
@@ -90,13 +96,16 @@ public class XRMovement : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
     }
-    public void ToggleRay(bool axisClickValue)
+    public void ToggleRay()
     {
+        // Outputs a value to axisClickValue depending on if touchpad is clicked or not
+        deviceR.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool axisClickValue);
+
+        // if touchpad is clicked and righthand is empty...
         if (axisClickValue && rightHand.transform.childCount <= 2)
         {
             Debug.Log("Toggle Ray");
             rightRayInteractor.gameObject.SetActive(true);
-
         }
         else
         {

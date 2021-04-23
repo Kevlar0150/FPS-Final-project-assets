@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8505772147845310396}
   m_Layer: 10
   m_Name: AssaultRifleVR
-  m_TagString: Weapon
+  m_TagString: AssaultRifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,6 +285,7 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+  isHeld: 0
 --- !u!114 &7350294617274584364
 MonoBehaviour:
   m_ObjectHideFlags: 0

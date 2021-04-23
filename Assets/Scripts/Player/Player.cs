@@ -27,8 +27,7 @@ public class Player : MonoBehaviour
     public float speedBoostTimer;
     private float maxSpeedIncrease = 15;
 
-    //Boo;s
-    bool isGrounded;
+    //Bools
     bool speedBuffOn = false;
     bool hit = false;
 
@@ -41,14 +40,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         // ---------------------- Player Movement -----------------------
-
-        // * Moving the player *
-
-        Walk();
-
-        // * Player Jump *
-
-        Jump();
 
         controller.Move(velocity * Time.deltaTime); // // moves the GameObject in all XYZ values in the given direction 
 
@@ -73,30 +64,6 @@ public class Player : MonoBehaviour
             }
         }
         // Shield buff insert here
-    }
-
-    private void Walk()
-    {
-        // Gets values from Input Axis of Horizontal and Vertical (Default keys are WASD or Arrow Keys)
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 movement = transform.right * x + transform.forward * z;
-        controller.Move(movement * speed * Time.deltaTime); // moves the GameObject X and Y value in the given direction multiplied by speed value
-    }
-
-    private void Jump()
-    {
-        // Create a small physics sphere and checks collision with sphere and any Layers set to groundMask Layer and returns true or false
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (isGrounded && velocity.y < 0) { velocity.y = 0f; } // Sets character y position to 0 so character doesn't fall through ground
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // If Space bar is pressed and character IS grounded
-        {
-            //Debug.Log("Jump");
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity); // Increase the players y velocity by Square root of jump height *-2 * gravity. ( Formula Taken from Unity Documentation )
-        }
-        velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
     }
 
     public void TakeDamage(float damage) { health -= damage; }

@@ -37,10 +37,10 @@ public class Holster : MonoBehaviour
                     other.GetComponent<OutlineHolster>().OutlineColor = Color.cyan;
                     if (!other.GetComponent<XRGrabInteractable>().GetIsHeld())
                     {
+                        other.GetComponent<Rigidbody>().isKinematic = true;
                         other.transform.SetParent(this.gameObject.transform);
                         other.transform.localPosition = Vector3.zero;
-                        other.GetComponent<Rigidbody>().isKinematic = true;
-                        Debug.Log("ATTACH");
+                       
                     }
                 }
             }
@@ -54,6 +54,6 @@ public class Holster : MonoBehaviour
     {
         inHolsterZone = false;
         other.GetComponent<OutlineHolster>().enabled = false;
-        dropTimer = 3f;
+        dropTimer = 2f;
     }
 }
