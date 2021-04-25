@@ -6,7 +6,7 @@ public class MagnetField : MonoBehaviour
 {
 
     public Transform player;
-    public float forceFactor = 10f;
+    public float forceFactor = 50f;
     
     [SerializeField] private bool playerInMagnetRange;
     [SerializeField] public float magnetRange;

@@ -2,32 +2,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PauseMenu : MonoBehaviour
+using UnityEngine.XR;
+public class PauseMenuVR : MonoBehaviour
 {
 
-    public static bool hasPaused = false;
+    public  bool hasPaused = false;
     public static bool hasControlInstructionPressed = false;
     public GameObject pauseMenuUI;
     public GameObject ControlInstructionPanel;
     public GameObject HUD;
     private Canvas UICanvas;
+
+    InputDevice deviceR;
+    public XRNode rightController;
+    public InputDeviceCharacteristics controllerCharacteristics;
+    private void Start()
+    {
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+        deviceR = InputDevices.GetDeviceAtXRNode(rightController);
+    }
     // Update is called once per frame
     void Update()
     {
         UICanvas = GetComponent<Canvas>();
         UICanvas.worldCamera = FindObjectOfType<Camera>();
-        UICanvas.planeDistance = 2;
+        UICanvas.planeDistance = 1f;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        deviceR.TryGetFeatureValue(CommonUsages.primaryButton, out bool menuClicked);
+
+        if (menuClicked)
         {
-            
+            Debug.Log("Menu clicked");
             if (hasPaused)
             {
+                
                 ResumeGame();
             }
             else
             {
+                Debug.Log("HERRO");
                 PauseGame();
             }
 
@@ -40,7 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("REUMSE");
         HUD.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
@@ -66,7 +80,7 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseGame()
     {
-        Cursor.lockState = CursorLockMode.None; // Removes cursor from the game.
+        Debug.Log("PAUSE THE GAME");
         HUD.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;

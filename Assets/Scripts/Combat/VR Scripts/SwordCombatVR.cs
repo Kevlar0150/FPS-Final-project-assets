@@ -29,6 +29,7 @@ public class SwordCombatVR : MonoBehaviour
         {
             // Disable the pickup box collider when held
             GetComponent<BoxCollider>().enabled = false;
+            GetComponent<Outline>().enabled = false;
 
             // IF velocity of controller is more than 1 - means it has been swung
             if (controllerVelocity.magnitude > 1.0f)

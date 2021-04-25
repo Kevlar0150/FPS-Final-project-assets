@@ -1062,7 +1062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6904584821616880495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.2, y: 15.2, z: 33.7}
+  m_LocalPosition: {x: -24.2, y: 12.23, z: 33.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6904584822819836396}
@@ -1687,7 +1687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6904584822722404620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7, y: 10.4, z: 6.7}
+  m_LocalPosition: {x: -6.43, y: 8.4, z: 6.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6904584822819836396}
@@ -1853,7 +1853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6904584822819836397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6904584821616880494}
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootArray:
   - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
-  - {fileID: 2748958050049784714, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
+  - {fileID: 5285781423396885924, guid: bd36d27b516e31140b569fc3e380dad4, type: 3}
   - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
   gunList:
   - {fileID: 2992837780148544337, guid: f95e14a7ad10fa0458017c115614b8a6, type: 3}

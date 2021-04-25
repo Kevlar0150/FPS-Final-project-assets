@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5484418238314104153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5484418238314104155}
+  - component: {fileID: 5484418238314104152}
+  m_Layer: 0
+  m_Name: LevelBuilderVR
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5484418238314104155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484418238314104153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5484418238314104152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484418238314104153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b441a050be8fb5e4bbf8509c6ce537fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRoomPrefab: {fileID: 5159253473823881053, guid: ed08ea6b63e4b104e8975d4f69fcc8ce,
+    type: 3}
+  endRoomPrefab: {fileID: 48090041152885617, guid: 6fba0f8999d51084b8a1d730aa6823ce,
+    type: 3}
+  roomPrefabs:
+  - {fileID: 4765842625826084438, guid: ee5c492450c2134469dcbc5abb9ada10, type: 3}
+  - {fileID: 4765842625826084438, guid: ee5c492450c2134469dcbc5abb9ada10, type: 3}
+  - {fileID: 2402446929524467458, guid: e9a00ca191fde3c4b95777b6f5d739d0, type: 3}
+  - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
+  - {fileID: 6000744836308512174, guid: a30dacc469337604b928a8311dad785c, type: 3}
+  - {fileID: 1519874907508951653, guid: fd4b029416c8b7d48a2c50b9c5e88b0d, type: 3}
+  - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
+  - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
+  - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
+  - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
+  - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
+  - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
+  - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
+  - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
+  - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
+  iterationMin: 15
+  iterationMax: 20
+  playerPrefab: {fileID: 6082130895114499754, guid: 54284345e3f1f6d47a8f736c0204c8c2,
+    type: 3}

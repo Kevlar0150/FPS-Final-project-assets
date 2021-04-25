@@ -6,29 +6,29 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HolsterManager : MonoBehaviour
 {
     public BoxCollider rightHolster;
-    public BoxCollider leftHolster;  
+    public BoxCollider leftHolster;
+    
 
     [SerializeField]private Camera playerCamera;
+    [SerializeField] public Transform holsterPosition;
+
     private float rotationSpeed = 150;
 
     private XRGrabInteractable grabInteractable;
-
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
     private void FixedUpdate()
     {
-        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y/1.3f , playerCamera.transform.position.z);
+        transform.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y-0.75F, playerCamera.transform.position.z);
+
     }
     // Update is called once per frame
     void Update()
     {
         //Position holster at hips of player (Usually halfway)
-      
-
         var rotationDifference = Mathf.Abs(playerCamera.transform.eulerAngles.y - transform.eulerAngles.y);
         var finalRotationSpeed = rotationSpeed;
 

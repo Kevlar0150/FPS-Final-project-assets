@@ -27,6 +27,8 @@ TagManager:
   - EnemyProjectile
   - BossRoom
   - Weapon
+  - PlayerVR
+  - HUD
   layers:
   - Default
   - TransparentFX

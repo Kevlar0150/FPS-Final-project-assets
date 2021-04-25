@@ -678,7 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6533008245852116729}
-  - component: {fileID: 1108026128889260357}
+  - component: {fileID: 680381164}
   m_Layer: 0
   m_Name: ItemSpawner
   m_TagString: Untagged
@@ -694,7 +694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3754722563277579752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 824781605429618474}
@@ -702,7 +702,7 @@ Transform:
   m_Father: {fileID: 8298012227539288935}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1108026128889260357
+--- !u!114 &680381164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -711,20 +711,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3754722563277579752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d49ecca1bb297b74593e6147cc6b7098, type: 3}
+  m_Script: {fileID: 11500000, guid: 12390d87616e8314cb50f8ea887775bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lootArray:
   - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
-  - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
   - {fileID: 5285781423396885924, guid: bd36d27b516e31140b569fc3e380dad4, type: 3}
+  - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
   gunList:
-  - {fileID: 2992837780148544337, guid: f95e14a7ad10fa0458017c115614b8a6, type: 3}
-  - {fileID: 1191202725, guid: 57bf5071e0a1c8947b8918a8f96184a6, type: 3}
-  - {fileID: 6964048101013514087, guid: 27f4756ce0dd00a40ab6219d225daf9c, type: 3}
-  energyCannonSpawn: {fileID: 1861479645, guid: fff2257acb37d16428811a2f8a74c894,
+  - {fileID: 8827934337979660053, guid: 1f609343fec932d4ba88872a9b61dbb3, type: 3}
+  - {fileID: 1815580335, guid: 10bfd20c243509b4489d93d1e6499492, type: 3}
+  - {fileID: 690720748323936043, guid: ebf62ff16179fe04892b0bfc88e410a8, type: 3}
+  energyCannonSpawn: {fileID: 8013976185796983951, guid: e6cb4d09ec527824bb2250600d2ccffd,
     type: 3}
-  swordSpawn: {fileID: 0}
+  swordSpawn: {fileID: 1016238973, guid: 7fcb198dc11e7bc4fabcbbd30ed93a29, type: 3}
   transformArray:
   - {fileID: 824781605429618474}
   - {fileID: 8372739292555233885}
@@ -1098,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995596318945441495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.07, z: -30.3}
+  m_LocalPosition: {x: 0, y: 0, z: -30.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6533008245852116729}
@@ -1283,7 +1283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7364117884251742061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.88, z: 29.8}
+  m_LocalPosition: {x: 0, y: 0, z: 29.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6533008245852116729}
@@ -1421,7 +1421,7 @@ GameObject:
   - component: {fileID: 8298012227539288935}
   - component: {fileID: 6000744836308512174}
   m_Layer: 0
-  m_Name: RoomWith4Walls
+  m_Name: RoomWith4WallsVR
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

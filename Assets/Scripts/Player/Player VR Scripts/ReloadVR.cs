@@ -18,7 +18,7 @@ public class ReloadVR : MonoBehaviour
     private void FixedUpdate()
     {
         //Position reloader at chest of player
-        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y / 1.15f, playerCamera.transform.position.z);
+        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y-0.4f, playerCamera.transform.position.z);
     }
     // Update is called once per frame
     void Update()
