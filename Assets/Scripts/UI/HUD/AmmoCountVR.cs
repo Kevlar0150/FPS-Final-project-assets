@@ -20,8 +20,17 @@ public class AmmoCountVR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammo = GetComponentInChildren<Gun_raycastVR>().getBulletsRemaining();
-        ammoMag = GetComponentInChildren<Gun_raycastVR>().getAmmoMag();
+        ammoCount = GameObject.FindGameObjectWithTag("AmmoUI").GetComponent<Text>();
+        if (GetComponentInChildren<Gun_raycastVR>())
+        {
+            ammo = GetComponentInChildren<Gun_raycastVR>().getBulletsRemaining();
+            ammoMag = GetComponentInChildren<Gun_raycastVR>().getAmmoMag();
+        }
+        if (GetComponentInChildren<EnergyCannonVR>())
+        {
+            ammo = GetComponentInChildren<EnergyCannonVR>().getBulletsRemaining();
+            ammoMag = GetComponentInChildren<EnergyCannonVR>().getAmmoMag();
+        }
         ammoCount.text = ammo.ToString() + "/" + ammoMag.ToString();
     }
 }
