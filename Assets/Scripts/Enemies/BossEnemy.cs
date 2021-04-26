@@ -268,27 +268,22 @@ public class BossEnemy : MonoBehaviour
     private void Shoot()
     {
         anim.SetBool("isWalking", false);
-
+        //Debug.Log("Attacking");
         navMeshAgent.SetDestination(transform.position);
-        navMeshAgent.transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        //muzzle.transform.LookAt(player);
+        navMeshAgent.transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
 
-        if (!hasShot) // If enemy hasn't shot yet, then SHOOT
+        if (!hasShot) // If enemy hasn't attacked yet, then ATTACK
         {
 
-            // LOOPS 8 times to create 8 instances of the bullet when Shoot function called
-            for (int i = 0; i < numOfProjectilesShot; i++)
-            {
-                GameObject enemyProjectile = Instantiate(projectilePrefab);
-                enemyProjectile.transform.position = muzzle.transform.position;
-                enemyProjectile.transform.forward = muzzle.transform.forward;
-            }
+            GameObject enemyProjectile = Instantiate(projectilePrefab);
+            enemyProjectile.transform.position = muzzle.transform.position;
+            enemyProjectile.transform.forward = muzzle.transform.forward;
 
-            hasShot= true;
+            hasShot = true;
             Invoke(nameof(ResetShot), timeBetweenShots); // Invoke resetAttack function after timeBetweenAttacks time has ended
         }
     }
-
+  
     private void ResetShot()
     {
         hasShot = false;

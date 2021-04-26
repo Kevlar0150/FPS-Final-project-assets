@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
     Transform PatrolPoints;
     Animator anim;
     private MainMenu mainMenu;
-
+    SoundManager sound;
     private void Awake()
     {   
         
@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
         NavMeshPath path = new NavMeshPath();
+        sound = FindObjectOfType<SoundManager>();
 
         mainMenu = GameObject.Find("MenuManager").GetComponent<MainMenu>();
         difficultyMultiplier = mainMenu.getMultiplier();
@@ -157,7 +158,6 @@ public class Enemy : MonoBehaviour
 
     private void Patrol(Vector3 distanceToWalkPoint)
     {
-        Debug.Log("Patrolling");
         anim.SetBool("isWalking", true);
         anim.SetBool("isAttacking", false);
 
@@ -241,6 +241,7 @@ public class Enemy : MonoBehaviour
 
         if (!hasShot) // If enemy hasn't attacked yet, then ATTACK
         {
+            sound.PlaySound("enemylaserShot");
             GameObject enemyProjectile = Instantiate(projectilePrefab);
             enemyProjectile.transform.position = muzzle.transform.position;
             enemyProjectile.transform.forward = gameObject.transform.forward;
@@ -265,6 +266,8 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
+            sound.PlaySound("explosion");
+
             //Instantiate explosion VFX
             GameObject impactVFXObject = Instantiate(deathExplosion, transform.position, transform.rotation);
             Destroy(impactVFXObject, 1.7f);

@@ -31,10 +31,18 @@ public class Player : MonoBehaviour
     bool speedBuffOn = false;
     bool hit = false;
     bool isGrounded;
+
+    // Sound manager
+    private SoundManager soundManager;
+
+    // Menu
+    private MainMenu menu;
     private void Start()
     {
         speedBoostTimer = speedBoostDuration;
         speed = defaultSpeed;
+        soundManager = FindObjectOfType<SoundManager>();
+        menu = FindObjectOfType<MainMenu>();
     }
     // Update is called once per frame
     void Update()
@@ -55,6 +63,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0) // Player dies when health reaches 0
         {
+            menu.QuitToMainMenu();
             Destroy(gameObject);
         }
 
@@ -98,11 +107,16 @@ public class Player : MonoBehaviour
         velocity.y += gravity * Time.deltaTime; // Allows character position y to be manipulated by gravity
     }
 
-    public void TakeDamage(float damage) { health -= damage; }
+    public void TakeDamage(float damage) 
+    {
+        soundManager.PlaySound("playerhit");
+        health -= damage; 
+    }
 
     // ---------------Power up functions-------------------
     public void increaseHealth(float healthAmount)
     {
+        soundManager.PlaySound("healthup");
         health += healthAmount;
 
         if (health >= maxHealth) 
@@ -112,6 +126,7 @@ public class Player : MonoBehaviour
     }
     public void increaseSpeed(float multiplier, bool speedBoost)
     {
+        soundManager.PlaySound("speedup");
         speedBuffOn = speedBoost;
         if (speedBuffOn) // If true, multiply speed
         {

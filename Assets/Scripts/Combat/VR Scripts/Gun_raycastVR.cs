@@ -40,6 +40,8 @@ public class Gun_raycastVR : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;
     private InputDevice targetDevice;
 
+    // Sound
+    SoundManager sound;
     private void Start()
     {
         // Initialise variables upon start
@@ -48,6 +50,7 @@ public class Gun_raycastVR : MonoBehaviour
         bulletsRemaining = gunClipSize;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        sound = FindObjectOfType<SoundManager>();
   
         // Get Controllers
 
@@ -117,7 +120,7 @@ public class Gun_raycastVR : MonoBehaviour
             // Instantiate a gameobject with the particle effect at the point of hit. Make the effect normalized so that it is instantiated in the correct direction.
             GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactVFXObject, 0.75f); // Destroy the impact VFX after 2 seconds.
-
+          
             // If ray hit info is enemy, meaning if bullet hits the enemy then damage enemy
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if (enemy != null)
@@ -136,6 +139,8 @@ public class Gun_raycastVR : MonoBehaviour
         // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
         if (transform.tag.Equals("Shotgun"))
         {
+
+            sound.PlaySound("shotgunShot");
             // For loop to create multiple ray/bullet shots
             for (int i = 0; i <= bulletsPerShot; i++)
             {
@@ -198,6 +203,7 @@ public class Gun_raycastVR : MonoBehaviour
     // Setters function (Increasing variable or something)
     public void increaseMag(int multiplier)
     {
+        sound.PlaySound("ammopickup");
         // Increase mag size by maximum Mag capacity divided by a multiplier (Value being passed in).
         magSize += (magSizeCapacity / multiplier);
 

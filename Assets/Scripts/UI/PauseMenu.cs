@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject ControlInstructionPanel;
     public GameObject HUD;
+    public MainMenu mainMenuManager;
+
     private Canvas UICanvas;
     // Update is called once per frame
     void Update()
     {
+        mainMenuManager = FindObjectOfType<MainMenu>();
         UICanvas = GetComponent<Canvas>();
         UICanvas.worldCamera = FindObjectOfType<Camera>();
         UICanvas.planeDistance = 2;
@@ -59,17 +63,25 @@ public class PauseMenu : MonoBehaviour
         PauseGame();
     }
 
-    public void QuitGame()
+    public void Quit()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        DestroyObject(mainMenuManager.gameObject);
+        mainMenuManager.QuitToMainMenu();
+        
     }
 
     private void PauseGame()
     {
-        Cursor.lockState = CursorLockMode.None; // Removes cursor from the game.
+        Cursor.lockState = CursorLockMode.None; 
         HUD.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         hasPaused = true;
+    }
+
+    public bool GetHasPaused()
+    {
+        return hasPaused;
     }
 }

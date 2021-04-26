@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1859092266780632819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 5.5, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1862651577048823627}
   - {fileID: 1862288234104890217}
@@ -122,7 +122,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.3
   lifeDuration: 5
-  damage: 0
+  damage: 20
   impactVFX: {fileID: 1785284669155556954, guid: 1b95b1f937eb59f449c2bb7dd1a0a7f5,
     type: 3}
 --- !u!135 &1857803773466421097
@@ -4847,7 +4847,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1857803773466421078
 Rigidbody:
@@ -9770,7 +9770,7 @@ Transform:
   m_GameObject: {fileID: 1859338377727463889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1857526942951177237}
   m_RootOrder: 0

@@ -48,6 +48,12 @@ public class MainMenu : MonoBehaviour
         }
 
     }
+
+    public void QuitToMainMenu()
+    {
+        Debug.Log("QUIT TO MAINMENU");
+        SceneManager.LoadScene(0);
+    }
     public float getMultiplier()
     {
         return difficultyMultiplier;

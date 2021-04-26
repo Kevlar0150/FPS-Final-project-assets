@@ -50,6 +50,7 @@ public class EnemyProjectile : MonoBehaviour
             Player playerObject = collision.transform.GetComponent<Player>(); // Gets Player component when collides Player - Allows us to call functions in Player script.
             if (playerObject != null) // If playerObject HAS FOUND the Player component and does not equal NULL
             {
+                Debug.Log("HIT BY BOSS");
                 playerObject.TakeDamage(damage);
 
                 // Set "hit" to true so that enemy bullet doesn't damage player twice in 1 shot.

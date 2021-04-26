@@ -751,7 +751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357371623635308830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d98fea65c2832a04e82a0d637aace376, type: 3}
   m_Name: 
@@ -802,7 +802,7 @@ MonoBehaviour:
   lootToBeSpawned:
   - {fileID: 4100940436265368255, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
   - {fileID: 2597738102656069436, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
-  - {fileID: 2514796163887826586, guid: fc4e7c6eb276d9747a464e650e53eae5, type: 3}
+  - {fileID: 2597738102656069436, guid: bd36d27b516e31140b569fc3e380dad4, type: 3}
   minNumberOfLoot: 3
   maxNumberOfLoot: 10
   spawnPoint: {fileID: 351778561500732479}

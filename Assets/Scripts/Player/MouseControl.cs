@@ -5,22 +5,36 @@ using UnityEngine;
 public class MouseControl : MonoBehaviour
 {
     // mouse Sensitivity
-    public float mouseSens = 350f;
+    public float mouseSens = 500f;
 
     // Player transform variable
     public Transform playerBody;
 
     float xRotation = 0f;
 
+    PauseMenu pause;
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Removes cursor from the game.
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        pause = FindObjectOfType<PauseMenu>();
+        if (pause.GetHasPaused())
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
         float mouseXAxis = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime; // Gets mouse position on X axis
         float mouseYAxis = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime; // Gets mouse position on Y axis
 
@@ -30,4 +44,6 @@ public class MouseControl : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); //Apply rotation.
         playerBody.Rotate(Vector3.up * mouseXAxis); //Allows player to rotate on X axis.
     }
+
+
 }

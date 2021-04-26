@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
   - {fileID: 6960111894816798121, guid: ffcbfaaefa8318c4e97a4506e999e1fb, type: 3}
   - {fileID: 3973991571519447940, guid: 504e5c6d52080554aa73b570629cbdc8, type: 3}
-  iterationMin: 15
-  iterationMax: 20
+  iterationMin: 10
+  iterationMax: 15
   playerPrefab: {fileID: 6082130895114499754, guid: 54284345e3f1f6d47a8f736c0204c8c2,
     type: 3}

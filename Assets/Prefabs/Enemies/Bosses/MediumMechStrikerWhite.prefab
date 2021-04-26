@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203650303938711573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d98fea65c2832a04e82a0d637aace376, type: 3}
   m_Name: 
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76deb54f4f711214686d835348eae67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 250
+  enemyHealth: 1000
   patrolWaiting: 1
   timeWaiting: 2
   waypointList: []
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1859092266780632819, guid: c316baf006b32334c9fbf680bb5c78b4,
     type: 3}
   muzzle: {fileID: 4676443277396650425}
-  timeBetweenShots: 4
+  timeBetweenShots: 2
   numOfProjectilesShot: 10
   sightRange: 30
   attackRange: 6.5
@@ -1168,6 +1168,8 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   playerInShootRange: 0
+  lifeDuration: 3
+  lifeTimer: 0
   Ground:
     serializedVersion: 2
     m_Bits: 512
@@ -1294,7 +1296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4676443277396650425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.44, y: 9.19, z: 3.7}
+  m_LocalPosition: {x: 3.44, y: 6, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4205991032130868987}
