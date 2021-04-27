@@ -105,6 +105,7 @@ public class EnergyCannon : MonoBehaviour
     // Setters function (Increasing variable or something)
     public void increaseMag(int multiplier)
     {
+        Debug.Log("ENERGYGUN RELOAD");
         // Increase mag size by maximum Mag capacity divided by a multiplier (Value being passed in).
         magSize += (magSizeCapacity / multiplier);
 

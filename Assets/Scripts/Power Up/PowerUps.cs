@@ -30,14 +30,31 @@ public class PowerUps : MonoBehaviour
 
                 if (weaponSlot1.gameObject.activeSelf) // Checks if WeaponSlot object is active.
                 {
-                    // Increases mag size of the childObject of WeaponSlot1 which is the guns.
-                    weaponSlot1.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
+                    // Increases mag size of the childObject of WeaponSlot1 which is the Raycast type guns.
+                    if (weaponSlot1.gameObject.GetComponentInChildren<Gun_raycast>())
+                    {
+                        weaponSlot1.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
+                    }
+
+                    // Increases mag size of the childObject of WeaponSlot1 which is the energy type gun
+                    if (weaponSlot1.gameObject.GetComponentInChildren<EnergyCannon>())
+                    {
+                        weaponSlot1.gameObject.GetComponentInChildren<EnergyCannon>().increaseMag(4);
+                    }                
                 }
                 if (weaponSlot2.gameObject.activeSelf)
                 {
-                    weaponSlot2.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
-                }
+                    // Increases mag size of the childObject of WeaponSlot2 which is the guns.
+                    if (weaponSlot2.gameObject.GetComponentInChildren<Gun_raycast>())
+                    {
+                        weaponSlot2.gameObject.GetComponentInChildren<Gun_raycast>().increaseMag(4);
+                    }
 
+                    if (weaponSlot2.gameObject.GetComponentInChildren<EnergyCannon>())
+                    {
+                        weaponSlot2.gameObject.GetComponentInChildren<EnergyCannon>().increaseMag(4);
+                    }
+                }
             }
             if (gameObject.transform.tag == "Health")
             {
