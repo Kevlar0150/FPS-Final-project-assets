@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using Sigtrap.VrTunnellingPro;
+
 public class PauseMenuVR : MonoBehaviour
 {
 
@@ -16,6 +18,10 @@ public class PauseMenuVR : MonoBehaviour
     InputDevice deviceR;
     public XRNode rightController;
     public InputDeviceCharacteristics controllerCharacteristics;
+
+    public Camera playerCamera;
+
+    bool motionSicknessOn = false;
     private void Start()
     {
         List<InputDevice> devices = new List<InputDevice>();
@@ -25,6 +31,7 @@ public class PauseMenuVR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerCamera = FindObjectOfType<Camera>();
         UICanvas = GetComponent<Canvas>();
         UICanvas.worldCamera = FindObjectOfType<Camera>();
         UICanvas.planeDistance = 1f;
@@ -80,10 +87,23 @@ public class PauseMenuVR : MonoBehaviour
 
     private void PauseGame()
     {
-        Debug.Log("PAUSE THE GAME");
         HUD.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         hasPaused = true;
+    }
+
+    public void ToggleMotionSicknessMode()
+    {
+        motionSicknessOn = !motionSicknessOn;
+
+        if (motionSicknessOn)
+        {
+            playerCamera.GetComponent<Tunnelling>().enabled = true;
+        }
+        else
+        {
+            playerCamera.GetComponent<Tunnelling>().enabled = false;
+        }
     }
 }
