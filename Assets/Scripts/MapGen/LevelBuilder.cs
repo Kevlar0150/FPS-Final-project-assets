@@ -95,7 +95,7 @@ public class LevelBuilder : MonoBehaviour
 	{
 		foreach (Doorway doorway in room.doorways) {
 
-			// For Loop that makes the order of the doorway list more random thus making level generation more random.
+			// For Loop that makes the order of the doorway list more random thus making level generation more random. *ADDED MY SELF
 			for (int i = 0; i < list.Count; i++) 
 			{
 				Doorway tempDoorway = list[i];
@@ -111,6 +111,8 @@ public class LevelBuilder : MonoBehaviour
 	void PlaceRoom ()
 	{
 		
+		// My own added code
+
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag("BossRoom");
 
@@ -127,6 +129,9 @@ public class LevelBuilder : MonoBehaviour
 			currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)]) as Room;
 			currentRoom.transform.parent = this.transform;
 		}
+
+		// End of custom code
+
 
 		// Create doorway lists to loop over
 		List<Doorway> allAvailableDoorways = new List<Doorway> (availableDoorways);
@@ -181,7 +186,7 @@ public class LevelBuilder : MonoBehaviour
 			bossRoomSpawned = false;
 		}
 
-		// If generator finished AND boss room hasn't been placed, Restart generator and try again
+		// If generator finished AND boss room hasn't been placed, Restart generator and try again *ADDED MYSELF
 		if (generatorFinished && gos.Length <= 0)
 		{
 			Debug.Log("BOSS ROOM NOT SPAWNED");
@@ -304,6 +309,7 @@ public class LevelBuilder : MonoBehaviour
 		{ Destroy(room.gameObject); }
 	}
 
+	// OWN CUSTOM FUNCTION
 	public bool hasRoomFinished()
 	{
 		return generatorFinished;

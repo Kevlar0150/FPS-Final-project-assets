@@ -80,7 +80,6 @@ public class Player : MonoBehaviour
                 speedBoostTimer = speedBoostDuration;
             }
         }
-        // Shield buff insert here
     }
 
     private void Walk()
@@ -116,6 +115,7 @@ public class Player : MonoBehaviour
     // ---------------Power up functions-------------------
     public void increaseHealth(float healthAmount)
     {
+        Debug.Log("i am health");
         soundManager.PlaySound("healthup");
         health += healthAmount;
 
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
     }
     public void increaseSpeed(float multiplier, bool speedBoost)
     {
+        Debug.Log("I AM SPEED");
         soundManager.PlaySound("speedup");
         speedBuffOn = speedBoost;
         if (speedBuffOn) // If true, multiply speed

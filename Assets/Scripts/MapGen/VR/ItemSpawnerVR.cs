@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSpawnerVR : MonoBehaviour
 {
-    public PowerUps[] lootArray; // Array of power ups that can be picked up
+    public PowerUpsVR[] lootArray; // Array of power ups that can be picked up
 
     public List<Gun_raycastVR> gunList = new List<Gun_raycastVR>();
 

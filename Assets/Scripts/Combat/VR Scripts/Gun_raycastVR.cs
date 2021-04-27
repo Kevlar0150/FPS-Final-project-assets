@@ -53,7 +53,6 @@ public class Gun_raycastVR : MonoBehaviour
         sound = FindObjectOfType<SoundManager>();
   
         // Get Controllers
-
         List<InputDevice> devices = new List<InputDevice>();
 
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
@@ -139,17 +138,15 @@ public class Gun_raycastVR : MonoBehaviour
         // Shotgun raycast with for loop to create multiple raycasts depending on bulletsPerShot on click.
         if (transform.tag.Equals("Shotgun"))
         {
-
-            sound.PlaySound("shotgunShot");
             // For loop to create multiple ray/bullet shots
             for (int i = 0; i <= bulletsPerShot; i++)
             {
                 // Own bullet spread so that each bullet from 1 shot has a randomized spread
                 float shotgunSpreadX = Random.Range(-bulletSpread, bulletSpread);
                 float shotgunSpreadY = Random.Range(-bulletSpread, bulletSpread);
-                Vector3 shotgunSpread = gameObject.transform.forward + new Vector3(shotgunSpreadX, shotgunSpreadY, 0);
+                Vector3 shotgunSpread = muzzlePos.transform.forward + new Vector3(shotgunSpreadX, shotgunSpreadY, 0);
 
-                if (Physics.Raycast(gameObject.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
+                if (Physics.Raycast(muzzlePos.transform.position, shotgunSpread, out hitInfo, shootRange, layerMask))
                 {
                     // Impact VFX
                     GameObject impactVFXObject = Instantiate(impactVFX, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
@@ -203,7 +200,7 @@ public class Gun_raycastVR : MonoBehaviour
     // Setters function (Increasing variable or something)
     public void increaseMag(int multiplier)
     {
-        sound.PlaySound("ammopickup");
+
         // Increase mag size by maximum Mag capacity divided by a multiplier (Value being passed in).
         magSize += (magSizeCapacity / multiplier);
 

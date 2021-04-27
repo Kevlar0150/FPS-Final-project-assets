@@ -743,9 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootArray:
-  - {fileID: 5471455775907106999, guid: 13dcbbfbbebb08b4b8b58195d55d0ff0, type: 3}
-  - {fileID: 5285781423396885924, guid: bd36d27b516e31140b569fc3e380dad4, type: 3}
-  - {fileID: 5285781423396885924, guid: 3c9fd6526fff6be46aefa2b4737eecbc, type: 3}
+  - {fileID: 2186650387286954503, guid: daa68244fbc7bd74aa1be6ab596be99d, type: 3}
+  - {fileID: -6367333291169663169, guid: 0a71ed713c9eb254c80dd2605d2b3254, type: 3}
+  - {fileID: -5068192813284143419, guid: 26c239ac6cb09a345876a157f202fee1, type: 3}
   gunList: []
   energyCannonSpawn: {fileID: 0}
   swordSpawn: {fileID: 0}

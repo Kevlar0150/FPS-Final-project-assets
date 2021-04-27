@@ -1143,9 +1143,9 @@ MonoBehaviour:
   maxHealth: 100
   controller: {fileID: 6082130895114499756}
   defaultSpeed: 10
-  speed: 10
-  gravity: -18
-  jumpForce: 1.4
+  speed: 13
+  gravity: -8
+  jumpForce: 8
   groundCheck: {fileID: 6082130896117205198}
   groundDistance: 0.3
   groundMask:
