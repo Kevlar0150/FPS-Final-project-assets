@@ -189,7 +189,6 @@ public class LevelBuilder : MonoBehaviour
 		// If generator finished AND boss room hasn't been placed, Restart generator and try again *ADDED MYSELF
 		if (generatorFinished && gos.Length <= 0)
 		{
-			Debug.Log("BOSS ROOM NOT SPAWNED");
 			Destroy(currentRoom.gameObject);
 			ResetLevelGenerator();
 			bossRoomSpawned = false;
