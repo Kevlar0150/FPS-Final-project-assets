@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//The entire code present in this script has been produced following a tutorial by One Wheel Studio, 2019, https://www.youtube.com/watch?v=lqGlBMe-Pqw
 public class SpawnLoot : MonoBehaviour
 {
     public List<GameObject> lootToBeSpawned = new List<GameObject>();

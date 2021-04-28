@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Sources used:
-//https://learn.unity.com/tutorial/controlling-animation#5c7f8528edbc2a002053b4e0
+// https://learn.unity.com/tutorial/controlling-animation#5c7f8528edbc2a002053b4e0 - Used for the animations
+// https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s - The gun tutorial used for Gun_Raycast, The creating raycasts section from the tutorial was used in this script and adapted to fit the sword by changing the range of the ray.
+// The rest of the code was done by me while using code that I learned throughout the project.
 
 public class SwordCombat : MonoBehaviour
 {
@@ -30,8 +32,6 @@ public class SwordCombat : MonoBehaviour
     void Update()
     {
         // Set the sword properties each frame so it is consistent throughout.
-        float damage = 10f;
-        float attackRange = 25f;
         float attackSpeed = 2f;
         float attackCooldown = 2f;
 
@@ -60,6 +60,7 @@ public class SwordCombat : MonoBehaviour
 
         layerMask = ~layerMask; // We invert it using the ~ sign so that we can collide with everything EXCEPT Layer 11 which is the player.
                                 // This is so that we don't shoot ourselves.
+
         if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward, out hit, attackRange, layerMask))
         {
             if (hit.collider.tag == "Enemy")

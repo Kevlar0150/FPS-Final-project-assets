@@ -5,6 +5,9 @@
 //https://forum.unity.com/threads/hitscan-raycasting-hits-vs-projectile-simulation.334463/ - Help deciding on what hit detection to use
 //https://docs.unity3d.com/Manual/Layers.html - Help with LayerMask when shooting.
 
+//The Shoot,reload and reloadfinished function has been produced using the tutorial provided by Dave/Gamedevelopment (2020) https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
+//The rest of the code has been produced by me,
+
 public class Gun_raycast : MonoBehaviour
 {
     // Gun properties
@@ -35,13 +38,10 @@ public class Gun_raycast : MonoBehaviour
     public Transform player;
     Animator anim;
 
-    //Rays
-    Ray singleFireRay;
-    Ray shotgunRay;
-    
+
     private void Start()
     {
-        // Initialise variables upon start
+        // Initialise variables upon start *My own code*
         magSize = gunClipSize * 4;
         magSizeCapacity = magSize;
         bulletsRemaining = gunClipSize;
@@ -55,24 +55,23 @@ public class Gun_raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //*My own code*
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerCamera = player.GetChild(2).transform;
 
-        // Shoot button
-        if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
-            {
-                shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
-                Shoot(); // Calls shoot function below
-            }
-        // Reload button
-            if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading && magSize > 0)
-            {
-                Reload(); // Calls function for reloading the gun
-            }
-        //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+        //Handling input was taken from Dave/GameDevelopment - Gun/Reload tutorial and adapted according to the new variables I've added.     
+        if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0) // Shoot button
+        {
+            shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
+            Shoot(); // Calls shoot function below
+        }  
+        if (Input.GetKeyDown(KeyCode.R) && bulletsRemaining < gunClipSize && !reloading && magSize > 0)    // Reload button
+        {
+            Reload(); // Calls function for reloading the gun
+        }
     }
 
-    // Shoot function
+    // Shoot function - Base of the function taken from Dave/GameDevelopment https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s and added my own code to
     public void Shoot()
     {
         bulletsRemaining--; // Decrease amount of bullets available to shoot
@@ -82,6 +81,8 @@ public class Gun_raycast : MonoBehaviour
         float spreadY = Random.Range(-bulletSpread, bulletSpread);
 
         Vector3 spreadDirection = playerCamera.transform.forward + new Vector3(spreadX, spreadY, 0);
+
+        // Layermask code taken from 
         var layerMask = 1 << 11; // Bit shifts the index of layer 11 (Player layer) to get bit mask
         
         layerMask = ~layerMask; // We invert it using the ~ sign so that we can collide with everything EXCEPT Layer 11 which is the player.
@@ -148,7 +149,7 @@ public class Gun_raycast : MonoBehaviour
         }
     }
 
-    // Reloading functions
+    // Reloading functions also taken from Dave/Gamedev https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
     private void Reload()
     {
         reloading = true; // Set to true so player cannot shoot while reloading.
@@ -157,14 +158,15 @@ public class Gun_raycast : MonoBehaviour
         Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
     }
 
+    // ReloadingFinished functions also taken from Dave/Gamedev https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
+    // But tweaked so that it you reload the gun, the number of bullets used to reload is also reduced from the magazine capacity.
     private void ReloadFinished()
     {
-        tempclipSize = gunClipSize; // Temp variable = the gun's clip size that's been set
-        clipDifferent = tempclipSize -= bulletsRemaining; // clip difference is temp clip size minus bullets remaining
-        bulletsRemaining = bulletsRemaining + clipDifferent; // Add the difference to bullets remaining
-        magSize -= clipDifferent; // Subtract the difference to magSize
+        tempclipSize = gunClipSize;                             // Temp variable = the gun's clip size that's been set
+        clipDifferent = tempclipSize -= bulletsRemaining;       // clip difference is temp clip size minus bullets remaining
+        bulletsRemaining = bulletsRemaining + clipDifferent;    // Add the difference to bullets remaining
+        magSize -= clipDifferent;                                // Subtract the difference to magSize
 
-        // If statement to stop magSize from being minus value.
         if (magSize <= 0) { magSize = 0; }
     
         reloading = false;

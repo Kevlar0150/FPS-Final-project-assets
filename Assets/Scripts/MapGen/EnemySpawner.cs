@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Entire code presented in this script has been created 100% by me
+
 public class EnemySpawner : MonoBehaviour
 {
     public Enemy[] enemyArray; // Array of enemies to be spawned

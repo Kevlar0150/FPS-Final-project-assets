@@ -7,6 +7,9 @@ using UnityEngine.XR;
 //https://forum.unity.com/threads/hitscan-raycasting-hits-vs-projectile-simulation.334463/ - Help deciding on what hit detection to use
 //https://docs.unity3d.com/Manual/Layers.html - Help with LayerMask when shooting.
 
+// This is a VR version of the existing Gun_raycast script. 
+// https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s - Dave/GameDevelopment - How to shoot with raycasting and use Raycasting in unity and Reload guns. Tutorial also used to reload guns.
+// Same Tutorial is used to produced the shoot and reload function of the gun which has been adapted for VR by changing Ray starting position from Camera to the tip of the gun.
 public class Gun_raycastVR : MonoBehaviour
 {
     // Gun properties

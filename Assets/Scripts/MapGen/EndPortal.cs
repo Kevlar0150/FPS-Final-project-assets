@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Entire code present in this script has been 100% created by me.
+
 public class EndPortal : MonoBehaviour
 {
     MainMenu mainMenuScript;

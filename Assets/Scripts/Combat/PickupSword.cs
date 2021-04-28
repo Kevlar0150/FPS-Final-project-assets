@@ -4,6 +4,8 @@ using UnityEngine;
 
 //Sources used:
 //https://learn.unity.com/tutorial/controlling-animation for sword animation
+// https://www.youtube.com/watch?v=8kKLUsn7tcg&t=81s - Majority of code to actually attach the SWORD and drop the SWORD was used from tutorial by Dave/GameDevelopment
+    //and adapted by myself to work in conjununction with Brackeys weapon switching that was implemented.
 
 public class PickupSword : MonoBehaviour
 {

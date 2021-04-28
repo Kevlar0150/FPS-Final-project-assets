@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// The script solely containing code to rotate the object as VR headset rotates has been produced using tutorial by My.Pineapple Studio, 2020, https://www.youtube.com/watch?v=FFM2oyLUysk&t=5s
 public class SwordManager : MonoBehaviour
 {
 

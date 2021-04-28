@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+// Code to retrieve and listen to inputs from a VR Controller has been produced following the tutorial by Valem, 2020 https://www.youtube.com/watch?v=VdT0zMcggTQ&t=288s
+// The rest of the code such as Walk() and Jump() has been reused from "Player" script and adapted for VR.
+// The code newly produced by myself is ToggleRay() function.
+
 public class XRMovement : MonoBehaviour
 {
     // Controller variables
@@ -57,7 +61,6 @@ public class XRMovement : MonoBehaviour
         deviceL = InputDevices.GetDeviceAtXRNode(leftController);
         deviceR = InputDevices.GetDeviceAtXRNode(rightController);
 
-  
         ToggleRay(); // Toggles ray interactor (To grab things from far or for UI)
 
         Move(); // Moves player in direction

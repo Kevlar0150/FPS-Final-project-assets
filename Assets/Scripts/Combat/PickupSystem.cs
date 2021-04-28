@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//sources used:
+// https://www.youtube.com/watch?v=8kKLUsn7tcg&t=81s - Majority of code to actually attach the Raycast type guns and drop the guns was used from tutorial by Dave/GameDevelopment
+    // and adapted by myself to work in conjununction with Brackeys weapon switching that was implemented.
 public class PickupSystem : MonoBehaviour
 {
     public Gun_raycast gunScript;

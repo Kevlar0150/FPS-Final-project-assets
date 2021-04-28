@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Entire code present in this script is 100% created by me.
+
 public class BossSpawner : MonoBehaviour
 {
     public BossEnemy[] bossArray; // Array of enemies to be spawned

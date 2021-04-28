@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//All the code present in this script has been 100% created by me.
 public class EnemyProjectile : MonoBehaviour
 {
     // Projectile properties

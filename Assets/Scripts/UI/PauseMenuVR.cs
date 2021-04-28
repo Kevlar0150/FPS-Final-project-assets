@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.XR;
 using Sigtrap.VrTunnellingPro;
 
+// Majority of the code such as ResumeGame(), PauseGame(), Quit() was produced following the tutorial by Brackeys (2017) https://www.youtube.com/watch?v=JivuXdrIHK0&t=97s AND ADAPTED towards VR mode
+// The rest of the code was produced 100% by me.
 public class PauseMenuVR : MonoBehaviour
 {
 
@@ -40,7 +42,6 @@ public class PauseMenuVR : MonoBehaviour
 
         if (menuClicked)
         {
-            Debug.Log("Menu clicked");
             if (hasPaused)
             {
                 
@@ -48,7 +49,6 @@ public class PauseMenuVR : MonoBehaviour
             }
             else
             {
-                Debug.Log("HERRO");
                 PauseGame();
             }
 
@@ -61,7 +61,6 @@ public class PauseMenuVR : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("REUMSE");
         HUD.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// The code to move the object along with the forceFactor variable has been produced following a tutorial by MakingMagic, 2016 https://www.youtube.com/watch?v=Xhp7nciaACU&t=8s
+// The rest of the code has been produced 100% by me.
 public class MagnetField : MonoBehaviour
 {
 

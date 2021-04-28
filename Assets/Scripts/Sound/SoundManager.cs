@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code produced in this script has been produced 100% by me
 public class SoundManager : MonoBehaviour
 {
     public static AudioClip enemyLaserShoot, explosion1, explosion2, explosion3,

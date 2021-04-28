@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+
+//The reload and reloadfinished function follows the same logic from the tutorial provided by Dave/Gamedevelopment (2020) https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
+// The rest of the code has been produced by me
 public class EnergyCannonVR : MonoBehaviour
 {
     // Prefabs & References

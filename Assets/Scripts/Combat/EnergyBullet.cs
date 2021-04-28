@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// All code present in this script has been 100% created by me.
+
 public class EnergyBullet : MonoBehaviour
 {
     // Projectile property
@@ -42,7 +44,6 @@ public class EnergyBullet : MonoBehaviour
             Destroy(impactVFXObject, 1.7f);
         }
         
-
         // Damage player
         Enemy enemyObject = collision.transform.GetComponent<Enemy>(); // Gets Player component when collides Player - Allows us to call functions in Player script.
         if (enemyObject != null) // If playerObject HAS FOUND the Player component and does not equal NULL

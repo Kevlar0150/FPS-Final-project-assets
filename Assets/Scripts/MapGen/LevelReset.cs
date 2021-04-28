@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Entire code present in this script has been produced by me.
+
 public class LevelReset : MonoBehaviour
 {
     StartRoom startRoom;

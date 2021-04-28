@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Sources used:
-//https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
+// Sources used:
+// https://www.youtube.com/watch?v=C4ZqrhCP0Bg&list=PLvMpomwW7ZQH3jHDyFP_hUS8560E4SdKM - Tutorial from ProjectShasta (2018).
+// Majority of the code has been developed using the tutorial from ProjectShasta.
+// I have tweaked the resulting code by adding my own custom code to forcefully spawn a Boss room once and reset if not spawned. 
+// Also tweaked how the overlap works by using boxcolliders instead of Mesh's or room bounding box. 
+// Add own function "hasRoomFinished" which returns a bool saying if the generator has finished which is used by other scripts.
 
 public class LevelBuilder : MonoBehaviour
 {
@@ -109,9 +113,8 @@ public class LevelBuilder : MonoBehaviour
 	}
 
 	void PlaceRoom ()
-	{
-		
-		// My own added code
+	{	
+		// **My own added code
 
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag("BossRoom");
@@ -130,7 +133,7 @@ public class LevelBuilder : MonoBehaviour
 			currentRoom.transform.parent = this.transform;
 		}
 
-		// End of custom code
+		// **End of custom code
 
 
 		// Create doorway lists to loop over

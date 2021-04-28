@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+// Entire code present in this script has been produced 100% by me
 public class Holster : MonoBehaviour
 {
     public float dropTimer = 2f;
@@ -38,8 +39,7 @@ public class Holster : MonoBehaviour
                     {
                         other.GetComponent<Rigidbody>().isKinematic = true;
                         other.transform.SetParent(this.gameObject.transform);
-                        other.transform.localPosition = Vector3.zero;
-                       
+                        other.transform.localPosition = Vector3.zero;                      
                     }
                 }
             }

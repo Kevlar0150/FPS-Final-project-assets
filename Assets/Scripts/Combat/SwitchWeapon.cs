@@ -3,6 +3,7 @@
 //Sources used:
 //https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html - SetActive function
 //https://answers.unity.com/questions/785273/whats-the-difference-between-activatedeactivate-en.html - Difference between Activate/deactive and enable/disable
+//https://www.youtube.com/watch?v=Dn_BUIVdAPg&t=56s - *Whole script taken from the tutorial Weapon Switching by Brackeys.*
 
 public class SwitchWeapon : MonoBehaviour
 {

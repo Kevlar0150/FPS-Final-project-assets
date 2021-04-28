@@ -8,6 +8,10 @@ using UnityEngine.AI;
 //https://docs.unity3d.com/Manual/nav-CreateNavMeshAgent.html
 //https://docs.unity3d.com/Manual/class-NavMeshSurface.html
 
+// Majority of the code used is from Dave.GameDeveloper tutorial https://www.youtube.com/watch?v=UjkSFoLxesw&t=13s.
+// The code that is created by me is in the ChangeWaypoint(), SetDestination(), TakeDamage(), Attack() and DestroyObject() as well changing the enemy's property based on difficulty selected.
+// Followed this tutorial https://www.youtube.com/watch?v=5q4JHuJAAcQ&t=4s by Table flip games to improve the patrol function so that it waits after arriving at destination.
+
 public class Enemy : MonoBehaviour
 {
     // BossEnemy health
@@ -79,7 +83,7 @@ public class Enemy : MonoBehaviour
         mainMenu = GameObject.Find("MenuManager").GetComponent<MainMenu>();
         difficultyMultiplier = mainMenu.getMultiplier();
 
-        //Setting the enemy properties values
+        //Setting the enemy properties values *My own code*
         attackDamage *= difficultyMultiplier;
         enemyHealth *= difficultyMultiplier;
         sightRange *= difficultyMultiplier;
@@ -88,11 +92,11 @@ public class Enemy : MonoBehaviour
         navMeshAgent.speed *= difficultyMultiplier;
         navMeshAgent.acceleration *= difficultyMultiplier;
 
-        //Add patrol points into list
+        //Add patrol points into list *My own code* 
         EnemyParent = transform.parent;
         PatrolPoints = EnemyParent.GetChild(0);
 
-        // Foreach child transform in PatrolPoints Gameobject, add child to list
+        // Foreach child transform in PatrolPoints Gameobject, add child to list *My own code*
         foreach (Transform child in PatrolPoints)
         {
             waypointList.Add(child);
@@ -193,12 +197,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChangeWaypoint() // Change to another waypoint available in list with probability to go backwards in list.
+    private void ChangeWaypoint() // Change to another waypoint available in list with probability to go backwards in list. *My own code*
     {
         currentWaypointIndex = Random.Range(0, waypointList.Count);
     }
 
-    private void SetDestination() // Set new waypoint for NPC to travel to
+    private void SetDestination() // Set new waypoint for NPC to travel to *My own code*
     {
 
         if (waypointList != null)
@@ -221,10 +225,10 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", true);
+
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
        
-
         if (!hasAttacked)
         {
             hasAttacked = true;
@@ -234,8 +238,6 @@ public class Enemy : MonoBehaviour
     }
     private void Shoot()
     {
-     
-        //Debug.Log("Attacking");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
 
@@ -253,8 +255,7 @@ public class Enemy : MonoBehaviour
 
     private void ResetAttack() // Sets bool "hasAttacked" to false;
     {
-        hasAttacked = false;
-        
+        hasAttacked = false;      
     }
     private void ResetShot()
     {

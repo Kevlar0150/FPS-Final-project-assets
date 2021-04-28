@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//The reload and reloadfinished function follows the same logic from the tutorial provided by Dave/Gamedevelopment (2020) https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
+// The rest of the code has been produced by me
 public class EnergyCannon : MonoBehaviour
 {
     // Prefabs & References
@@ -49,6 +51,7 @@ public class EnergyCannon : MonoBehaviour
         playerCamera = player.GetChild(2).transform;
         anim = GetComponent<Animator>();
 
+        //Shoot button
         if (Input.GetMouseButton(0) && Time.time >= shootInterval && !reloading && bulletsRemaining > 0)
         {
             shootInterval = Time.time + 1f / firingRate; // Sets shoot interval based on time and firing rate
@@ -69,30 +72,35 @@ public class EnergyCannon : MonoBehaviour
         float spreadX = Random.Range(-spread, spread);
         float spreadY = Random.Range(-spread, spread);
 
-            muzzleFlash.Play();
-            GameObject bulletObject = Instantiate(bulletPrefab); // Instantiate bullet mesh being passed in
-            bulletObject.transform.position = muzzlePosition.transform.position + playerCamera.transform.forward + new Vector3(spreadX, spreadY, 0); // Set position of the bullet
-            bulletObject.transform.forward = playerCamera.transform.forward; // Set facing direction of the bullet
-            Debug.Log("Fire!"); // Debug log to see if this If statement works.
+        muzzleFlash.Play();
+        GameObject bulletObject = Instantiate(bulletPrefab); // Instantiate bullet mesh being passed in
+        bulletObject.transform.position = muzzlePosition.transform.position + playerCamera.transform.forward + new Vector3(spreadX, spreadY, 0); // Set position of the bullet
+        bulletObject.transform.forward = playerCamera.transform.forward; // Set facing direction of the bullet
+        Debug.Log("Fire!"); // Debug log to see if this If statement works.
     }
+
+    // Reload function taken from Dave/Gamedevelopment gun tutorial - https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
     private void Reload()
     {
-        Debug.Log("Reload");
         reloading = true; // Set to true so player cannot shoot while reloading.
         anim.SetBool("isReloading", true);
-
         Invoke("ReloadFinished", reloadTime); // Call ReloadFinish function after reloadTime has finished
     }
 
+    // ReloadFinished function taken from Dave/Gamedevelopment gun tutorial - https://www.youtube.com/watch?v=bqNW08Tac0Y&t=4s
+    // Added my own code to tweak how it updates the value of ammo.
     private void ReloadFinished()
     {
-        tempclipSize = gunClipSize; // Temp variable = the gun's clip size that's been set
-        clipDifferent = tempclipSize -= bulletsRemaining; // clip difference is temp clip size minus bullets remaining
-        bulletsRemaining = bulletsRemaining + clipDifferent; // Add the difference to bullets remaining
-        magSize -= clipDifferent; // Subtract the difference to magSize
+        //Own added code 
 
-        // If statement to stop magSize from being minus value.
-        if (magSize <= 0) { magSize = 0; }
+        tempclipSize = gunClipSize;                             // Temp variable = the gun's clip size that's been set
+        clipDifferent = tempclipSize -= bulletsRemaining;       // clip difference is temp clip size minus bullets remaining
+        bulletsRemaining = bulletsRemaining + clipDifferent;    // Add the difference to bullets remaining
+        magSize -= clipDifferent;                               // Subtract the difference to magSize
+
+        if (magSize <= 0) { magSize = 0; }                      
+
+        // End of own code
 
         reloading = false;
         anim.SetBool("isReloading", false);

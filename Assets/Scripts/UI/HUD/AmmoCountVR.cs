@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Entire code present in the script has been produced 100% by me and adapted to suit VR mode.
 public class AmmoCountVR : MonoBehaviour
 {
     public int ammo;
     public int ammoMag;
     public Text ammoCount;
 
-    //public GameObject pistolPrefab;
 
     // Start is called before the first frame update
     void Start()

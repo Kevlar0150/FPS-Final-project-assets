@@ -8,6 +8,11 @@ using UnityEngine.AI;
 //https://docs.unity3d.com/Manual/nav-CreateNavMeshAgent.html
 //https://docs.unity3d.com/Manual/class-NavMeshSurface.html
 
+
+// Majority of the code used is from Dave.GameDeveloper tutorial https://www.youtube.com/watch?v=UjkSFoLxesw&t=13s.
+// The code that is created by me is in the ChangeWaypoint(), SetDestination(), TakeDamage(), Attack(), Enrage() and DestroyObject() as well changing the boss's property based on difficulty selected.
+// Also followed this tutorial https://www.youtube.com/watch?v=5q4JHuJAAcQ&t=4s by Table flip games to improve the patrol function so that it waits after arriving at destination.
+
 public class BossEnemy : MonoBehaviour
 {
     // BossEnemy health

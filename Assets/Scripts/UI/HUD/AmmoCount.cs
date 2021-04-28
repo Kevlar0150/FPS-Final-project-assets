@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// The entire code present in the script has been produced 100% by me.
 public class AmmoCount : MonoBehaviour
 {
     public int ammo;

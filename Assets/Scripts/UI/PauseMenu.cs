@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Majority of the code such as ResumeGame(), PauseGame(), Quit() was produced following the tutorial by Brackeys (2017) https://www.youtube.com/watch?v=JivuXdrIHK0&t=97s
+// The rest of the code was produced 100% by me.
+
 public class PauseMenu : MonoBehaviour
 {
 

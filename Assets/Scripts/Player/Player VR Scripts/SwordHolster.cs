@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+
+// The entire code present in this script is 100% produced by me.
+
 public class SwordHolster : MonoBehaviour
 {
     public float dropTimer = 1f;
@@ -32,8 +35,7 @@ public class SwordHolster : MonoBehaviour
         {
             Debug.Log(gameObject.transform.name);
             inHolsterZone = true;
-
-            
+           
             if (transform.childCount <= 0)
             {
                 if (dropTimer < 1)

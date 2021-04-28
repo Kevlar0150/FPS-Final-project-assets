@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+// https://learn.unity.com/tutorial/runtime-navmesh-generation#5c7f8528edbc2a002053b491 - Resource used to help find out the function to bake surface. "navMeshSurfaces[0].BuildNavMesh();"
+// Other than the above code, the rest is all created by me.
 public class NavMeshBaker : MonoBehaviour
 {
     [SerializeField] private List<NavMeshSurface> navMeshSurfaces;
@@ -31,7 +34,6 @@ public class NavMeshBaker : MonoBehaviour
         // If levelgeneration has finished AND game hasn't added rooms to List
         if (levelBuilder.hasRoomFinished() && !hasAddedRoom)
         {
-
             // If iteration index is less than the amount of rooms in the scene...
             if (index < roomArray.Length) 
             {

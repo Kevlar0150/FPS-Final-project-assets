@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Entire code present in this script has been created 100% by me.
 public class LootTimer : MonoBehaviour
 {
     public float lifeDuration = 5f;

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+// Entire script has been produced following the tutorial by Wayra Codes(2020), https://www.youtube.com/watch?v=NE5cAlCRgzo
+// The resulting script has been adapted to retrieve the player using the FindGameObjectWithTag function.
 public class HealthBarScript : MonoBehaviour
 {
     private Image healthBar;

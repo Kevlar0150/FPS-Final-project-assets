@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
+//Entire code presented in this script has been produced by me.
+
 public class MainMenu : MonoBehaviour
 {
     public float difficultyMultiplier = 1;

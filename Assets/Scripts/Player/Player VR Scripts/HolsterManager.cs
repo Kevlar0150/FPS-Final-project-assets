@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+// The script solely containing code to rotate the object as VR headset rotates has been produced using tutorial by My.Pineapple Studio, 2020, https://www.youtube.com/watch?v=FFM2oyLUysk&t=5s
 public class HolsterManager : MonoBehaviour
 {
-    public BoxCollider rightHolster;
-    public BoxCollider leftHolster;
-    
-
     [SerializeField]private Camera playerCamera;
     [SerializeField] public Transform holsterPosition;
 

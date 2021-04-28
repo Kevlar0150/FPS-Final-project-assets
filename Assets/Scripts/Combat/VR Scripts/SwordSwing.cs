@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Entire script has been produced 100% by me.
 public class SwordSwing : MonoBehaviour
 {
     bool hasHit = false;

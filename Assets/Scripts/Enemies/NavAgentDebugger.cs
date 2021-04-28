@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
 
+// Entire code taken from youtube video https://www.youtube.com/watch?v=nrRfqS6u_zg posted by Jason Weimann, 2017.
+// Not used in the full project and was only used for debugging.
 public class NavAgentDebugger : MonoBehaviour
 {
     public NavMeshAgent agentToDebug;

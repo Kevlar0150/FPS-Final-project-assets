@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Sources used:
+// https://www.youtube.com/watch?v=8kKLUsn7tcg&t=81s - Majority of code to actually attach the "ENERGY" gun and drop the "ENERGY" gun was used from the Dave/GameDevelopment tutorial
+    // and adapted by myself to work in conjununction with Brackeys weapon switching that was implemented.
+    //Added WeaponSlot variables referencing WeaponSlot game object from WeaponSwitching script so that when you pick up guns, it childs itself to a specific weaponslot. 
+
 public class PickupEnergy : MonoBehaviour
 {
     public EnergyCannon rlScript;

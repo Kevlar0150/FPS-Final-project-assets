@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Entire code present in the script has been produced following a tutorial from OneWheelStudio, 2019, https://www.youtube.com/watch?v=lqGlBMe-Pqw
 public class LootDropMotion : MonoBehaviour
 {
     private Vector3 velocity = Vector3.up;

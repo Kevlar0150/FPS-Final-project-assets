@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+
+
+// Entire script has been produced 100% by me
 public class SwordCombatVR : MonoBehaviour
 {
     //Controller variables

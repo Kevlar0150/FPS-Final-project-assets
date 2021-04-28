@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// VR version of the ItemSpawner script.
+// Entire code has been produced 100% by my and tweaked so that it works with VR Mode
 public class ItemSpawnerVR : MonoBehaviour
 {
     public PowerUpsVR[] lootArray; // Array of power ups that can be picked up

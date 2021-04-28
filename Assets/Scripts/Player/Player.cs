@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Sources
-// https://docs.unity3d.com/ScriptReference/CharacterController.Move.html - Jump formula
+// The Player Movement variables, Walk() function, Jump() function has been produced following tutorial from Brackeys, 2019, https://www.youtube.com/watch?v=_QajrabyTJc
+// The rest of the code has been created by me
 public class Player : MonoBehaviour
 {
     // Player properties
@@ -153,6 +154,7 @@ public class Player : MonoBehaviour
     {
         return jumpForce;
     }
+
     //Detects any hitboxes entering players collision box
     private void OnTriggerEnter(Collider other)
     {

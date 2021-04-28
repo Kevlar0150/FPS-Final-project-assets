@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 //Sources used:
 //https://answers.unity.com/questions/44137/if-gameobject-is-active.html - Check if object is active or not
 //https://docs.unity3d.com/ScriptReference/Transform.GetChild.html - To get child of a child
+// Entire code presen in the script has been produced by me while using the above resources to achieve desired results.
 
 public class PowerUps : MonoBehaviour
 {

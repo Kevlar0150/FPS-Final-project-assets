@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Entire code presented in this script has been created 100% by me.
 public class ItemSpawner : MonoBehaviour
 {
     public PowerUps[] lootArray; // Array of power ups that can be picked up

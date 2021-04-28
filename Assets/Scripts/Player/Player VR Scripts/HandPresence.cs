@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+
+//The entire script has been produced following tutorial by Valem (2020), https://www.youtube.com/watch?v=VdT0zMcggTQ
+//The script has had parameters changed from the tutorial to suit my preference.
 public class HandPresence : MonoBehaviour
 {
     public bool showController = false;

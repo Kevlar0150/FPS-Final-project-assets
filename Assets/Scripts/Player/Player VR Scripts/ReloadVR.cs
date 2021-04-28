@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// The code to rotate the object has been produced following a tutorial by My.Pineapple Studio, 2020, https://www.youtube.com/watch?v=FFM2oyLUysk&t=5s
+// The rest of the code such as OnTriggerStay(),OnTriggerExit() has been produced by my.
 public class ReloadVR : MonoBehaviour
 {
     float reloadTimer = 2f;

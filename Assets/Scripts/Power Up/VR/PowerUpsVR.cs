@@ -7,6 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 //https://answers.unity.com/questions/44137/if-gameobject-is-active.html - Check if object is active or not
 //https://docs.unity3d.com/ScriptReference/Transform.GetChild.html - To get child of a child
 
+// Entire code present in this script has been produced by me.
+// Code has been reused from the PowerUps script and adapted to work in VR Mode
 public class PowerUpsVR : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
