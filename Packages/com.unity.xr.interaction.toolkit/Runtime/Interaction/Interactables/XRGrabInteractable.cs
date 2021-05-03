@@ -553,7 +553,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                   
             m_SelectingInteractor = interactor;
 
-            //If interactor is hand, then set hand as parent of the grabbable object.
+            //If interactor is hand, then set hand as parent of the grabbable object. * Added by myself *
             if (interactor.GetComponent<XRDirectInteractor>())
             {
                 transform.parent = interactor.transform;
@@ -584,7 +584,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
 
             SmoothVelocityStart();
-            isHeld = true;
+            isHeld = true; // * Added by myself *
         }
 
         /// <inheritdoc />
@@ -626,7 +626,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             m_SelectingInteractor = null;
             m_DetachInLateUpdate = true;
             SmoothVelocityEnd();
-            isHeld = false;
+            isHeld = false; // * Added by myself *
         }
 
         /// <inheritdoc />
@@ -696,6 +696,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             return Vector3.zero;
         }
 
+        // * Added by myself *
         public bool GetIsHeld()
         {
             return isHeld;

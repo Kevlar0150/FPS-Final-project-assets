@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1859092266780632819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 5.5, z: -0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1862651577048823627}
   - {fileID: 1862288234104890217}
@@ -4831,7 +4831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ba9c88d4c039b4b8c65c3f51f7f7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.3
+  speed: 0.8
   lifeDuration: 5
   damage: 20
   impactVFX: {fileID: 1785284669155556954, guid: 1b95b1f937eb59f449c2bb7dd1a0a7f5,
@@ -4847,7 +4847,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1857803773466421078
 Rigidbody:

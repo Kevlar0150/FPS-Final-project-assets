@@ -197,9 +197,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChangeWaypoint() // Change to another waypoint available in list with probability to go backwards in list. *My own code*
+    private void ChangeWaypoint() 
     {
-        currentWaypointIndex = Random.Range(0, waypointList.Count);
+        currentWaypointIndex = Random.Range(0, waypointList.Count); // Change to another waypoint available in list with probability to go backwards in list. *My own code*
     }
 
     private void SetDestination() // Set new waypoint for NPC to travel to *My own code*

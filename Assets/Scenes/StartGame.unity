@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 6226437764234864548, guid: 847dda549b42789418f8f089aa31cbd3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6226437764234864552, guid: 847dda549b42789418f8f089aa31cbd3,
         type: 3}
       propertyPath: m_LocalPosition.x
