@@ -11,4 +11,4 @@ Game features PCG Algorithm for level generation as well as VR support using Ope
 Final grade: 73/100
 
 This repo consists of the scripts and prefabs used and is not the full demo.
-For more information, visit my portfolio page @ https://kevlar0150.github.io/index.html
+For more information, visit my portfolio page @ 
